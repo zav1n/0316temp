@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泡泡</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<body>
+    <script>
+        let iScreenWidth = document.documentElement.clientWidth || document.body.clientWidth
+        let iScreenHeight = document.documentElement.clientHeight || document.body.clientHeight
+
+        function Paopao(width, height, backgroundColor, x, y) {
+            this.width = width
+            this.height = height
+            this.backgroundColor = backgroundColor
+            this.x = x
+            this.y = y
+            this.init();
+        }
+
+        Paopao.prototype = {
+            init: function () {
+                this.newPao = document.createElement("div")
+                this.newPao.style.position = "absolute"
+                this.newPao.style.borderRadius = "100px"
+                this.newPao.style.width = this.width + "px"
+                this.newPao.style.height = this.height + "px"
+                this.newPao.style.top = this.x + "px"
+                this.newPao.style.left = this.y + "px"
+                this.newPao.style.backgroundColor = this.backgroundColor
+                document.body.appendChild(this.newPao)
+                this.movedrop();
+                this.movedRight();
+            },
+            movedrop: function () {
+                let drop = setInterval(() => {
+                    if (this.newPao.offsetTop < iScreenHeight - this.newPao.offsetHeight) {
+                        this.newPao.style.top = this.newPao.offsetTop + 10 + "px"
+                    } else {
+                        clearInterval(drop)
+                        this.moveUpward();
+                    }
+                }, 60);
+
+            },
+            moveUpward: function () {
+                let upward = setInterval(() => {
+
+                    if (this.newPao.offsetTop > this.newPao.offsetHeight - 100) {
+                        this.newPao.style.top = this.newPao.offsetTop - 10 + "px"
+                    } else {
+                        clearInterval(upward)
+                        this.movedrop()
+                    }
+                }, 60);
+            },
+            movedRight: function () {
+
+                let pRight = setInterval(() => {
+                    if (this.newPao.offsetLeft < iScreenWidth - this.newPao.offsetWidth) {
+                        this.newPao.style.left = this.newPao.offsetLeft + 10 + "px"
+                    } else {
+                        clearInterval(pRight)
+                        this.moveLeft()
+                    }
+                }, 60);
+            },
+            moveLeft: function () {
+                let pLeft = setInterval(() => {
+                    if (this.newPao.offsetLeft + this.newPao.offsetWidth > this.newPao.offsetWidth) {
+                        this.newPao.style.left = this.newPao.offsetLeft - 10 + "px"
+                    } else {
+                        clearInterval(pLeft)
+                        this.movedRight()
+                    }
+                }, 60);
+            }
+
+            
+
+        }
+        let pao1 = new Paopao(100, 100, "skyblue")
+
+    </script>
+</body>
+
+</html>

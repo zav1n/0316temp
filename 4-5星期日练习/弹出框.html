@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-4任务1弹出框</title>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+</head>
+<style>
+
+    body {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;/*按钮居中*/
+    }
+    /*弹框*/
+    .bgMask {
+    position: fixed;
+    z-index: 2; /*优先级叠成   越小越高级,越是先显示*/ 
+    display: none; /**/
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    background:rgba(128, 128, 128, 0.6) /*添加弹框后背景变成灰色*/
+    }
+
+    /*这个是重点啊,去了之后就跳不出弹框*/
+    .bgMask:target {
+    display: flex;  /*flex赋值属性  将对象作为弹性伸缩盒显示。（伸缩盒最新版本）（CSS3） */
+    }
+
+    /*弹框后的样式*/
+    .container {
+    width: 60rem;
+    padding: 40px 20px;
+
+    background: rgba(255, 192, 203, 0.8);
+
+    /*位置调整,要不然返回的返回按钮就不见了*/
+    position: relative;
+    overflow: hidden;
+    }
+
+    /*点击按钮样式*/
+    .clickBtn {
+    background: orange;
+    padding: 1.4rem 3.2rem; /*背景颜色的大小 可有可无 增加直觉效果*/
+    }
+    .back{
+        position: absolute;    /*设置了position才能通top和right等方向属性    10px=1rem*/
+        top: 10px;            
+        right: 5px;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(85, 85, 85, 0.5);
+        border-radius: 50%;
+        line-height: 40px;
+    }
+    </style>
+<body>
+    <!-- 需求：
+        1.函数封装
+        2.为其提供参数
+            可以确定弹出框的高度,宽度,边框颜色,背景颜色
+        可选：是否有遮罩,是否可拖动(超纲)
+        3.弹出框，确认框，输入框
+
+
+        function popup(height:Number, width:Number, color:String, backgroundColor:String, 
+        havemask:Boolean, dragable:Boolean, type:"alert") {
+        }
+
+        function popup(styles:Object, methods:Object) {
+        }
+
+        页面屏幕宽度获取 document.documentElement.clientWidth
+        页面屏幕高度获取 document.documentElement.clientHeight
+    -->
+    <a href="#modal-opened" class="clickBtn"  id="modal-closed">点击</a>
+        <div class="bgMask" id="modal-opened">
+            <div class="container">
+
+                <a href="#modal-closed" class="back"> 返回</a> <!--弹框后返回按钮-->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        
+    </script>
+</body>
+
+</html>

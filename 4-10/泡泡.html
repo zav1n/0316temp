@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泡泡</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<body>
+    <script>
+        let iScreenWidth = document.documentElement.clientWidth || document.body.clientWidth
+        let iScreenHeight = document.documentElement.clientHeight || document.body.clientHeight
+
+        function Paopao(width, height, backgroundColor, x, y) {
+            this.width = width
+            this.height = height
+            this.backgroundColor = backgroundColor
+            this.x = x
+            this.y = y
+            this.init();
+        }
+
+        Paopao.prototype = {
+            init: function () {
+                this.newPao = document.createElement("div")
+                this.newPao.style.position = "absolute"
+                this.newPao.style.borderRadius = "100px"
+                this.newPao.style.width = this.width + "px"
+                this.newPao.style.height = this.height + "px"
+                this.newPao.style.top = this.x + "px"
+                this.newPao.style.left = this.y + "px"
+                this.newPao.style.backgroundColor = this.backgroundColor
+                document.body.appendChild(this.newPao)
+                this.move();
+            },
+
+            move: function () {
+                console.log(this.newPao.offsetTop);
+                console.log(iScreenHeight);
+
+                setInterval(() => {
+                    
+                    if(this.newPao.offsetTop<iScreenHeight){
+                        this.newPao.style.top =this.newPao.offsetTop + 10 + "px"
+                    }else{
+                        this.newPao.style.top =iScreenHeight - 10 + "px"
+                        
+                    }
+                }, 60);
+                
+            }
+
+
+
+        }
+        let pao1 = new Paopao(100, 100, "skyblue")
+
+    </script>
+</body>
+
+</html>

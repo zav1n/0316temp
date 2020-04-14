@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人员信息表</title>
+    <!-- 
+        表头有名字，年龄，性别，工资
+        有 增，删，改 按钮  有时间做个查
+     -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            border: 2px solid black;
+            display: table;
+            border-collapse: collapse;
+            display: inline-block;
+            margin-left: 31%;
+        }
+
+        li {
+            display: table-row;
+        }
+
+        div {
+            text-align: center;
+            line-height: 40px;
+            width: 70px;
+            height: 40px;
+            border: 2px solid black;
+            display: table-cell;
+        }
+
+        #addNew {
+            cursor: pointer;
+            color: green;
+        }
+
+        .removeLi {
+            cursor: pointer;
+            color: red;
+        }
+
+        input {
+            width: 70px;
+            height: 40px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <div>名字</div>
+            <div>年龄</div>
+            <div>性别</div>
+            <div>工资</div>
+        </li>
+        <li>
+            <div><input type="text" id="name"></div>
+            <div><input type="text" id="age"></div>
+            <div><input type="text" id="sex"></div>
+            <div><input type="text" id="salary"></div>
+            <div id="addNew">新增</div>
+            <div id="removeLi" style="display: none;">删除</div>
+        </li>
+    </ul>
+
+    <script>
+        let oUl = document.querySelector("ul")
+        let oLi = oUl.querySelector("li")
+
+        let oAddNew = document.getElementById("addNew")
+        let oRemoveLi = document.getElementById("removeLi")
+
+        let [oName, oAge, oSex, oSalary] =
+            [
+                document.getElementById("name"),
+                document.getElementById("age"),
+                document.getElementById("sex"),
+                document.getElementById("salary"),
+            ]
+        //添加
+        oAddNew.addEventListener("click", e => {
+            let creatLi = appendLi(oUl, "li", "div", "div", "div", "div", "div")
+        })
+
+        oRemoveLi.addEventListener("click", e => {
+        })
+        //事件委托  创建li
+        function appendLi(ulParent, liElement, divElement) {
+            let newLi = document.createElement(liElement)
+            let newDivName = document.createElement(divElement)
+            let newDivAge = document.createElement(divElement)
+            let newDivSex = document.createElement(divElement)
+            let newDivSalary = document.createElement(divElement)
+            let newDivRemove = document.createElement(divElement)
+            
+            ulParent.appendChild(newLi)
+            newLi.appendChild(newDivName)
+            newLi.appendChild(newDivAge)
+            newLi.appendChild(newDivSex)
+            newLi.appendChild(newDivSalary)
+            newLi.appendChild(newDivRemove)
+
+            console.log(newDivRemove);
+            newDivName.innerHTML = oName.value
+            newDivAge.innerHTML = age.value
+            newDivSex.innerHTML = sex.value
+            newDivSalary.innerHTML = salary.value
+            newDivRemove.innerHTML = "删除"
+            newDivRemove.className = "removeLi"
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

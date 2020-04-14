@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div居中，浏览器改变宽高也是居中</title>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <!-- div随着浏览器宽高改变而永远居中 -->
+
+    <script>
+        let oDiv = document.querySelector("#div1");
+
+        //div样式
+        let screenHeight = document.documentElement.clientHeight || document.body.clientHeight//兼容Chrome和IE
+        let screenWidth = document.documentElement.clientWidth || document.body.clientWidth  //兼容Chrome和IE
+        function oDivStyle(width, height, backgroundColor, position) {
+
+            oDiv.style.width = `${width}px`
+            oDiv.style.height = `${height}px`
+            oDiv.style.backgroundColor = `${backgroundColor}`
+            oDiv.style.position = `${position}`
+            oDiv.style.left = `${(screenWidth - width) / 2}px`
+            oDiv.style.top = `${(screenHeight - height) / 2}px`
+
+            window.addEventListener("resize", () => {
+                let screenHeight = document.documentElement.clientHeight || document.body.clientHeight//兼容Chrome和IE
+                let screenWidth = document.documentElement.clientWidth || document.body.clientWidth  //兼容Chrome和IE
+                //在上面已经定义了screenHeight，screenWidth了为什么在这里还要用多一次？因为是绑定事件？
+                oDiv.style.left = `${(screenWidth - width) / 2}px`
+                oDiv.style.top = `${(screenHeight - height) / 2}px`
+            })
+        }
+        //调用并且给div赋值 //position给absolute/fixed/relative都可以,除了static
+        oDivStyle(200, 200, "skyblue", "relative")
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{padding: 0;margin: 0;}
+    ul li {list-style: none;}
+
+    ul {
+      width: 600px;
+      margin: 100px auto;
+    }
+    
+    li {
+      overflow: hidden;
+      width: 600px;
+      background-color: pink;
+      margin: 10px;
+    }
+    
+    li > p {
+      padding: 20px;
+    }
+
+    li > span {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <ul id="news">
+    <!-- <li>
+      <h3><a href="http://www.sohu.com/a/362389793_162522?spm=smpc.home.top-news4.2.1577170280120RGi7Ba8&_f=index_news_13">嘘国歌再被罚！法媒：国际足联处罚香港足总21万罚款+警告</a></h3>
+      <p>嘘国歌再被罚！法媒：国际足联处罚香港足总21万罚款+警告</p>
+      <span>2019-12-24 10:00</span>
+    </li>
+    <li>
+      <h3><a
+          href="http://www.sohu.com/a/362392600_162522?spm=smpc.home.top-news3.3.1577170280120RGi7Ba8&_f=index_news_8">美国大叔醉驾：把"眼镜蛇"直升机撞烂 老兵当场气哭</a>
+      </h3>
+      <p>最近，美国南卡罗来纳州哥伦比亚市发生一起离谱的交通事故。有男子醉酒驾驶，意外撞上一架AH-1“眼镜蛇”武装直升机，并致其严重受损。男子肇事后逃逸，最终被捕。</p>
+      <span>2019-12-24 10:12</span>
+    </li>
+    <li>
+      <h3><a
+          href="http://www.sohu.com/a/362364047_161795?spm=smpc.home.top-news3.4.1577170280120RGi7Ba8&_f=index_news_9">英双层巴士钻桥洞被削顶，中国女学者伤重离世！同车奥运冠军骨折</a>
+      </h3>
+      <p>当地时间12月12日，英国威尔士斯旺西区一辆双层公交车在穿过铁路桥洞时，发生事故，导致车上一名来自中国的36岁女性访问学者死亡。</p>
+      <span>2019-12-24 07:30</span>
+    </li> -->
+  </ul>
+  <script>
+    //我们的数据 不是自己手动写代码写出来的 而是通过ajax交互拿到json数据
+    //json是一个轻量级的数据交换格式 他就是js对象或数组
+    let json = [{
+      id: 0,
+      title: "嘘国歌再被罚！法媒：国际足联处罚香港足总21万罚款+警告",
+      url: "http://www.sohu.com/a/362389793_162522?spm=smpc.home.top-news4.2.1577170280120RGi7Ba8&_f=index_news_13",
+      content: "嘘国歌再被罚！法媒：国际足联处罚香港足总21万罚款+警告",
+      date: "2019-12-24 10:00"
+    }, {
+      id: 1,
+      title: "美国大叔醉驾：把\"眼镜蛇\"直升机撞烂 老兵当场气哭",
+      url: "http://www.sohu.com/a/362392600_162522?spm=smpc.home.top-news3.3.1577170280120RGi7Ba8&_f=index_news_8",
+      content: "最近，美国南卡罗来纳州哥伦比亚市发生一起离谱的交通事故。有男子醉酒驾驶，意外撞上一架AH-1“眼镜蛇”武装直升机，并致其严重受损。男子肇事后逃逸，最终被捕。",
+      date: "2019-12-24 10:12"
+    }, {
+      id: 2,
+      title: "英双层巴士钻桥洞被削顶，中国女学者伤重离世！同车奥运冠军骨折",
+      url: "http://www.sohu.com/a/362364047_161795?spm=smpc.home.top-news3.4.1577170280120RGi7Ba8&_f=index_news_9",
+      content: "当地时间12月12日，英国威尔士斯旺西区一辆双层公交车在穿过铁路桥洞时，发生事故，导致车上一名来自中国的36岁女性访问学者死亡。",
+      date: "2019-12-24 07:30"
+    }]
+
+    let oNews = document.querySelector("#news")
+    for(let i = 0; i < json.length; i++) {
+      oNews.innerHTML += `
+        <li data-id="${json[i].id}">
+          <h3><a href="${json[i].url}">${json[i].title}</a></h3>
+          <p>${json[i].content}</p>
+          <span>${json[i].date}</span>
+        </li>
+      `
+    }
+  </script>
+</body>
+</html>

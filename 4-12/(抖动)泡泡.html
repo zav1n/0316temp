@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			div{
+				border-radius: 50%;
+				width: 50px;
+				height:50px;
+				text-align: center;
+				line-height: 50px;
+				cursor: move;
+				position: absolute;
+				color:#fff;
+				font-size:14px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="btn" value="生成泡泡" />
+	</body>
+	<script>
+		
+		let oBtn=document.getElementById("btn");
+		
+		let names=['皮蛋','咖喱','二米','老肥','花生米'];
+		
+//		var oDiv=null;
+//		var timer=null;
+		
+//		事件委托,事件委派,事件代理
+		
+		oBtn.onclick=function(){
+			
+			let oDiv=document.createElement("div");
+			document.body.appendChild(oDiv);
+			oDiv.style.background=`rgb(${getRand(0,255)},${getRand(0,255)},${getRand(0,255)})`;
+			oDiv.style.left=getRand(0,document.documentElement.clientWidth-49)+'px';
+			oDiv.style.top=getRand(0,document.documentElement.clientHeight-49)+'px';
+			oDiv.innerText=names[getRand(0,names.length)];
+			
+			oDiv.timer=setInterval(function(){
+				oDiv.style.left=oDiv.offsetLeft+getRand(-2,3)+'px';
+				oDiv.style.top=oDiv.offsetTop+getRand(-2,3)+'px';
+			},20);
+			
+			oDiv.onmouseover=function(){  //当鼠标移动到某对象范围的上方时触发的事件
+				clearInterval(this.timer);
+			}
+			
+			oDiv.onmouseout=function(){  //当鼠标离开某对象范围触发的事件
+				this.timer=setInterval(()=>{
+					this.style.left=this.offsetLeft+getRand(-2,3)+'px';
+					this.style.top=this.offsetTop+getRand(-2,3)+'px';
+				},20);
+			}
+			
+			oDiv.onmousedown=function(e){  //当鼠标上的按钮被按下了
+				var disX=e.clientX-this.offsetLeft;
+				var disY=e.clientY-this.offsetTop;
+				document.onmousemove=function(e){  //当鼠标移动时触发的事件
+					oDiv.style.left=e.clientX-disX+'px';
+					oDiv.style.top=e.clientY-disY+'px';
+				}
+				document.onmouseup=function(){  //当鼠标按下后,松开时激发的事件
+					document.onmousemove=null
+				}
+			}			
+		}
+		
+		//获取任意两个数之间的随机整数
+		function getRand(a,b){
+			return Math.floor(Math.random()*(a-b))+b;
+		}
+
+	</script>
+</html>

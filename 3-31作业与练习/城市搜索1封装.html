@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>城市搜索1封装</title>
+  </head>
+
+  <body>
+    <input type="text" id="search">
+    <input type="button" id="btn" value="搜索">
+    <ul id="citylist">
+      <li>北京</li>
+      <li>上海</li>
+      <li>广州</li>
+      <li>深圳</li>
+    </ul>
+    <div id="result">
+      <!-- 恭喜您,搜索成功了耶 -->
+      <!-- 对不起,没有该城市 -->
+    </div>
+    <script>
+      //1. 选择元素
+      const oSearch = document.getElementById("search");
+      const oBtn = document.getElementById("btn");
+      const oCityList = document.getElementById("citylist");
+      const aCitys = oCityList.getElementsByTagName("li");
+      const oResult = document.getElementById("result")
+      
+debugger
+      oBtn.onclick = function(){
+        //重置
+        reset()
+        
+        
+
+        /*---------------------我的写法-----------------------------*/
+        //匹配
+        compare()
+        //渲染  拿到匹配得到的值，给change指定渲染
+        change(compare(oSearch.value))
+
+        // 这样写和老师的相比，不好的点就是在compare()得到的值直接拿来用呢？还要在渲染区再判断多一次呢？多此一举了
+
+        /*---------------------老师的写法-----------------------------*/
+        //匹配  输入框的值和li列表的值是否相等，相等就或得到得到oSearch.value的值
+        //      并且赋值给SearchCity
+        // let SearchCity = compare(oSearch.value)
+        //渲染  拿到匹配得到的值，给change指定渲染
+        // change(SearchCity)
+
+
+      }
+
+      //重置函数   点击的时候调用这个函数，先把所有的东西重置
+      function reset(){
+        for(let i=0;i<aCitys.length;i++){
+            aCitys[i].style.backgroundColor = ""
+        }
+      }
+
+      //匹配函数     判断输入的值和li列表的值是否相等   相等就返回这个值
+      function compare(target){
+        for(let i=0;i<aCitys.length;i++){
+            if(oSearch.value === aCitys[i].innerHTML){
+                return aCitys[i]
+            }
+        }
+      }
+
+      //渲染     从匹配中获得的值来改变样式，否则输入没有该城市
+      function change(li){
+        if(li){
+            li.style.backgroundColor = "pink" //aCitys[i].style.backgroundColor  要获得li的参数，所以aCitys[i]要修改成li获得的值
+          oResult.innerHTML = "搜索成功"
+          oResult.style.color = "green"
+        }else{
+          oResult.innerHTML = "没有该城市"
+          oResult.style.color = "red"
+        }
+      }
+
+
+      
+    </script>
+  </body>
+
+</html>
