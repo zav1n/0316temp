@@ -185,7 +185,7 @@ addEventListener
 \- IE8以下不支持
 
 
-4-12
+##4-12
 1.变量永远有声明提升机制
 2.函数永远有预解析机制
 3.函数再js中 作用域永远先函数，再var再let
@@ -220,3 +220,16 @@ toString和valueOf同时被调用吗？
 插入排序（扑克牌逻辑）有兴趣了解一下
 1-100相加
 
+4-
+search
+test
+!* math
+replace
+！* indexof
+
+//截取
+slice(-1)可以加负数
+
+大A小a的ASCII对应的数字
+
+标志符：g全局 i忽略大小写  m多行模式 
