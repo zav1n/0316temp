@@ -30,5 +30,3 @@ for...of
 	1.string,prototype.startsWith
 	    判断给定的字符串是否等于当前字符串开头
 	    语法：str.startsWith(searchString[, position])
-
-

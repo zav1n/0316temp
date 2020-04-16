@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date2</title>
+</head>
+<style>
+    img{
+        position: relative;
+    }
+</style>
+<body>
+    <img src="../练习/img/0.png" alt="0" class="timeImg">
+    <img src="../练习/img/0.png" alt="0" class="timeImg">
+    <img src="../练习/img/second.png" alt=":">
+    <img src="../练习/img/0.png" alt="0" class="timeImg">
+    <img src="../练习/img/0.png" alt="0" class="timeImg">
+    <img src="../练习/img/second.png" alt=":">
+    <img src="../练习/img/0.png" alt="0" class="timeImg">
+    <img src="../练习/img/0.png" alt="0" class="timeImg">
+
+    <script>
+        //获取图片
+        let oTimeImg = document.querySelectorAll(".timeImg");
+
+        
+        
+        //当秒或者分钟跑过59时显示00而不是0,或者时跑过24时显示00  可以封装起来
+        let resetDate = (num) => {
+            if (num < 10) {
+                return "0" + num
+            } else {
+                return num + ""   //一定要num+""要不然不会隔开显示00
+            }
+        }
+
+        let init = (shakeFre) => {
+            let newDate = new Date();
+            let hours = resetDate(newDate.getHours())
+            let mintues = resetDate(newDate.getMinutes())
+            let seconds = resetDate(newDate.getSeconds())
+
+            let timeNow = hours + mintues + seconds
+            for (let i = 0; i < oTimeImg.length; i++) {
+                oTimeImg[i].src = `../练习/img/${timeNow[i]}.png`
+            }
+            shake(shakeFre)
+        }
+
+        //加上震动效果
+        let shakeFre = [-9, 8, -7, 6, -5, 4, -3, 2, -1, 0]
+        let iNow = 0
+        let timer = null
+
+        let shake = (shakeFre) => {
+            timer = setInterval(() => {
+                oTimeImg[5].style.top = shakeFre[iNow++] + "px"
+                if (iNow === shakeFre.length) {
+                    iNow = 0
+                    clearInterval(timer)
+                }
+            }, 1000/shakeFre.length);
+        }
+
+        init(shakeFre)//开启页面时显示一次再到定时器循环
+
+        //开启时间
+        setInterval(() => {
+            init(shakeFre)
+        }, 1000);
+
+
+
+    </script>
+</body>
+
+</html>
