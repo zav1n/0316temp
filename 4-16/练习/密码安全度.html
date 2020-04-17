@@ -21,14 +21,27 @@
         // 可以包含小写大母[a - z] 和大写字母[A - Z]
         // 可以包含数字[0 - 9]
         // 可以包含下划线[_] 和减号[- ]
+        let regCN = /[\u4e00-\u9fa5·]+/g
         let reg = /^[\w_-]{6,16}$/
+        let regWord = /\w+/
+        let reg2 = /^[A-Za-z_]([\w_-]{6,16}$)/
         oBtn.addEventListener("click",()=>{
             passTxt = oTxt.value
             console.log(passTxt.match(reg))
-            if(passTxt.match(reg)===null){
-                oTip.innerHTML = "<p style='color:red;''>安全度低,至少6位数字或字母</p>"
-
+            if(passTxt.match(regCN)){
+                oTip.innerHTML = "<p style='color:red;''>不能输入中文</p>"
             }
+            if(passTxt.match(reg)||passTxt.match(regWord)){
+                oTip.innerHTML = "<p style='color:red;''>安全度低,至少6位由数字或字母组成</p>"
+            }else{
+                oTip.innerHTML = "<p style='color:yellow;''>安全度低</p>"
+            }
+            if(passTxt.match(reg2))
+            {
+                oTip.innerHTML = "<p style='color:green;''>安全度中</p>"
+            }
+
+            
         })
     </script>
 </body>

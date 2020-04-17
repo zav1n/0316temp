@@ -351,17 +351,12 @@ console.log(strCopy);
 A:65  a:97  空格32
 
 
-
 正则表达式:
 
 标志符
-
 g: global 全局的
-
 i: ignore 忽略大小写
-
 m: mutiple 多行模式
-
 
 
 test,search,exec,replace
@@ -371,5 +366,11 @@ test,search,exec,replace
 ！* indexof
 
 
-
 ^在[]外面就是行首   在[]里面就是非的意思
+
+4-17  this的指向
+函数套函数  用箭头 11：01    
+整理tool
+
+key in key of 
+轮播图5考虑不做
