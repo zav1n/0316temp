@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let reg = /(\d)+[.-/](\d+)[.-/](\d+)/
+
+        let _localDate = (match, p1, p2, p3) =>
+            `${p1}年${p2 = (p2.length === 2) ? p2 : "0" + p2}月${p3 = (p3.length === 2) ? p3 : "0" + p3}日`
+
+        let str = "2020-1-1"
+        let str2 = "2020-10-10"
+        let str3 = "2020-8-16"
+
+        console.log(str.replace(reg, _localDate));
+        console.log(str2.replace(reg, _localDate));
+        console.log(str3.replace(reg, _localDate));
+
+    </script>
+</body>
+
+</html>

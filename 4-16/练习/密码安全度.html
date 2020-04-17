@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码安全度</title>
+</head>
+
+<body>
+    <input type="text">
+    <input type="button" value="确定" id="btn">
+    <div id="tip"></div>
+    <script>
+        let oTxt = document.querySelector("input")
+        let oBtn = document.getElementById("btn")
+        let oTip = document.getElementById("tip")
+        let passTxt
+
+        // 最短6位，最长16位 { 6, 16 }
+        // 可以包含小写大母[a - z] 和大写字母[A - Z]
+        // 可以包含数字[0 - 9]
+        // 可以包含下划线[_] 和减号[- ]
+        let reg = /^[\w_-]{6,16}$/
+        oBtn.addEventListener("click",()=>{
+            passTxt = oTxt.value
+            console.log(passTxt.match(reg))
+            if(passTxt.match(reg)===null){
+                oTip.innerHTML = "<p style='color:red;''>安全度低,至少6位数字或字母</p>"
+
+            }
+        })
+    </script>
+</body>
+
+</html>

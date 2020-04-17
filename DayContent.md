@@ -220,16 +220,156 @@ toString和valueOf同时被调用吗？
 插入排序（扑克牌逻辑）有兴趣了解一下
 1-100相加
 
-4-
-search
-test
-!* math
-replace
-！* indexof
+## 4-16
+
+
+
+
+
+indexOf()&&lastIndexOf()   区分大小写
+
+方法返回调用它的 [`String`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/String) 对象中第一次出现的指定值的索引,
+
+如果未找到该值，则返回 -1。
+
+
+
+includes()
+
+方法用于判断一个字符串是否包含在另一个字符串中，根据情况返回 true 或 false。
+
+区分大小写
+
+```javascript
+'Blue Whale'.includes('blue'); // returns false
+```
+
+
+
+
+
+Array.prototype.slice()
 
 //截取
 slice(-1)可以加负数
 
+slice()  方法返回一个新的数组对象
+
+原数组的浅拷贝,原始数组不会被改变。
+
+语法  arr.slice([begin[, end]])
+
+```
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// expected output: Array ["bison", "camel", "duck", "elephant"]
+
+
+```
+
+
+
+String.prototype.substring()
+
+方法返回一个字符串在开始索引到结束索引之间的一个子集, 或从开始索引直到字符串的末尾的一个子集。
+
+语法str.substring(indexStart[, indexEnd])
+
+```
+indexStart
+```
+
+需要截取的第一个字符的索引，该索引位置的字符作为返回的字符串的首字母。
+
+```
+indexEnd
+```
+
+可选。一个 0 到字符串长度之间的整数，以该数字为索引的字符不包含在截取的字符串内。
+
+```js
+var anyString = "Mozilla";
+
+// 输出 "Moz"
+console.log(anyString.substring(0,3));
+console.log(anyString.substring(3,0));
+console.log(anyString.substring(3,-3));
+console.log(anyString.substring(3,NaN));
+console.log(anyString.substring(-2,3));
+console.log(anyString.substring(NaN,3));
+
+// 输出 "lla"
+console.log(anyString.substring(4,7));
+console.log(anyString.substring(7,4));
+
+// 输出 ""
+console.log(anyString.substring(4,4));
+
+// 输出 "Mozill"
+console.log(anyString.substring(0,6));
+
+// 输出 "Mozilla"
+console.log(anyString.substring(0,7));
+console.log(anyString.substring(0,10));
+```
+
+
+
+
+
+String.prototype.split()
+
+split()方法使用指定的分隔符字符串将一个String对象分割成子字符串数组，以一个指定的分割字串来决定每个拆分的位置。 
+
+```js
+const str = 'The quick brown fox jumps over the lazy dog.';
+
+const words = str.split(' ');
+console.log(words[3]);
+// expected output: "fox"
+
+const chars = str.split('');
+console.log(chars[8]);
+// expected output: "k"
+
+const strCopy = str.split();
+console.log(strCopy);
+// expected output: Array ["The quick brown fox jumps over the lazy dog."]
+```
+
+
+
 大A小a的ASCII对应的数字
 
-标志符：g全局 i忽略大小写  m多行模式 
+A:65  a:97  空格32
+
+
+
+正则表达式:
+
+标志符
+
+g: global 全局的
+
+i: ignore 忽略大小写
+
+m: mutiple 多行模式
+
+
+
+test,search,exec,replace
+
+!* math
+
+！* indexof
+
+
+
+^在[]外面就是行首   在[]里面就是非的意思
