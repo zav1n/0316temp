@@ -89,7 +89,7 @@ window.open(strUrl, strWindowName, [strWindowFeatures])	//返回一个window对�
   | status=yes\|no\|1\|0      | 是否添加状态栏。默认是 yes。                                 |
   | titlebar=yes\|no\|1\|0    | 是否显示标题栏。默认是 yes。                                 |
   | toolbar=yes\|no\|1\|0     | 是否显示浏览器的工具栏。默认是 yes。                         |
-  | top=pixels                | 窗口的 y 坐标。                                              |
+  | top=pixels                | 窗口的 y 坐标。                                            |
   | width=pixels              | 窗口的文档显示区的宽度。以像素计。                           |
 
 

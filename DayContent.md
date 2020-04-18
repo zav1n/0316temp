@@ -41,7 +41,7 @@ call/apply/bind
 this面试会问
 函数套函数的this指向window
 直接等价于函数（不带括号）就指向最近的一个
-/**/
+
 
 11.箭头函数.html的解释
 20.普通函数和时间函数
@@ -74,7 +74,7 @@ for...of   for...in  forEach map  Array.from()
 （>的意思是指向）
 p1的__proto__ > Preson的__proto__ > Proson的prototype
 但是__proto__不是prototype
-prototype是js独有的
+prototype（原型链）是js独有的
 构造函数可以继承构造函数吗？
 动态prototype也可以获取静态属性吗？可以吧
 object有prototype吗？有
@@ -84,7 +84,7 @@ t1.eat()
 Teacher.prototype 里面找eat()函数 。没有就去Preson.prototype里面找，一级一级往上找
 Teacher.prototype > Preson.prototype > Object.prototype > null 
 
-（*必须熟练这些类型判断）统用判断的类型判断
+（！必须熟练这些类型判断）统用判断的类型判断
 没补全1.typeof  一般判断基本数据类型
 2.instanceof  表明x实例是否是由X工厂构造的  返回布尔类型
 判断最近类型是什么
@@ -108,9 +108,6 @@ Function "function"
 宿主对象（由 JS 环境提供）	取决于具体实现
 
 2.Object.prototype.toString.call(x)
-1.不能判断null类型
-2.不能判断Array
-3.不能判断自定义类型
 
 3的例子function Person(){}
 f1 = new Preson
@@ -345,7 +342,6 @@ console.log(strCopy);
 ```
 
 
-
 大A小a的ASCII对应的数字
 
 A:65  a:97  空格32
@@ -361,7 +357,7 @@ m: mutiple 多行模式
 
 test,search,exec,replace
 
-!* math
+!* match
 
 ！* indexof
 
@@ -372,5 +368,39 @@ test,search,exec,replace
 函数套函数  用箭头 11：01    
 整理tool
 
-key in key of 
-轮播图5考虑不做
+
+推荐在循环对象属性的时候，使用for...in  循环的是key
+在遍历数组的时候的时候使用for...of    循环的是value
+
+for...in循环出的是key，for...of循环出的是value
+
+注意，for...of是ES6新引入的特性。修复了ES5引入的for...in的不足
+
+for...of不能循环普通的对象，需要通过和Object.keys()搭配使用
+https://www.jianshu.com/p/4ccca4ef2927
+
+var、let、const
+暂时性死区 了解一下
+其实let本质上和var还是很相似的 虽然let没有变量声明提升机制 但是他有一个类似的机制,作用域的变量检查机制 在每个作用域初始化的时候 虽然let是没有声明提升,但是会检查每个let定义的变量 有没有出现提前使用的情况
+	function show(a) {
+        console.log(a) //100
+        let a = 200;
+        console.log(a) //200
+    }
+
+3-31的日报
+#### var和let的区别
+
+1. var可以重复定义,let不可以重复定义
+2. var有变量声明提升,let没有变量声明提升.(var在同页面还没声明时,可以使用,let在同页面还没声明时候,不可以使用)
+3. var不存在暂时性死区TDZ,let存在暂时性死区TDZ(temporal dead zone)
+4. var没有块级作用域的概念,但是let有块级作用域
+
+#### 同步
+
+同步或者说同步代码,他会马上执行```for```是最典型的同步代码
+
+#### 异步
+
+异步代码会延迟执行```事件函数```都是典型的异步代码
+      show(100)

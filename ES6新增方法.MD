@@ -6,7 +6,7 @@ for...of
 1 .ES6新增常用方法
 2. let 块级作用域,怎么使用?
 3. const   用来定义常量,一旦定义了,后面就不能修改了
-4. 箭头函数=> *function()中this是指向调用这个函数的对象
+4. 箭头函数=> function()中this是指向调用这个函数的对象
 
     箭头函数中,this指向了window
     arguments,不能使用
@@ -16,7 +16,7 @@ for...of
 数组中ES6新增
     1.forEach   
 	forEach() 被调用时，不会改变原数组
-	但是有个致命缺陷，不能提供返回值return
+	但是有个致命缺陷，不能提供返回值return，而且一直遍历
 	forEach的写法和map很相识，但是map有return，forEach没有return
 	与 map() 或者 reduce() 不同的是，它总是返回 undefined 值，并且不可链式调用
 
