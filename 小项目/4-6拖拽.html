@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <input type="button" value="点击" id="btn">
+
+    <script>
+
+        let oBtn = document.querySelector("#btn")
+        let screenWidth = document.documentElement.clientWidth || document.body.clientWidth
+        let screenHeight = document.documentElement.clientHeight || document.body.clientHeight
+
+        let oMaskDiv = document.createElement("div")
+        let oBgMask = document.createElement("div")
+        document.body.appendChild(oBgMask)
+        document.body.appendChild(oMaskDiv)
+
+        oBtn.addEventListener("click", () => {
+
+            bgMask("100%", "100%", "fixed", "rgba(0, 0, 0, .3)")
+            maskDiv(200, 200, "fixed", "10px solid pink", "skyblue", "block")
+        })
+
+
+
+        function bgMask(width, height, position, backgroundColor) {
+            oBgMask.style.position = `${position}`
+            oBgMask.style.width = `${width}`
+            oBgMask.style.height = `${height}`
+            oBgMask.style.backgroundColor = `${backgroundColor}`
+            oBgMask.style.left = 0
+            oBgMask.style.top = 0
+        }
+
+
+        function maskDiv(height, width, position, border, backgroundColor) {
+            oMaskDiv.style.position = position
+            oMaskDiv.style.height = `${height}px`
+            oMaskDiv.style.width = `${width}px`
+            oMaskDiv.style.border = border
+            oMaskDiv.style.backgroundColor = `${backgroundColor}`
+            oMaskDiv.style.left = screenWidth / 2 - width / 2 + "px"
+            oMaskDiv.style.top = screenHeight / 2 - height / 2 + "px"
+        }
+
+        oMaskDiv.addEventListener("mousedown", e => {
+            //按下的时候获取到鼠标的坐标
+            const iMouseX = e.x - oMaskDiv.offsetLeft;
+            const iMouseY = e.y - oMaskDiv.offsetTop;
+            oMaskDivMove = e => {
+                oMaskDiv.style.left = e.x - iMouseX + "px"
+                oMaskDiv.style.top = e.y - iMouseY + "px"
+            }
+            document.addEventListener("mousemove", oMaskDivMove)
+            oMaskDiv.addEventListener("mouseup", e => {
+                document.removeEventListener("mousemove", oMaskDivMove)
+            })
+        })
+    </script>
+</body>
+
+</html>

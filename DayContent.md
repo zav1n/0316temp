@@ -1,4 +1,4 @@
- ## 4.1
+ # 4.1
 
 1.栈类似一个井，先进后出
 3.队列，先进先出
@@ -11,11 +11,11 @@ ES6有什么新增方法？至少回答10个
 不一定,但是如果有e i a一定遵循这个循序
 
 
-## 4.2
+# 4.2
 1.深赋值 视频15.20开始
 2.作业  用trim
 
-## 4.3
+# 4.3
 this的指向，如果在箭头函数里面就用不了，用传统方法却可以，如何解决？
 因为箭头函数是不具备this的，虽然你也可以使用this这个关键字，不过这个this指的是他的最接近的上下文环境
 如果一定要使用的话调用箭头函数时.say() ====》百度
@@ -37,7 +37,7 @@ call/apply/bind
 可以改变 this 指向
 
 
-## 4.4
+# 4.4
 this面试会问
 函数套函数的this指向window
 直接等价于函数（不带括号）就指向最近的一个
@@ -56,19 +56,19 @@ this面试会问
 
 
 
-## 4.5
+# 4.5
 
 calc
 
 for...of   for...in  forEach map  Array.from()
 
-## 4-7
+# 4-7
 自定义属性
 自由属性只能用setAttribute属性去获取
 例如<div floor="1"></div>
 这里自己定义的floor要自己去setA去获取
 
-## 4-9
+# 4-9
 语法糖
 实例的__proto__指向构造函数的prototype
 （>的意思是指向）
@@ -157,7 +157,7 @@ ES6的类：（ class Preson{} ）
 
 
 
-## 4-12
+# 4-12
 
 addEventListener的click和onclick的区别
 
@@ -182,7 +182,7 @@ addEventListener
 \- IE8以下不支持
 
 
-##4-12
+#4-12
 1.变量永远有声明提升机制
 2.函数永远有预解析机制
 3.函数再js中 作用域永远先函数，再var再let
@@ -190,7 +190,7 @@ function => var => let
 
 var如果是一个全局变量的话会触发一个映射机制，同时绑定在window
 
-##4-14
+#4-14
 for和if里面不能定义
 解开多个数组用flat！！！面试加分
 ！*  flat（infinity无穷）
@@ -217,7 +217,7 @@ toString和valueOf同时被调用吗？
 插入排序（扑克牌逻辑）有兴趣了解一下
 1-100相加
 
-## 4-16
+# 4-16
 
 
 
@@ -389,18 +389,18 @@ var、let、const
     }
 
 3-31的日报
-#### var和let的区别
+## var和let的区别
 
 1. var可以重复定义,let不可以重复定义
 2. var有变量声明提升,let没有变量声明提升.(var在同页面还没声明时,可以使用,let在同页面还没声明时候,不可以使用)
 3. var不存在暂时性死区TDZ,let存在暂时性死区TDZ(temporal dead zone)
 4. var没有块级作用域的概念,但是let有块级作用域
 
-#### 同步
+## 同步
 
 同步或者说同步代码,他会马上执行```for```是最典型的同步代码
 
-#### 异步
+## 异步
 
 异步代码会延迟执行```事件函数```都是典型的异步代码
       show(100)
@@ -427,7 +427,7 @@ var、let、const
 
 1. 存储所有引用数据类型的 value
 
-#### JSON
+## JSON
 
 XML 标记语言.
 
@@ -490,7 +490,7 @@ JSON.parse(string) return object //将字符串转换成json
     console.log(obj)
     console.log(obj2)
 ```
-#### 作用域
+## 作用域
 
 //JavaScript有几个作用域
 
@@ -526,7 +526,7 @@ JSON.parse(string) return object //将字符串转换成json
       show() //1
       show() //1
       // console.log(i) //
-#### 闭包
+## 闭包
 
 
 
@@ -564,7 +564,7 @@ JSON.parse(string) return object //将字符串转换成json
           console.log(a)
           a = a + 1
         }
-    
+        
         //返回的是一个内部的函数体
         return inner
       }
@@ -607,7 +607,7 @@ JSON.parse(string) return object //将字符串转换成json
       
         // add -> inner -> outer作用域 -> a永远不会被重新初始化
 
-#### 立即执行函数
+## 立即执行函数
 
 ```
 //函数的声明
@@ -625,3 +625,32 @@ JSON.parse(string) return object //将字符串转换成json
 // 这些全部都是立即执行函数
 ```
 
+
+
+# 4-20
+
+2020的明星题
+
+函数防抖第三个  闭包会用就可以了（高级用法）
+
+函数防抖和节流的区别：节流就像CD，除了CD的就是防抖
+
+节流：一个事件在一段时间内（300-500ms）内被触发，但绑定的内容在期间会执行一次
+
+函数防抖和节流的应用场景有哪些
+
+防抖：应用文本框
+
+节流：按键
+
+函数防抖和节流的核心是闭包和定时器
+
+add
+
+try...catch..finally ，那一段不执行？catch可以不用执行，可以手写报错信息，
+
+有try必有catch
+
+finally可以去掉吗？
+
+H5新特性

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>middle</title>
+</head>
+<body>
+    登录成功，<span id="sp">2</span>秒后跳转
+    <script>
+        let oSpan = document.querySelector("#sp")
+
+        setInterval(() => {
+            oSpan.innerHTML += oSpan.innerHTML-1
+            location.href = "success.html"
+        }, 2000);
+    </script>
+</body>
+</html>

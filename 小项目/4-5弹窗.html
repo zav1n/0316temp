@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mask"></div>
+    <div id="popup">
+        <div id="contanier">
+
+        </div>
+    </div>
+    <button id="btn">点击</button>
+
+    <script>
+        let maskStyle = {
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(128, 128, 128, 0.6)",
+            position: "absolute",
+            left: "0",
+            top: "0",
+            havemask: true
+        }
+        let divStyle = {
+            width: "400px",
+            height: "500px",
+            backgroundColor: "cyan",
+            border: "1px solid"
+        }
+
+        let [oMask, oPopup, oBtn] = [document.querySelector("#mask"),
+        document.querySelector("#popup"),
+        document.querySelector("#btn")]
+
+        let oContanier = document.querySelector('#contanier')
+        let oPcss = getComputedStyle(oPopup)
+
+
+        //把定义好的两个div样式放在函数里面
+        //maskStyle是遮罩的样式，divStyle是遮罩里面的div
+        function popup(maskStyle, divStyle) {
+            //遍历所有div的样式
+            for (let key in divStyle) {
+                oPopup.style[key] = divStyle[key]
+            }
+
+            oPopup.style.display = "none";//函数被调用的一开时就把div隐藏起来
+            let left1 = document.documentElement.clientWidth / 2 - 500 / 2
+            let top1 = document.documentElement.clientHeight / 2 - 500 / 2
+            //点击
+            oBtn.addEventListener("click", function (e) {
+                //遍历所有maskStyle的样式
+                //点击后   显示遮罩
+                for (let key in maskStyle) {
+                    oMask.style[key] = maskStyle[key]
+                }
+
+                //点击后   显示div
+                oPopup.style.display = "block"
+                oPopup.style.position = "absolute"
+                //div居中
+                oPopup.style.left = `${left1}px`
+                oPopup.style.top = `${top1}px`
+                //显示高度,宽度,边框颜色,背景颜色  
+
+                //获取div样式
+                //在div显示自己的宽高背景颜色
+                oContanier.innerHTML = ""  //再次被点击的时候清空
+                oContanier.innerHTML += `<p>宽度：${oPcss.width}</p>`
+                oContanier.innerHTML += `<p>高度：${oPcss.height}</p>`
+                oContanier.innerHTML += `<p>背景颜色：${oPcss.backgroundColor}</p>`
+                oContanier.innerHTML += `<p>边框样式：${oPcss.borderBlockEndStyle}</p>`
+                oContanier.innerHTML += `<p>边框颜色：${oPcss.borderBlockEndColor}</p>`
+                oContanier.innerHTML += `<p>边框宽度：${oPcss.borderBlockEndWidth}</p>`
+                oContanier.innerHTML += `<p>是否可拖动：true</p>`
+                oContanier.innerHTML += `<p>x坐标</p>`
+                oContanier.innerHTML += `<p>y坐标</p>`
+                //查找样式
+                console.log(oPcss)
+
+                e.stopPropagation();
+
+                //点击遮罩跳回去
+                document.addEventListener("click", (e) => {
+                    oPopup.style.display = "none";//相当于隐藏了遮罩的div
+                    oMask.style = "";//相当于隐藏遮罩，用清除遮罩的样式来达到隐藏效果
+                    e.stopPropagation();
+                });
+            })
+
+
+        }
+
+        //移动
+        document.addEventListener("mousemove", function (e) {
+            var e = e || window.event //兼容代码 e来支持标准浏览器 window.event 用来兼容IE低版本浏览器
+            oPopup.style.left = e.x + "px"
+            oPopup.style.top = e.y + "px"
+            oContanier.children[7].innerHTML = `<p>移动坐标x:${e.x}</p>`
+            oContanier.children[8].innerHTML = `<p>移动坐标x:${e.y}</p>`
+            console.log(oContanier.lastElementChild)
+            // oPcss[7].focus()
+        })
+
+        //最后一定要调用！
+        popup(maskStyle, divStyle)
+
+    </script>
+</body>
+
+</html>

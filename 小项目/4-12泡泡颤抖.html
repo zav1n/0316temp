@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泡泡</title>
+</head>
+<input type="button" value="点击生成泡泡" id="btn">
+
+<body>
+    <script>
+        let iScreenWidth = document.documentElement.clientWidth || document.body.clientWidth
+        let iScreenHeight = document.documentElement.clientHeight || document.body.clientHeight
+
+
+
+        function Paopao(width, height, backgroundColor, x, y) {
+            this.newPao = document.createElement("div")
+            this.width = width
+            this.height = height
+            this.backgroundColor = backgroundColor
+            this.x = x
+            this.y = y
+            this.init()
+
+        }
+
+        let timer1
+        Paopao.prototype = {
+            init: function () {
+                document.body.appendChild(this.newPao)
+                this.newPao.style.position = "absolute"
+                this.newPao.style.width = this.width + "px"
+                this.newPao.style.height = this.height + "px"
+                this.newPao.style.borderRadius = "100px"
+                this.newPao.style.top = this.x + "px"
+                this.newPao.style.left = this.y + "px"
+                this.newPao.style.backgroundColor = this.backgroundColor
+                //小球颤抖
+                star = () => {
+                    timer1 = setInterval(() => {
+                        this.newPao.style.left = this.newPao.offsetLeft + getRand(1, 4) + "px"
+                        this.newPao.style.left = this.newPao.offsetLeft - getRand(1, 4) + "px"
+                        this.newPao.style.top = this.newPao.offsetTop + getRand(1, 4) + "px"
+                        this.newPao.style.top = this.newPao.offsetTop - getRand(1, 4) + "px"
+                    }, 17);
+
+                }
+                star()
+                this.drag()
+            },
+
+            drag: function () {
+
+                this.newPao.addEventListener("mousedown", e => {
+                    clearInterval(timer1)
+                    const iMouseX = e.x - this.newPao.offsetLeft;
+                    const iMouseY = e.y - this.newPao.offsetTop;
+
+                    paoMove = e => {
+                        this.newPao.style.left = e.x - iMouseX + "px"
+                        this.newPao.style.top = e.y - iMouseY + "px"
+                    }
+
+                    document.addEventListener("mousemove", paoMove)
+                    this.newPao.addEventListener("mouseup", () => {
+                        document.removeEventListener("mousemove", paoMove)
+                        star()
+                    })
+                })
+
+            }
+
+        }
+
+
+        let oBtn = document.getElementById("btn")
+        
+        oBtn.addEventListener("click", () => {
+            let rgbRandom = Math.random()*255
+            console.log(rgbRandom);
+            let colorBox = `rgb(${rgbRandom},${rgbRandom},${rgbRandom})`
+            
+            let yRandom = Number.parseInt(Math.random() * (iScreenWidth - 100))
+            let xRandom = Number.parseInt(Math.random() * (iScreenHeight - 100))
+            new Paopao(100, 100, colorBox, xRandom, yRandom)
+        })
+
+        //获取任意两个数之间的随机整数 应用于颤抖
+        function getRand(a, b) {
+            return Math.floor(Math.random() * (a - b)) + b;
+        }
+    </script>
+</body>
+
+</html>

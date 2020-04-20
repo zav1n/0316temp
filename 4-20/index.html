@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+
+<body>
+    <input type="text" id="username" name="username">
+    <input type="password" id="pwd" name="pwd">
+    <input type="button" id="btn" value="提交">
+    <div id="div1"></div>
+
+    <form action="middle.html" method="get">
+        <input type="text" id="username1" name="username1">
+        <input type="password" id="pwd1" name="pwd1">
+        <input type="submit" id="btn1" value="提交">
+        <div id="div11"></div>
+    </form>
+    <script>
+        let oTxt = document.querySelector("#username")
+        let oPwd = document.querySelector("#pwd")
+        let oBtn = document.querySelector("#btn")
+        let oDiv = document.querySelector("#div1")
+
+        let oTxt1 = document.querySelector("#username1")
+        let oPwd1 = document.querySelector("#pwd1")
+        let oBtn1 = document.querySelector("#btn1")
+        let oDiv1 = document.querySelector("#div11")
+
+        oBtn.addEventListener("click", function () {
+            if (oTxt.value === "a" && oPwd.value === "123456") {
+                location.href = "middle.html"
+
+            } else {
+                console.log(oTxt.setAttribute());
+                oDiv.innerHTML = "<p style='color:red;'>登录失败，用户是a，密码123456</p>"
+            }
+
+
+            
+            
+        })
+
+        oBtn1.addEventListener("click",function(){
+            if (oTxt1.value === "a" && oPwd1.value === "123456") {
+                location.href = "middle.html"
+
+            } else {
+                console.log(oTxt.setAttribute());
+                oDiv.innerHTML = "<p style='color:red;'>登录失败，用户是a，密码123456</p>"
+            }    
+        })
+        console.log(location.hash);
+    </script>
+</body>
+
+</html>
