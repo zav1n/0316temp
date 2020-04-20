@@ -404,3 +404,224 @@ var、let、const
 
 异步代码会延迟执行```事件函数```都是典型的异步代码
       show(100)
+
+
+
+# 4-18
+
+深复制和浅复制的区别
+
+深复制内存地址不一样
+
+浅复制就是等号(=),内存地址是一样的
+
++ **栈**
+
+1. 是所有作用域的执行环境
+
+2. 存储所有数据类型的 key
+
+3. 存储所有基本数据类型的 value
+
++ **堆**
+
+1. 存储所有引用数据类型的 value
+
+#### JSON
+
+XML 标记语言.
+
+JSON(JavaScript Object Notation, JS 对象简谱) 是一种[轻量级]的[数据交换]格式
+
+前端用JS 后端C++ 程序语言中的普通话就是 JSON
+
+前端也认识JSON 后端也认识JSON
+
+JSON -> js对象或数组
+
+
+
+有没有字符串和JSON对象交换的方法?
+
+JSON.parse(string) return object //将字符串转换成json
+
+ JSON.stringify(object) return string //将json转换成字符串
+
+
+
+
+      let str = "[1, 2, 3]" //字符串 跨域
+      let json = JSON.parse(str); //[1, 2, 3]
+      console.log(json)
+    
+      let json2 = {
+        "name": "张三",
+        "age": 20
+      }
+      let str2 = JSON.stringify(json2)
+      console.log(str2)
+    
+      let str3 = '{"name": "张三","age": 20}';
+      let obj1 = JSON.parse(str3) //{...}
+      let obj2 = JSON.parse(str3) //{...}
+      console.log(obj1 === obj2) //false
+
+
+
+
+
+```js
+    //深复制最简单的方案 JSON.parse(JSON.stringify(obj))
+        //1. 不能复制函数
+        //2. 会破坏原有的原型链
+    let obj = {
+        name: "张三",
+        hobby: ["唱歌", "跳舞", "游泳"],
+        eat: function() {
+            return this.name + "在吃"
+        }
+    }
+
+    //$.extend
+    let obj2 = JSON.parse(JSON.stringify(obj))
+
+    obj2.name = "李四"
+    obj2.hobby[0] = "喝酒"
+    console.log(obj)
+    console.log(obj2)
+```
+#### 作用域
+
+//JavaScript有几个作用域
+
+   //ES5有且仅有两个作用域 全局作用域/函数(局部)作用域
+
+   //ES6中新增了一个作用域 块作用域 let/const(变相实现块级作用域)
+
+   //全局作用域(所有的内容都属于全局作用域) 没有被大括号括起来的东西 就是全局作用域
+
+   //函数作用域 函数的大括号内部包裹的内容 就是函数作用域
+
+   //块级作用域 但凡是大括号 就是一个块级作用域 for/if 由于加入了这样的机制 会导致 for循环会产生n个长得一模一样的块作用域 只不过就i的是当时的值 显得let i 拥有记忆功能
+
+```js
+  let i = 1;
+  function show() {
+    console.log(i++)
+  }
+
+  show() //1
+  show() //2
+  show() //3
+
+  console.log(i) //4
+```
+
+
+      function show() {
+            let i = 1;
+            console.log(i++)
+          }
+      show() //1
+      show() //1
+      show() //1
+      // console.log(i) //
+#### 闭包
+
+
+
+```js
+  //因为我要求你的变量 尽量是局部变量 因为全局变量会污染全局作用域 但是又要求i有记忆功能持续的输出1,2,3
+  //必须是局部变量,记忆该变量
+
+  //我既要变量是局部变量[不污染作用域],又要保存着内部的变量[保存变量]
+  //闭包概念: 形成一个[不被销毁]的[私有作用域]
+  //闭包作用: 保存变量[不被销毁] 保护变量[私有作用域]
+  //闭包形式: 函数嵌套函数,且返回一个堆内存
+
+  //内部闭包
+  function outer() {
+    let a = 1;
+
+    function inner() {
+      console.log(a)
+      a = a + 1;
+    }
+    inner()
+    inner()
+    inner()
+  }
+  outer() //1,2,3
+  outer() //1,2,3
+```
++ 外部闭包
+
+        function outer() {
+            //定义一个局部变量
+            let a = 1;
+        //定义一个内部函数
+        function inner() {
+          console.log(a)
+          a = a + 1
+        }
+    
+        //返回的是一个内部的函数体
+        return inner
+      }
+    
+      //1. 开辟一个outer作用域
+      //2. 将inner函数体 返回给 add
+      //局部变量 在函数执行完毕之后(触碰到大括号 或者 触碰到return)的时候 该作用域都会销毁
+      let add = outer(); //inner
+    
+      add() //inner()
+      add()
+      add()
++ 外部闭包2
+
+  
+
+      //全局变量 永远不会销毁 局部变量 在return或者大括号之后 总会被销毁
+            //f_outer堆内存 f_add 永远不会被销毁
+      //4. 由于outter函数开启的这一次作用域的局部函数 inner没有被销毁 为了保证inner函数的存在,所inner的宿主 也就是这一次的outer作用域 也永远存在
+        function outer() {
+          //5. 由于outer作用域永远存在 所以a作为一个局部变量 也不会被销毁 得到了永生(也就是全局变量的效果)
+          let a = 1;
+      
+          function inner() {
+            console.log(a)
+            a = a + 1
+          }
+          //3. 由于inner函数(0x222)被全局变量所引用 所以装着inner函数的宿主outer函数的那次作用域也永远存在不会被销毁
+          return inner
+        }
+      
+        //1.因为add是全局变量 所以add永远存在
+        //2. 因为add永远存在 所以add接收的返回值也就是inner 也永远存在
+        let add = outer(); //inner
+      
+        //6.所以每次调用add函数 就相当于是调用inner函数 且使用的a 永永远远是同一个a
+        add() //inner() 1
+        add() //2
+        add() //3
+      
+        // add -> inner -> outer作用域 -> a永远不会被重新初始化
+
+#### 立即执行函数
+
+```
+//函数的声明
+// function show() {}
+//函数的调用
+// show()
+//立即执行函数的本质 函数声明+函数调用
+// function(){}()
+// (function () {}());
+// (function () {})();
+// ~ function () {}();
+// ! function () {}();
+// +function(){}();
+// -function(){}();
+// 这些全部都是立即执行函数
+```
+
