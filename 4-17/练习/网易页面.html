@@ -7,7 +7,7 @@
     <title>网页首页</title>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="tool.css" />
-    <link rel="stylesheet" href="wangyi.css" />
+
 </head>
 <style>
     * {
@@ -20,8 +20,7 @@
     }
     
     .wrapper {
-        /* width: 1652px; */
-        width: 1903px;
+
         height: 460px;
         margin: 40px auto;
         overflow: hidden;
@@ -115,10 +114,7 @@
     }
     /***********************内容样式*****************************/
     
-    .container img {
-        /* width: 1902px; */
-        /* width: 100%; */
-    }
+
     
     .container_itrd {
         margin: 0 auto;
@@ -176,22 +172,19 @@
 } */
     
     .container_img {
-        height: 220px;
-        width: 1902px;
+        width: 100%;
         background-color: white;
     }
     
     .container_img img {
         display: block;
         float: left;
-        width: 320px;
-        height: 219px;
-        padding-right: 5px;
+        width: 100%;
     }
     
-    .container_img img:first-child {
+    /* .container_img img:first-child {
         margin-left: 22px;
-    }
+    } */
     
     .container_lesson {
         margin: 0 auto;
@@ -430,11 +423,7 @@
             </ul>
         </div>
         <div class="container_img f_l">
-            <img src="images/1-3.jpg" alt="照片">
-            <img src="images/1-1.jpg" alt="照片">
-            <img src="images/1-2.jpg" alt="照片">
-            <img src="images/2-2.jpg" alt="照片">
-            <img src="images/1-4.jpg" alt="照片">
+            <img src="images/xAxisPic.jpg" alt="照片">
         </div>
 
         <div class="container_lesson">
@@ -655,8 +644,10 @@
         let nContainerHeight = oWrapper.clientHeight;
 
         setInterval(() => {
-            oWrapperShow.style.left = oWrapperShow.offsetLeft - nContainerWidth + "px"
-            if (oWrapperShow.offsetLeft === -5709) { //-4956
+            console.log(nContainerWidth);
+            console.log(oWrapperShow.offsetLeft);
+            oWrapperShow.style.left = oWrapperShow.offsetLeft - 1652 + "px"
+            if (oWrapperShow.offsetLeft === -4956) { //-4956
                 oWrapperShow.style.left = "0px"
             }
         }, 2000);
