@@ -73,7 +73,8 @@ html {
 /***********************内容样式*****************************/
 
 .container img {
-    width: 100%;
+    width: 1902px;
+    /* width: 100%; */
 }
 
 .container_itrd {
@@ -134,7 +135,7 @@ html {
 
 .container_img {
     height: 220px;
-    width: 2000px;
+    width: 100%;
     background-color: white;
 }
 

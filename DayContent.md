@@ -641,16 +641,21 @@ JSON.parse(string) return object //将字符串转换成json
 
 防抖：应用文本框
 
-节流：按键
+节流：按键/按钮
 
 函数防抖和节流的核心是闭包和定时器
-
-add
 
 try...catch..finally ，那一段不执行？catch可以不用执行，可以手写报错信息，
 
 有try必有catch
 
-finally可以去掉吗？
+finally可以去掉吗？可以吧
 
 H5新特性
+
+# 4-21
+
+面试  5个标签 header nav  article secsion   aside  footer  datalist 他们都是块标签
+
+html5网页的实现
+
