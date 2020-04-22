@@ -1,3 +1,22 @@
+(function() {
+    let parent = document.getElementById('lesson_right_2');
+    let child1 = document.getElementById('lesson_right_article');
+    let child2 = document.getElementById('child2');
+    child2.innerHTML = child1.innerHTML;
+    console.log("child1.innerHTML=" + child1.innerHTML);
+    console.log("parent.scrollTop=" + parent.scrollTop);
+    console.log("child1.scrollTop=" + child1.scrollTop);
+    console.log("child1.offsetTop=" + child1.offsetTop);
+    console.log("scroll.scrollTop=" + child1.scrollTop);
+    setInterval(function() {
+        console.log("scroll.scrollTop=" + child1.scrollHeight);
+        if (child1.scrollTop >= child1.scrollHeight) {
+            child1.scrollTop = 0;
+        } else {
+            child1.scrollTop++
+        }
+    }, 20);
+})()
 
 let oWrapper = document.querySelector(".wrapper")
 let oWrapperShow = document.querySelector(".wrapperShow")
@@ -87,7 +106,7 @@ let oIntroduce = document.getElementById("introduce")
 let oInputLanguage = document.getElementById("inputLanguage")
 let oShow1 = document.getElementById("show_lesson_1")
 let oShow2 = document.getElementById("show_lesson_2")
-oIntroduce.addEventListener("click",function(){
+oIntroduce.addEventListener("click", function() {
     oShow1.style.display = "block"
     oShow1.style.float = "left"
     oShow2.style.display = "none"
@@ -95,7 +114,7 @@ oIntroduce.addEventListener("click",function(){
 
 })
 
-oInputLanguage.addEventListener("click",function(){
+oInputLanguage.addEventListener("click", function() {
     oShow2.style.display = "block"
     oShow2.style.float = "left"
     oShow1.style.display = "none"
