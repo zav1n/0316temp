@@ -3,19 +3,31 @@
     let child1 = document.getElementById('lesson_right_article');
     let child2 = document.getElementById('child2');
     child2.innerHTML = child1.innerHTML;
-    console.log("child1.innerHTML=" + child1.innerHTML);
-    console.log("parent.scrollTop=" + parent.scrollTop);
-    console.log("child1.scrollTop=" + child1.scrollTop);
-    console.log("child1.offsetTop=" + child1.offsetTop);
-    console.log("scroll.scrollTop=" + child1.scrollTop);
-    setInterval(function() {
-        console.log("scroll.scrollTop=" + child1.scrollHeight);
-        if (child1.scrollTop >= child1.scrollHeight) {
-            child1.scrollTop = 0;
-        } else {
-            child1.scrollTop++
-        }
-    }, 20);
+    let timer = null;
+
+    let star = () => {
+        timer = setInterval(function() {
+
+            if (child1.scrollTop >= child1.scrollHeight - child1.offsetHeight) {
+                child1.scrollTop = 0;
+            } else {
+                child1.scrollTop++
+            }
+            child1.addEventListener("mouseenter", stop)
+        }, 20);
+    }
+
+    star()
+    let stop = (e) => {
+        clearInterval(timer)
+        e.preventDefault();
+    }
+
+    child1.addEventListener("mouseleave", function() {
+        this.removeEventListener("mouseenter", stop)
+        clearInterval(timer)
+        star();
+    })
 })()
 
 let oWrapper = document.querySelector(".wrapper")
