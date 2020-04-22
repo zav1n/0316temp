@@ -659,3 +659,17 @@ H5新特性
 
 html5网页的实现
 
+
+
+# 4-22
+
+HTML5新增了什么
+
+querySelector
+
+querySelectorAll
+
+async异步
+
+s
+

@@ -7,361 +7,10 @@
     <title>网页首页</title>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="tool.css" />
+    <link rel="stylesheet" href="wangyi.css">
 
 </head>
-<style>
-    * {
-        padding: 0;
-        margin: 0;
-    }
-    
-    ul {
-        list-style: none;
-    }
-    
-    .wrapper {
 
-        height: 460px;
-        margin: 40px auto;
-        overflow: hidden;
-        position: relative;
-    }
-    
-    .wrapper .wrapperShow {
-        position: absolute;
-        width: 7608px;
-        left: 0;
-        transition: 1s
-    }
-    
-    .wrapper .wrapperShow:after {
-        content: "";
-        display: block;
-        clear: both;
-    }
-    
-    .wrapper .wrapperShow .slide {
-        float: left;
-    }
-    
-    html {
-        background-color: #f8f8f8;
-    }
-    /*********************头部样式***************************/
-    
-    .head {
-        width: 1206px;
-        height: 90px;
-        margin: 0 auto;
-    }
-    
-    .head_l {
-        width: 377px;
-        height: 90px;
-    }
-    
-    .logo {
-        display: block;
-        height: 22px;
-        width: 234px;
-        background-image: url("images/icons/netnease-edu-logo-black.png");
-        margin-top: 40px;
-    }
-    
-    .head_l input {
-        width: 50px;
-        height: 20px;
-        background-color: #17a25e;
-        color: white;
-        text-align: center;
-        display: block;
-        margin: -22px 0px 0px 260px;
-        cursor: pointer;
-    }
-    
-    .head_l span {
-        display: block;
-        /* margin-top: -16px;
-    margin-left: 20px; */
-        margin: -16px 0px 0px 20px;
-    }
-    
-    .head_r {
-        width: 410px;
-        height: 90px;
-    }
-    
-    .head_r a {
-        display: block;
-        float: left;
-        font-size: 18px;
-        margin: 44px 0px 0px 30px;
-    }
-    
-    .head_r a:hover {
-        color: #17a25e;
-    }
-    
-    .head_r a:last-child {
-        float: right;
-        width: 18px;
-        height: 18px;
-        background-image: url("images/icons/magnifiy.png");
-    }
-    
-    .head_r a:last-child:hover {
-        background-image: url("images/icons/magnifiy-hover.png");
-    }
-    /***********************内容样式*****************************/
-    
-
-    
-    .container_itrd {
-        margin: 0 auto;
-        width: 1206px;
-    }
-    
-    .container_itrd ul li {
-        float: left;
-        width: 29%;
-        margin-top: 60px;
-        margin-left: 50px;
-    }
-    
-    .info_icon1 {
-        background-image: url("images/spirit.png");
-        background-position: 0 -83px;
-    }
-    
-    .info_icon2 {
-        background-image: url("images/spirit.png");
-        background-position: -80px -83px;
-    }
-    
-    .info_icon3 {
-        background-image: url("images/spirit.png");
-        background-position: -160px -83px;
-    }
-    
-    .container_itrd ul li div a {
-        float: left;
-        color: #17a25e;
-    }
-    
-    .info {
-        margin-top: -20px;
-        margin-left: 100px;
-    }
-    
-    .info_title {
-        line-height: 60px;
-        font-size: 22px;
-    }
-    
-    .info_word {
-        line-height: 23px;
-        font-size: 14px;
-        opacity: 0.8;
-    }
-    
-    .info_more {
-        line-height: 50px;
-    }
-    /* li{
-    margin-right: 90px;
-} */
-    
-    .container_img {
-        width: 100%;
-        background-color: white;
-    }
-    
-    .container_img img {
-        display: block;
-        float: left;
-        width: 100%;
-    }
-    
-    /* .container_img img:first-child {
-        margin-left: 22px;
-    } */
-    
-    .container_lesson {
-        margin: 0 auto;
-        width: 1206px;
-    }
-    /* .container_lesson ul{
-    display: table;
-
-} */
-    
-    .container_lesson li {
-        display: table-row;
-    }
-    
-    .container_lesson div {
-        /* display: table-cell; */
-        float: left;
-        box-sizing: border-box;
-        width: 230px;
-    }
-    
-    .container_lesson input {
-        width: 200px;
-        height: 50px;
-        background-color: rgb(236, 236, 236);
-        border: 1px solid transparent;
-        font-size: 20px;
-    }
-    
-    .container_lesson input:hover {
-        background-color: #3f9e37;
-        color: white;
-    }
-    
-    .lesson_curson {
-        height: 265px;
-        background-color: white;
-        border: 10px solid #f8f8f8;
-    }
-    
-    .container_lesson div img {
-        width: 100%;
-        height: 52%;
-    }
-    
-    .lesson_curson span {
-        display: block;
-        width: 100%;
-        line-height: 30px;
-        margin-left: 5px;
-        color: gray;
-        opacity: 0.8;
-    }
-    
-    .lesson_curson span:first-of-type {
-        color: black;
-        font-weight: 800;
-    }
-    
-    .lesson_curson span:last-child {
-        color: RGB(250, 99, 49);
-    }
-    
-    .container_lesson div span img {
-        width: 12px;
-        height: 12px;
-    }
-    
-    .lesspm_list div {}
-    
-    .dddd {
-        width: 220px;
-        height: 230px;
-        background-color: black;
-    }
-    
-    .lesson_right {
-        width: 260px;
-    }
-    
-    .lesson_right_1 {
-        height: 238px;
-        /*做完可去掉*/
-        background-color: white;
-    }
-    
-    .lesson_right_1 span {
-        border-bottom: 1px solid #d5d3d2;
-    }
-    
-    .lesson_right_1 span p {
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 55px;
-        margin-left: 20px;
-        color: black;
-    }
-    
-    .lesson_right_1 p {
-        color: gray;
-        line-height: 30px;
-    }
-    
-    .lesson_right_1 div {
-        border: 0;
-        margin: 18px;
-        width: 190px;
-    }
-    
-    .lesson_right_2 {
-        /* width: 190px; */
-        border: 1px solid #d5d3d2;
-        margin-top: 20px;
-        background-color: white;
-        
-    }
-    
-    .lesson_right_2 span {
-        border-bottom: 1px solid #d5d3d2;
-    }
-    
-    .lesson_right_2 div {
-        border: 0;
-    }
-    
-    .lesson_right_p1 {
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 55px;
-        margin-left: 20px;
-    }
-    
-    .lesson_right_2 div img {
-        width: 50px;
-        height: 50px;
-        margin: 15px 0px 0px 15px;
-    }
-    
-    .lesson_right_p2 {
-        font-size: 13px;
-        margin: -50px 0px 0px 80px;
-    }
-    
-    .container_botton {
-        background-color: #2c3339;
-        width: 100%;
-        height: 260px;
-    }
-    
-    .container_botton ul {
-        margin: 0 auto;
-        width: 1206px;
-    }
-    
-    .container_botton_li1 div {
-        width: 235px;
-        height: 20px;
-        background-image: url("images/icons/netnease-edu-logo.png");
-        margin-top: 25%;
-    }
-    
-    .container_botton p {
-        font-size: 13px;
-        color: #a6a3a3;
-    }
-    
-    .container_botton_li1 p {
-        width: 370px;
-        margin-top: 30px;
-        line-height: 15px;
-    }
-    
-    .container_botton a {
-        font-size: 15px;
-        color: #a6a3a3;
-    }
-</style>
 
 <body>
     <!------------------------- 头部 ------------------------------>
@@ -371,11 +20,16 @@
             <input type="buttom" value="+关注" class="f_l follow" />
             <span class="f_l">粉丝 45</span>
         </div>
+
+        <li class="searchbox">
+            <input type="text" class="searchInput" placeholder="请搜索">
+            <i class="search"></i>
+        </li>
+
         <div class="head_r f_r">
             <a href="#">网易公开课</a>
             <a href="#">云课堂</a>
             <a href="#">中国大学MOOC</a>
-            <a href="#"></a>
         </div>
     </div>
 
@@ -429,13 +83,12 @@
         <div class="container_lesson">
 
             <ul class="f_l" style="margin-top: 50px;">
-                <li class="dp_block f_l">
-                    <input type="button" value="产品设计" class="dp_block f_l" />
-                    <input type="button" value="编程语言" class="dp_block f_l" />
-                </li>
+                
                 <li class="lesson_right dp_block f_r">
                     <div class="lesson_right_1" style="border: 1px solid #d5d3d2;">
-                        <span class="dp_block"><p class="lesson_right_p1">机构介绍</p></span>
+                        <span class="dp_block">
+                            <p class="lesson_right_p1">机构介绍</p>
+                        </span>
                         <div>
                             <p>观看下面视频了解吧 : </p>
                             <img src="images/videoCover.jpg" alt="">
@@ -443,7 +96,9 @@
                     </div>
 
                     <div class="lesson_right_2">
-                        <span class="dp_block"><p class="lesson_right_p1">热门排行</p></span>
+                        <span class="dp_block">
+                            <p class="lesson_right_p1">热门排行</p>
+                        </span>
                         <div>
                             <img src="images/2-4.jpg" alt="">
                             <p class="lesson_right_p2 dp_block f_l">文字文字文字文字文字文字文字
@@ -503,95 +158,77 @@
                 </li>
 
 
+                <input type="button" value="产品设计" class=" dp_block f_l" id="introduce"/>
+                <input type="button" value="编程语言" class=" dp_block f_l" id="inputLanguage"/>
+                <div id="show_lesson_1" style="width: 920px;">
+                    <div class="lesson_curson">
+                        <img src="images/2-3.jpg" alt="lesson图片">
+                        <span>VueJS 2总计开发教程</span>
+                        <span>作者:苏泽锋</span>
+                        <span><img src="images/icons/people.png" />6666</span>
+                        <span>￥0</span>
+                    </div>
+                    <div class="lesson_curson">
+                        <img src="images/2-3.jpg" alt="lesson图片">
+                        <span>VueJS 2总计开发教程</span>
+                        <span>作者:苏泽锋</span>
+                        <span><img src="images/icons/people.png" />6666</span>
+                        <span>￥0</span>
+                    </div>
+                    <div class="lesson_curson">
+                        <img src="images/2-3.jpg" alt="lesson图片">
+                        <span>VueJS 2总计开发教程</span>
+                        <span>作者:苏泽锋</span>
+                        <span><img src="images/icons/people.png" />6666</span>
+                        <span>￥0</span>
+                    </div>
+                    <div class="lesson_curson">
+                        <img src="images/2-3.jpg" alt="lesson图片">
+                        <span>VueJS 2总计开发教程</span>
+                        <span>作者:苏泽锋</span>
+                        <span><img src="images/icons/people.png" />6666</span>
+                        <span>￥0</span>
+                    </div>
+                    <div class="lesson_curson">
+                        <img src="images/2-3.jpg" alt="lesson图片">
+                        <span>VueJS 2总计开发教程</span>
+                        <span>作者:苏泽锋</span>
+                        <span><img src="images/icons/people.png" />6666</span>
+                        <span>￥0</span>
+                    </div>
+                    <div class="lesson_curson">
+                        <img src="images/2-3.jpg" alt="lesson图片">
+                        <span>VueJS 2总计开发教程</span>
+                        <span>作者:苏泽锋</span>
+                        <span><img src="images/icons/people.png" />6666</span>
+                        <span>￥0</span>
+                    </div>
+                    <div class="lesson_curson">
+                        <img src="images/2-3.jpg" alt="lesson图片">
+                        <span>VueJS 2总计开发教程</span>
+                        <span>作者:苏泽锋</span>
+                        <span><img src="images/icons/people.png" />6666</span>
+                        <span>￥0</span>
+                    </div>
+                </div>
 
-                <li class="dp_block f_l" style="width: 920px;">
+                <div id="show_lesson_2" style="width: 920px;display: none;">
                     <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
+                        <img src="images/2-4.jpg" alt="lesson图片">
+                        <span>会员引爆系统</span>
                         <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
+                        <span><img src="images/icons/people.png" />6666</span>
                         <span>￥0</span>
                     </div>
                     <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
+                        <img src="images/2-2.jpg" alt="lesson图片">
+                        <span>分析态维案例实战</span>
                         <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
+                        <span><img src="images/icons/people.png" />6666</span>
                         <span>￥0</span>
                     </div>
-                    <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
-                        <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
-                        <span>￥0</span>
-                    </div>
-                    <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
-                        <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
-                        <span>￥0</span>
-                    </div>
-                    <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
-                        <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
-                        <span>￥0</span>
-                    </div>
-                    <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
-                        <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
-                        <span>￥0</span>
-                    </div>
-                    <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
-                        <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
-                        <span>￥0</span>
-                    </div>
-                    <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
-                        <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
-                        <span>￥0</span>
-                    </div>
-                    <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
-                        <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
-                        <span>￥0</span>
-                    </div>
-                    <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
-                        <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
-                        <span>￥0</span>
-                    </div>
-                    <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
-                        <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
-                        <span>￥0</span>
-                    </div>
-                    <div class="lesson_curson">
-                        <img src="images/2-3.jpg" alt="lesson图片">
-                        <span>VueJS 2总计开发教程</span>
-                        <span>作者:苏泽锋</span>
-                        <span><img src="images/icons/people.png"/>6666</span>
-                        <span>￥0</span>
-                    </div>
+                </div>
 
-
-                </li>
 
             </ul>
 
@@ -636,94 +273,7 @@
     </div>
 
     <!------------------------------js-------------------------------->
-    <script>
-        let oWrapper = document.querySelector(".wrapper")
-        let oWrapperShow = document.querySelector(".wrapperShow")
-        let aSlide = document.querySelectorAll(".slide")
-        let nContainerWidth = oWrapper.clientWidth;
-        let nContainerHeight = oWrapper.clientHeight;
-
-        setInterval(() => {
-            console.log(nContainerWidth);
-            console.log(oWrapperShow.offsetLeft);
-            oWrapperShow.style.left = oWrapperShow.offsetLeft - 1652 + "px"
-            if (oWrapperShow.offsetLeft === -4956) { //-4956
-                oWrapperShow.style.left = "0px"
-            }
-        }, 2000);
-
-
-        //关注按钮
-        let oFollow = document.querySelector(".follow")
-
-        let screenWidth = document.documentElement.clientWidth || document.body.clientWidth
-        let screenHeight = document.documentElement.clientHeight || document.body.clientHeight
-
-        let oMaskDiv = document.createElement("div")
-        let oBgMask = document.createElement("div")
-        document.body.appendChild(oBgMask)
-        document.body.appendChild(oMaskDiv)
-
-
-
-        oFollow.addEventListener("click", (e) => {
-            bgMask("100%", "100%", "fixed", "rgba(0, 0, 0, .5)")
-            maskDiv(200, 400, "fixed", "1px solid black", "pink")
-        })
-
-
-        oBgMask.addEventListener("click", (e) => {
-            oBgMask.style = ""; //相当于隐藏了遮罩的div
-            oMaskDiv.style = ""; //相当于隐藏遮罩，用清除遮罩的样式来达到隐藏效果
-        });
-
-
-        function bgMask(width, height, position, backgroundColor) {
-            oBgMask.style.position = `${position}`
-            oBgMask.style.width = `${width}`
-            oBgMask.style.height = `${height}`
-            oBgMask.style.backgroundColor = `${backgroundColor}`
-            oBgMask.style.left = 0
-            oBgMask.style.top = 0
-        }
-
-
-        function maskDiv(height, width, position, border, backgroundColor) {
-            oMaskDiv.style.height = `${height}px`
-            oMaskDiv.style.width = `${width}px`
-            oMaskDiv.style.position = `${position}`
-            oMaskDiv.style.border = border
-            oMaskDiv.style.backgroundColor = `${backgroundColor}`
-            oMaskDiv.style.left = `41%`
-            oMaskDiv.style.top = `40%`
-            oMaskDiv.innerHTML =
-                `
-                <p>可拖拽</p>
-            <form action="网易页面.html" method="get">
-            <span>用户名:</span><input type="text" id="username1" name="username1" required><br>
-            <span>密码:  </span><input type="password" id="pwd1" name="pwd1" required><br>
-            <input type="submit" id="btn1" value="提交"><br>
-            <div id="div11" style="color:red"></div>
-            </form>
-                `
-        }
-
-
-        oMaskDiv.addEventListener("mousedown", e => {
-            //按下的时候获取到鼠标的坐标
-            const iMouseX = e.x - oMaskDiv.offsetLeft;
-            const iMouseY = e.y - oMaskDiv.offsetTop;
-            oMaskDivMove = e => {
-                oMaskDiv.style.left = e.x - iMouseX + "px"
-                oMaskDiv.style.top = e.y - iMouseY + "px"
-            }
-            document.addEventListener("mousemove", oMaskDivMove)
-            oMaskDiv.addEventListener("mouseup", e => {
-                document.removeEventListener("mousemove", oMaskDivMove)
-                
-            })
-        })
-    </script>
+    <script src="wangyi.js"></script>
 </body>
 
 </html>

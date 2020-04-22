@@ -13,7 +13,7 @@
     }
 
     body {
-        background-color: pink;
+        background-color: gray;
     }
 
     .div1 {
@@ -22,7 +22,9 @@
         margin: 100px auto;
         background-color: white;
         border-left: 200px solid black;
+        transition-property: all;
         border-radius: 50%;
+        transition-duration: 500ms;/*移除鼠标（返回去慢慢动）*/
 
     }
 
@@ -51,7 +53,7 @@
 
     .div1:hover {
         transition-duration: 2s;
-        transform: rotate(1turn);
+        transform: rotate(0.5turn);
     }
 </style>
 
