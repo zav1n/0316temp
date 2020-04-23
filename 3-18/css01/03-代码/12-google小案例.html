@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* html对大小写不敏感,但是css对大小写敏感 */
+    /* css样式的继承性
+      父亲的遗产儿子全部继承
+      父亲的特征 儿子也会具备
+      父标签中的某些样式会被子标签所继承(font/background/color)
+    */
+    .container {
+      font-size: 50px;
+    }
+
+    .blue {
+      color: blue;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .orange {
+      color: orange;
+    }
+
+    .green {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <span class="blue">G</span>
+    <span class="red">o</span>
+    <span class="orange">o</span>
+    <span class="blue">g</span>
+    <span class="green">l</span>
+    <span class="red">e</span>
+  </div>
+</body>
+
+</html>

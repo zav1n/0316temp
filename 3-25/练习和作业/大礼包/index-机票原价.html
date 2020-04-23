@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机票原价</title>
+</head>
+<body>
+    <select id="slt">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+    </select>
+    月份
+    <input type="text" id="tx" placeholder="购买价格">
+    <input type="text" id="txdate" placeholder="购买时间">
+    <input type="button" value="确定" id="btn">
+    <div id="div1"></div>
+
+    <script>
+        let otx = document.getElementById("tx");
+        let otxdate = document.getElementById("txdate");
+        let obtn = document.getElementById("btn");
+        let odiv = document.getElementById("div1");
+
+        let oSelect = document.getElementById("slt"); //拿到select对象
+        let index = oSelect.selectedIndex;            //拿到选中项的索引
+        let myoption = oSelect.options[index].text;   //拿到选中项options的text
+
+        obtn.onclick = function(){ 
+            console.log(myoption);
+            switch(myoption){
+                case "6":
+                case "7":
+                case "8":
+                case "9":
+                    odiv.innerHTML =`原价为${otx.value/"0.7"}元`+'<p>购买时间为:'+otxdate.value+'</p>'+'<p>若重新计算请刷新界面</p>';
+                    break;
+                case "1":
+                case "2": 
+                case "3":
+                case "4":
+                case "5":
+                case "10":
+                case "11":
+                case "12":
+                odiv.innerHTML =`原价为${otx.value/"0.9"}元`+'<p>购买时间为:'+otxdate.value+'</p>'+'<p>若重新计算请刷新界面</p>';
+                    break;
+            }
+        }
+        
+    </script>
+</body>
+</html>

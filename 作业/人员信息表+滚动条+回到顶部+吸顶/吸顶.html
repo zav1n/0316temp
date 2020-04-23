@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吸顶效果</title>
+</head>
+
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+
+        #div1 {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            background-color: orangered;
+            left: calc(50% - 600px/2);
+        }
+
+        #div2 {
+            position: absolute;
+            width: 600px;
+            height: 100px;
+            background-color: violet;
+            left: calc(50% - 600px/2);
+        }
+
+        /*              使用className方法时候用                     */
+        /* #div1 {
+            margin: auto;
+            width: 600px;
+            height: 400px;
+            background-color: orangered;
+        }
+
+        #div2 {
+            width: 600px;
+            height: 100px;
+            background-color: violet;
+        }
+
+        .div2-nav {
+            margin: auto;
+        }
+
+        .div2-draw {
+            position: fixed;
+            top: 0;
+            left: calc(50% - 600px / 2);
+        } */
+    </style>
+    <div id="div1"></div>
+    <div id="div2" class="div2-nav"></div>
+    <script>
+        let oDiv1 = document.getElementById("div1")
+        let oDiv2 = document.getElementById("div2")
+
+        document.addEventListener("scroll", e => {
+            // 也可以写在样式里面,然后.className调用
+            if (oDiv1.offsetHeight < document.documentElement.scrollTop) {
+                // oDiv2.style.position = 'fixed'
+                // oDiv2.style.top = 0
+
+                oDiv2.className = "div2-draw"
+            } else {
+                // oDiv2.style.position='absolute'
+                // oDiv2.style.top = "auto"
+
+                oDiv2.className = "div2-nav"
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

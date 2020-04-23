@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .optionCard {
+        margin: 100px auto;
+        width: 300px;
+    }
+
+    .optionCard .tab_title {
+        width: 300px;
+        overflow: hidden;
+    }
+
+    .optionCard .tab_title li {
+        background-color: gray;
+        color: white;
+        width: 100px;
+        text-align: center;
+        padding: 5px;
+        box-sizing: border-box;
+        cursor: pointer;
+        float: left;
+    }
+
+    .optionCard .tab_title .clicked {
+        background-color: red;
+    }
+
+    .optionCard .tab_content li {
+        border: 3px solid yellowgreen;
+        width: 300px;
+        height: 200px;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: pink;
+        display: none;
+    }
+
+    .optionCard .tab_content .active {
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="optionCard" id="optionCard">
+
+    </div>
+
+    <script>
+        let json = [{
+            "title": "标题一",
+            "context": "内容一内容一内容一内容一内容一"
+        }, {
+            "title": "标题二",
+            "context": "内容二内容二内容二内容二内容二"
+        }, {
+            "title": "标题三",
+            "context": "内容三内容三内容三内容三内容三"
+        }]
+
+        class SelectCard {
+            constructor(parent, data) {
+                this.parent = parent;
+                this.data = data;
+                this.init();
+            }
+
+            init() {
+                let oParent = document.createElement(`#${this.parent}`)
+                oParent.innerHTML = `<ul class="tab_title" id="tab_title"></ul><ul class="tab_content" id="tab_content"></ul>`
+                this.initTitle()
+                
+            }
+            initTitle() {
+                let liTitle = document.querySelector("#tab_title")
+                this.data.map((e,i)=>{
+                    if(i!==0){
+                        liTitle.innerHTML += `<li index="${i}">${e.title}</li>`
+                    }else{
+                        liTitle.innerHTML +=`<li class="clicked" index="${i}">${e.title}</li>`
+                    }
+                })
+            return liTitle
+            }
+        }
+
+
+
+        let creat_card = (parent, elementTab, value = "", attr) => {
+            parent = document.getElementById(parent)
+
+            let newLi = document.createElement(elementTab)
+            for (let key in attr) {
+                newLi.setAttribute(key, attr[key])
+            }
+            newLi.innerHTML = value
+            parent.appendChild(newLi)
+            return newLi
+        }
+
+        new SelectCard("optionCard", json)
+    </script>
+</body>
+
+</html>

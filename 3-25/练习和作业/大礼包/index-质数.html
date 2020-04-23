@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>质数</title>
+</head>
+<body>
+    <input type="text" id="tx">
+    <input type="button" value="确定" id="btn">
+    <div id="div1"></div>
+
+    <script>
+        let otx = document.getElementById("tx");
+        let obtn = document.getElementById("btn");
+        let odiv = document.getElementById("div1");
+
+        obtn.onclick = function(){
+            if(otx.value % 1 == 0  && otx.value % otx.value == 0){
+                console.log(otx.value);
+                odiv.innerHTML = "质数"
+            }else{
+                odiv.innerHTML = "非质数"
+            }
+        }
+        
+    </script>
+</body>
+</html>

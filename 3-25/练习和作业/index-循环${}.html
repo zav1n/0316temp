@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环</title>
+</head>
+<body>
+    <input type="text" name="" id="text">星期
+    <input type="button" value="确定" id="btn">
+    <div id="div1"></div>
+    <script>
+        let IPtext = document.getElementById("text");
+        let IPbtn = document.getElementById("btn");
+        let Ddiv = document.getElementById("div1");
+        
+        IPbtn.onclick = function(){
+        
+        
+        
+        for(let i = 1;i<=5;i++){
+            if( i === 5){
+                //不用上课
+                console.log("星期5不用上课,但是要自行练习");
+                break;
+            }else{
+                console.log(`星期${i}要上课`);
+                
+            }
+                
+                
+            }
+
+
+
+
+        }
+    </script>
+</body>
+</html>

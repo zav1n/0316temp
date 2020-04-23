@@ -1,0 +1,19 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+ul,li{
+    list-style: none;/*去掉li列表*/
+}
+.p-top{
+    top:10px
+}
+.p-left{
+    left: 10px;
+}
+.p-right{
+    right: 10px;
+}
+.p-bottom{
+    bottom: 10px;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定定位position:fixed</title>
+</head>
+<body>
+    <style>
+        /************************思路**********************/
+        /*     有个正方形在右下角,滑动浏览器滚动条位置依旧不变      */
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</body>
+    <div style="height: 100000px;"></div>
+    <div class="div1"></div>
+</html>

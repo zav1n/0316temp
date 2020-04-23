@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 选中标签 其中有一个属性名叫type且他的属性值是text */
+    [type=text] {
+      background-color: blue;
+    }
+
+    /* 选中所有有aaa属性名的标签即可 */
+    [aaa] {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text">
+  <input type="password">
+  <div aaa="bbb">1</div>
+  <div aaa="ccc">2</div>
+  <div ccc="ddd">3</div>
+</body>
+
+</html>

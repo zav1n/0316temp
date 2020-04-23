@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>等高布局:overlfow属性</title>
+</head>
+    <style>
+        /***********************思路***************************/
+        /*两个div,第一个div的高比第二个的高低,那怎么让他们 "同起同坐一样高?"
+            使用overflow属性
+        */
+        .container{
+            margin: 0 auto;
+            width: 250px;
+
+            overflow: hidden;
+        }
+        .d1{
+            width: 100px;
+            height: 300px;
+            float: left;
+            background-color: pink;
+
+            padding-bottom: 1000px;
+            margin-bottom: -1000px;
+        }
+        .d2{
+            width: 150px;
+            height: 600px;
+            background-color: blueviolet;
+
+            padding-bottom: 1000px;
+            margin-bottom: -1000px;
+        }
+    </style>
+<body>
+    <div class="container">
+        <div class="d1">文字文字文字文字文字文字</div>
+        <div class="d2">文字文字文字文字文字文字文字文字文字文
+                        字文字文字文字文字文字文字文字文字文字
+                        文字文字文字文字文字文字文字文字文字</div>
+    </div>
+</body>
+</html>

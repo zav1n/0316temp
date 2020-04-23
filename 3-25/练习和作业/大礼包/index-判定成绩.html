@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判定成绩</title>
+</head>
+<body>
+    <input type="text" id="tx">
+    <input type="button" value="确定" id="btn">
+    <div id="div1"></div>
+
+    <script>
+        let otx = document.getElementById("tx");
+        let obtn = document.getElementById("btn");
+        let odiv = document.getElementById("div1");
+        obtn.onclick = function(){
+
+            
+            switch(otx.value != ""){
+                //"101" 是字符  如果是 99比 101   101肯定大   
+                //如果是  "99" 比  "101"   "99" 的首字母是 "9"     "101" 的首字母是 "1"
+                // "9" > "1"  所以 "101" < "99"
+                // case otx.value >= "101":
+                //     odiv.innerHTML = otx.value + "(满分为100)";
+                //     break;
+                case otx.value >= "90":
+                    odiv.innerHTML = otx.value + "为优秀";
+                    break;
+                case otx.value >="80":
+                    odiv.innerHTML = otx.value + "为中等";
+                    break;
+                case otx.value >="70":
+                    odiv.innerHTML = otx.value + "为一般";
+                    break;
+                case otx.value >= "60":
+                    odiv.innerHTML = otx.value + "为一般";
+                    break;
+                case otx.value < "60":
+                    odiv.innerHTML = otx.value + "不及格";
+                    break;
+                
+            }
+            if(otx.value == "" ){
+                odiv.innerHTML = "请输入数值";
+            }
+        }
+        
+    </script>
+</body>
+</html>

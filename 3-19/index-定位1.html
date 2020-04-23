@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位作业1</title>
+    <style>
+        .d1{
+            border: 1px solid red;
+            width: 320px;
+            height: 320px;
+        }
+        .d2,.d3,.d4,.d5,.d6{
+            display: block;
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            text-align: center;
+            line-height: 5em;
+
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+        .d3{
+            opacity:0.5;/*不透明度*/
+
+            position: absolute;/*absolute  绝对定位元素*/
+            left: 219px;   /*本来是220px  因为border为1px所以要 -1 */
+        }
+        .d4{
+            position: absolute;
+            top: 219px;
+        }
+        .d6{
+            background-color: blue;
+        }
+        .d5{
+            position: absolute;
+            top: 219px;left: 219px;
+        }
+        .d6{
+            background-color: blue;
+            position: absolute;
+            top: 114px;left: 114px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <div class="d2">第二个div</div>
+        <div class="d3">第三个div</div>
+        <div class="d4">第四个div</div>
+        <div class="d5">第五个div</div>
+        <div class="d6">第六个div</div>
+    </div>
+</body>
+</html>

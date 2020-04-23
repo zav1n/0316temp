@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断奇数偶数</title>
+</head>
+<body>
+    <input type="text" id="tx">
+    <input type="button" value="确定" id="btn">
+    <div id="div1"></div>
+
+    <script>
+        let otx = document.getElementById("tx");
+        let obtn = document.getElementById("btn");
+        let odiv = document.getElementById("div1");
+
+        obtn.onclick = function(){
+            if(otx.value % 2 == 1 ){
+                console.log(otx.value);
+                odiv.innerHTML = "奇数"
+            }else{
+                odiv.innerHTML = "偶数"
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精灵图片</title>
+</head>
+    <style>
+        /********************思路***************************/
+        /*一张大图片只被一个小div框起来,显示指定照片的位置*/
+        div{
+            background-image: url("fish.jpg");
+            width: 100px;
+            height: 100px;
+
+            border: 5px solid black;
+        }
+        .d1{
+            background-position: -230px -120px;
+        }
+        .d2{
+            background-position: -452px -151px;
+        }
+        .d3{
+            background-position: -483px -335px;
+        }
+    </style>
+<body>
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+</body>
+</html>
