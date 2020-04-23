@@ -221,10 +221,9 @@ html {
 }
 
 .container_lesson div {
-    /* display: table-cell; */
     float: left;
-    box-sizing: border-box;
-    width: 230px;
+    /* box-sizing: border-box; */
+    width: 220px;
 }
 
 .container_lesson input {
@@ -244,7 +243,7 @@ html {
 .lesson_curson {
     height: 265px;
     background-color: white;
-    border: 10px solid #f8f8f8;
+    margin: 5px;
 }
 
 .container_lesson div img {
@@ -382,12 +381,19 @@ html {
     color: #a6a3a3;
 }
 
-.lesson_curson:hover {
-    box-shadow: rgb(255, 255, 255, 0.3);
-}
-
 .lesson_right_article {
     height: 500px;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+
+.lesson_curson {
+    transition: all .4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.lesson_curson:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
 }
