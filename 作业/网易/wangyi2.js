@@ -5,6 +5,8 @@
     child2.innerHTML = child1.innerHTML;
     let timer = null;
 
+
+
     let star = () => {
         timer = setInterval(function() {
 
@@ -36,6 +38,50 @@ let aSlide = document.querySelectorAll(".slide")
 let nContainerWidth = oWrapper.clientWidth;
 let nContainerHeight = oWrapper.clientHeight;
 let showLesson = document.getElementById("show_lesson_1")
+let showLesson2 = document.getElementById("show_lesson_2")
+let showArticle = document.getElementById("lesson_right_article")
+init();
+
+function init() {
+    json.forEach((e) => {
+        showLesson.innerHTML +=
+            `
+        <div class="lesson_curson">
+            <img src="${e.image}" alt="lesson图片">
+            <span>${e.lessonName}</span>
+            <span>${e.author}</span>
+            <span><img src="images/icons/people.png" />${e.peopleCount}</span>
+            <span>￥${e.price}</span>
+        </div>
+        `
+    })
+
+    json1.forEach((e) => {
+        showLesson2.innerHTML +=
+            `
+        <div class="lesson_curson">
+            <img src="${e.image}" alt="lesson图片">
+            <span>${e.lessonName}</span>
+            <span>${e.author}</span>
+            <span><img src="images/icons/people.png" />${e.peopleCount}</span>
+            <span>￥${e.price}</span>
+        </div>
+        `
+    })
+
+    json2.forEach((e) => {
+        showArticle.innerHTML +=
+            `
+        <div>
+            <img src="${e.image}" alt="">
+            <p class="lesson_right_p2 dp_block f_l">${e.word}
+                <img src="images/icons/people.png" style="width: 13px;height: 13px;margin: 0;">${e.peopleCount}
+            </p>
+        </div>
+        `
+    })
+}
+
 
 
 setInterval(() => {
@@ -124,8 +170,6 @@ oIntroduce.addEventListener("click", function() {
     oShow1.style.display = "block"
     oShow1.style.float = "left"
     oShow2.style.display = "none"
-
-
 })
 
 oInputLanguage.addEventListener("click", function() {

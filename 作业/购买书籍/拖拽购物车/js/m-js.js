@@ -47,22 +47,8 @@ window.onload = function() {
         // 计算总价
         totalPrice.innerText = "￥" + initShopCar(oGoods, shopCarData);
     });
-    // 点击购物车中的物品则数量减一
-    oGoods.addEventListener("click", function(ev) {
-            if (ev.target.nodeName.toLowerCase() === "span") {
-                // 根据自定义属性取到点击元素的下标
-                let clickIndex = ev.target.parentNode["arr-index"];
 
-                shopCarData[clickIndex]["items-count"]--;
-                // 如果购物车中的物品数量已经小于0 则移除该项
-                if (shopCarData[clickIndex]["items-count"] <= 0) {
-                    shopCarData.splice(clickIndex, 1);
-                }
-                // 计算总价
-                totalPrice.innerText = "￥" + initShopCar(oGoods, shopCarData);
-            }
-        })
-        // 重绘购物车函数
+    // 重绘购物车函数
     function initShopCar(parent, json) {
         // 记录总价
         let result = 0;
@@ -91,4 +77,23 @@ window.onload = function() {
         })
         return result;
     }
+
+
+
+
+    // 点击购物车中的物品则数量减一
+    oGoods.addEventListener("click", function(ev) {
+        if (ev.target.nodeName.toLowerCase() === "span") {
+            // 根据自定义属性取到点击元素的下标
+            let clickIndex = ev.target.parentNode["arr-index"];
+
+            shopCarData[clickIndex]["items-count"]--;
+            // 如果购物车中的物品数量已经小于0 则移除该项
+            if (shopCarData[clickIndex]["items-count"] <= 0) {
+                shopCarData.splice(clickIndex, 1);
+            }
+            // 计算总价
+            totalPrice.innerText = "￥" + initShopCar(oGoods, shopCarData);
+        }
+    })
 };

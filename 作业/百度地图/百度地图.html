@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Lite Map</title>
+    <!-- <script src="http://api.map.baidu.com/api?v=1.2"></script> -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?ak=p02PrFIfZcbHzIm5o0owdDQXZeNNSPAb&type=lite&v=1.0"></script>
+    <style type="text/css">
+        html {
+            height: 100%;
+        }
+        
+        body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        #container {
+            height: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+</html>
+<script type="text/javascript">
+    var map = new BMap.Map('container');
+    // 创建地图实例
+    //大冲  22.5477381900,113.9600787200
+    var point = new BMap.Point(113.9600787200, 22.5477381900);
+    /* 创建点坐标  
+    centerAndZoom(center: Point , zoom: Number)
+    设初始化地图。 如果center类型为Point时，zoom必须赋值，范围3-19级，若调用高清底图（针对移动端开发）时，zoom可赋值范围为3-18级。
+    如果center类型为字符串时，比如“北京”，zoom可以忽略，地图将自动根据center适配最佳zoom级别
+    map.centerAndZoom(point, 18);
+    初始化地图， 设置中心点坐标和地图级别
+    */
+    map.enab
+    map.centerAndZoom(point, 19);
+    //标识
+    var marker = new BMap.Marker(point);
+    map.addOverlay(marker);
+
+    let geolocation = new BMap.Geolocation();
+    console.log(geolocation);
+</script>

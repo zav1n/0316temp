@@ -184,10 +184,10 @@ html {
     line-height: 50px;
 }
 
-
-/* li{
-    margin-right: 90px;
-} */
+video {
+    width: 187px;
+    height: 132px;
+}
 
 .container_img {
     width: 100%;

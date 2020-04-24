@@ -5,70 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        /*         
-        ul {
-            display: block;
-            list-style-type: none;
-            margin-block-start: 0;
-            margin-block-end: 0;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-            padding-inline-start: 00px;
-        } */
-        
-        ul li {
-            list-style: none;
-        }
-        
-        img {
-            width: 200px;
-            height: 260px;
-        }
-        
-        div {
-            display: inline-block;
-            border: 1px solid black;
-            margin: 5px;
-        }
-        
-        .container div ul span {
-            position: relative;
-            top: -22px;
-            left: 5px;
-        }
-        
-        .shopCar {
-            border: 1px solid black;
-            margin: 20px;
-        }
-        
-        .shopCar ul {
-            position: relative;
-            top: 20px;
-        }
-        
-        .shopCar ul span {
-            width: 200px;
-            display: inline-block;
-            text-align: center;
-        }
-        
-        span {
-            position: relative;
-            /* top: -22px; */
-            left: -35px;
-            margin-left: 20px;
-        }
-        
-        #priceSum {
-            float: right;
-        }
-    </style>
+    <link rel="stylesheet" href="shop.css">
+
 </head>
 
 <body>
@@ -76,32 +14,32 @@
         <div>
             <ul draggable="true">
                 <li><img src="image/img1.jpg"></li>
-                <li>javaScript语言精髓</li>
-                <li price="price">40</li><span>¥</span>
+                <li class="items-name">javaScript语言精髓</li>
+                <li class="item-price">40</li><span>¥</span>
             </ul>
         </div>
 
         <div>
             <ul draggable="true">
                 <li><img src="image/img2.jpg"></li>
-                <li>javaScript权威指南</li>
-                <li>120</li><span>¥</span>
+                <li class="items-name">javaScript权威指南</li>
+                <li class="item-price">120</li><span>¥</span>
             </ul>
         </div>
 
         <div>
             <ul draggable="true">
                 <li><img src="image/img3.jpg"></li>
-                <li>精通javaScript</li>
-                <li>35</li><span>¥</span>
+                <li class="items-name">精通javaScript</li>
+                <li class="item-price">35</li><span>¥</span>
             </ul>
         </div>
 
         <div>
             <ul draggable="true">
                 <li><img src="image/img4.jpg"></li>
-                <li>javaScript DOM 编程艺术</li>
-                <li>78</li><span>¥</span>
+                <li class="items-name">javaScript DOM 编程艺术</li>
+                <li class="item-price">78</li><span>¥</span>
             </ul>
         </div>
     </div>
@@ -110,9 +48,10 @@
         <ul>
             <li>
                 <span>数量</span>
-                <span class="name">书名</span>
+                <span>书名</span>
                 <span>价格</span>
             </li>
+
         </ul>
         <div id="priceSum"><span style="left: 0;">0</span> : 总价</div>
     </div>
@@ -123,6 +62,7 @@
     let shopList = document.querySelector(".shopCar ul")
     let bookName;
     let bookPrice;
+    let shopCarData = [];
 
 
     for (let i = 0; i < book.length; i++) {
@@ -153,14 +93,23 @@
         bookLi.appendChild(spanBookPrice)
         spanBookName.innerHTML = bookName
         spanBookPrice.innerHTML = "¥" + bookPrice
-        spanBookName.id = "name"
     }
 
 
     shopCar.addEventListener("drop", e => {
-        creatList(e)
-        console.log(bookName);
-        console.log(shopList);
+
+
+
+        for (let i = 0; i < shopList.children.length; i++) {
+            let iNow = 0
+            console.log(shopList.children[iNow++].children[1].innerHTML);
+            if (shopList.children[iNow++].children[1].innerHTML !== bookName) {
+                creatList(e)
+                return
+            } else {
+                console.log('等于书名');
+            }
+        }
     })
 </script>
 

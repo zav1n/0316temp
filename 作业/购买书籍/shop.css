@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    width: 200px;
+    height: 260px;
+}
+
+div {
+    display: inline-block;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.container div ul span {
+    position: relative;
+    top: -22px;
+    left: 5px;
+}
+
+.shopCar {
+    border: 1px solid black;
+    margin: 20px;
+}
+
+.shopCar ul {
+    position: relative;
+    top: 20px;
+}
+
+.shopCar ul span {
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+}
+
+span {
+    position: relative;
+    /* top: -22px; */
+    left: -35px;
+    margin-left: 20px;
+}
+
+#priceSum {
+    float: right;
+}
