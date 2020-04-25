@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断输入的值是不是数字</title>
+</head>
+<body>
+    <input type="text"  id="txt">
+    <input type="button" value="确定" id="btn">
+    <div id="div1"></div>
+    <!-- 判断输入的值是不是数字,使用Number.isNaN()方法 -->
+    <script>
+        let otxt = document.getElementById('txt');
+        let obtn = document.getElementById('btn');
+        let odiv = document.getElementById('div1');
+
+        obtn.onclick = function(){
+            num = Number(otxt.value)
+            if(Number.isNaN(num)){
+
+                odiv.innerHTML ="你输入的是"+otxt.value+"  请输入数字!"
+            }else{
+                odiv.innerHTML ="你输入的数字是:"+otxt.value;
+
+            }
+        }
+        
+    </script>
+</body>
+</html>

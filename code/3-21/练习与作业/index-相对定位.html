@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相对定位,position:relative</title>
+    <link rel="stylesheet" href="reset.css"/>
+    <style>
+        /*思路:三个div 第一个div独占一行   第二行空着   第三行有div2 和div3,而且div2在div3的在右边
+            使用position
+        */
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        .d1{
+            background-color: blue;
+        }
+        .d2{
+            background-color: chartreuse;
+            position: relative;
+            top: 100px;
+            left: 100px;
+            /*为什么不用float呢?如果用了float飞起来了,后面的div就会挤进来,第二行就不能空出来
+                这里涉及到文档流的影响,float的话 块将不块,所以直接使用top和left
+            */
+        }
+        .d3{
+            background-color: red;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+</body3
+</html3

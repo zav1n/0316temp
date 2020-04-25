@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阶乘</title>
+</head>
+<body>
+    <!-- 借鉴 -->
+    <input type="text" id="number">
+    <input type="button" id="button" value="确认">
+    <div id="result"></div>
+    <script>
+        let OTxt = document.getElementById("number")
+        let oBtn = document.getElementById("button")
+        let oResult = document.getElementById("result")
+
+        oBtn.onclick = function(){
+            let multi = 1  //初始化
+            let n = OTxt.value
+            for(let i = 1;i<=n;i++){
+                multi *=i;
+            }
+            oResult.innerHTML = `${multi}`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位,position:absolute</title>
+    <link rel="stylesheet" href="reset.css"/>
+    <style>
+        /*思路 : 有3个div各独占一行,其中第二个div在浏览器页面的右下角
+                并且浏览器大小变动,div2的位置也也是在页面的右下角*/
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        .d1{
+            background-color: blue;
+        }
+        /* .d2{
+            background-color: chartreuse;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        } */
+        .d3{
+            background-color: red;
+
+        }
+        
+        /*自行思考     
+        1.在position:absolute的情况下,如果页面是滚动的时候呢?这种方法是否能实现?  
+        2.在页面可以滚动的时候, div2不使用absolute , 使用position:fixed;是否也可以呢?
+        */
+
+         /* 自行思考1    答案是不行的
+         .d4{
+            width: 100px;
+            height: 10000px;
+            border: 1px solid black;
+        }
+         */
+        
+        /*答案是可以的
+        .d2{
+            background-color: chartreuse;
+            position: fixed;
+            right: 0px;
+            bottom: 0px;
+        }
+        */
+        
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+
+    <div class="d4"></div>
+    </body>
+</html>

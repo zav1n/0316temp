@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-24练习1</title>
+</head>
+<body>
+    <!-- 思路,点击全选,然后所有复选框都打上勾 -->
+    <input type="checkbox" name="Check" id="Check" class="CCheck"/>
+    <input type="checkbox" name="Check" id="Check" class="CCheck"/>
+    <input type="checkbox" name="Check" id="Check" class="CCheck"/>
+    <input type="checkbox" name="Check" id="Check" class="CCheck"/>
+    <input type="checkbox" name="Check" id="Check" class="CCheck"/>
+    <input type="checkbox" name="Check" id="Check" class="CCheck"/>
+    <input type="checkbox" name="Check" id="Check" class="CCheck"/>
+    <input type="checkbox" name="Check" id="Check" class="CCheck"/>
+    
+    <input type="button" name="AllCheck" id="AllCheck" value="全选"/>
+</body>
+<script>
+    let btn = document.getElementById("AllCheck");
+    /*既然多个,就不能用getElementById,ById只能单独一个,
+    多个的话就用getElementsByTagName或者getElementsByClassName*/
+    let check = document.getElementsByClassName("CCheck");
+
+    btn.onclick = function(){
+        console.log("点击成功");
+        for(let i = 0 ; i < check.length;i++){
+            check[i].checked = true;
+        }
+    }
+</script>
+</html>

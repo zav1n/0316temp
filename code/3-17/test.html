@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>JS HTML DOM</title>
+  
+ </head>
+ <body>
+  <div >
+<style>
+    div{
+        
+    }
+</style>
+    <input type="text" name="username" id="uname" />
+    <input type="submit" value="提交" onclick="login"/>
+
+   <font id="afont" style="color: red;" >请输入用户<font>
+  </div>
+  
+ </body>
+ <script>
+        var af=document.getElementById("afont");
+        var a=document.getElementById("uname");
+
+     function login(){
+        if(a!=null){
+            alert("文档为空");
+            // af.innerText = "不能为空";
+        }else{
+            
+        }
+     }
+     
+     
+        
+ </script>
+</html>

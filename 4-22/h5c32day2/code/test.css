@@ -1,7 +1,0 @@
-/* autoprefixer */
-div {
-  -webkit-transform: translate(10px 10px);
-  transform: translate(10px 10px);
-  -webkit-transition: all 1s;
-  transition: all 1s;
-}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout计时器</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            position:relative;
+            left: 50px;
+            margin-top: 50px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="star" value="开始" />
+    <input type="button" id="stop" value="暂停" />
+    <p>点击开始或暂停会有颜色变化</p>
+    <div id="d1"></div>
+
+    <script>
+
+        /**
+         *    
+         * 业务场景
+
+        setTimeout用于延迟执行某方法或功能
+        setInterval则一般用于刷新表单，对于一些表单的假实时指定时间刷新同步
+
+        */
+        let oStar = document.getElementById("star");
+        let oStop = document.getElementById("stop");
+        let oDiv1 = document.getElementById("d1");
+        let oDiv2 = document.getElementById("d2");
+        let ColorBox = ["pink","cyan","orange","blue","gray"]
+        let iNow = 0 //中立变量,来储存哪个下标
+        let timer; //中立变量 用来存储定时器id
+
+        oStar.onclick = function(){
+            clearInterval(timer) //在这里写清除计时器的好处是点击多次开始时不会造成多个计时器开始进行
+            timer = setInterval(function(){
+                oDiv1.style.backgroundColor = ColorBox[iNow++ % ColorBox.length]
+            },100)
+        }
+
+        oStop.onclick = function(){
+            clearInterval(timer)
+        }
+
+        
+    </script>
+</body>
+</html>

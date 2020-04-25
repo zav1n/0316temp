@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 所有的盒子 上下外边距总是共享的但左右外边距又总是不共享的 */
+    div {
+      width: 100px;
+      height: 100px;
+      margin: 100px 0;
+      background-color: pink;
+    }
+
+    span {
+      background-color: yellow;
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>1</div>
+  <div>2</div>
+  <span>1</span>
+  <span>2</span>
+</body>
+
+</html>

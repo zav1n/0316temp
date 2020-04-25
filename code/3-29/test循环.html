@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for (var i = 3; i < 12; i++) {
+            if (i < 3) {
+            i++
+            break
+                }                /*这个if一开始就没执行,所以break也没执行
+                                原因是一开始i=3,i<3不成立
+                                */
+            
+            if (i > 9) {      
+            i += 2
+            continue
+            }
+            i--
+        }
+        console.log(i)
+    </script>
+</body>
+</html>

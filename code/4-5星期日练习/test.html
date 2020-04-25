@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <p id="testP"></p>
+
+    <script>
+        let oInput = document.getElementsByTagName("input")[0]
+        let oP = document.querySelector("#testP")
+
+        oInput.addEventListener("input", function () {
+            console.log(this.value)
+            oP.innerHTML = this.value
+            if (this.value.length >= 6) {
+                oInput.focus()
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>table的边框合并属性</title>
+  <style>
+    table {
+      width: 600px;
+      height: 400px;
+      /* border-collapse 只能使用在表格中 
+        separate： 边框独立 collapse： 相邻边被合并
+      */
+      border-collapse:collapse;
+    }
+  </style>
+</head>
+
+<body>
+  <table border="1px" cellspacing="0" cellpadding="0">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</body>
+
+</html>

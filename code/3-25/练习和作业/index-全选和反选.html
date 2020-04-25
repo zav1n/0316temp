@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选和反选</title>
+</head>
+<body>
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="button" value="全选" id="allbtn">
+
+    <script>
+        let Allbtn = document.getElementById("allbtn");
+        let Check = document.getElementsByTagName("input");
+
+        Allbtn.onclick = function(){
+            console.log("已经点击了");
+            //  //第一种-----------------------
+            // for(let i = 0;i<Check.length;i++){
+            //     console.log("进入i循环");
+            //     // 注意要明白===和==和=的区别使用
+            //     // 如果要在if判断,则用===来判断数值和类型是否都一样
+            //     // = 是赋值给另外一个,并不是两个相等
+            //     
+            //     if(Check[i].checked === false){
+            //     Check[i].checked = true
+            //     }else{
+            //         console.log(Check[i].checked);
+            //         Check[i].checked = false
+            //     }
+            //     //第二种----------------------------------------------
+            //     // if(Check[i].checked){
+            //     //     Check[i].checked ? true : false    ----1
+            //     // }   
+            //     //虽然好像是有点理由,但是在1中的代码得到的true或者false要给谁呢?都不知道给谁
+            //     //正确写法
+            //     // if(Check[i].checked){
+            //     //     [i].checked = (Check[i].checked ? false : true)   
+            //     // }  
+            //     //---------------------------------------------------
+
+            // }   //这个括号是在第一种的for中不能去掉哦
+
+            //第三种-----------------------------------------------------最好看
+            for(let i = 0;i<Check.length;i++){
+                Check[i].checked = (Check[i].checked ? false : true)
+            }
+            //----------------------------------------------------------
+        }
+    </script>
+</body>
+</html>

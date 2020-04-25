@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-24练习2</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        
+    </ul>
+    <script>
+        let list = document.getElementsByTagName("li");
+
+        for(let i=0; i<list.length;i++){
+
+                if( i%3 == 0){
+                    /*移除鼠标后返回原来的值*/
+                    list[i].color = "pink";
+                    list[i].height = "20px";
+                    /*给li样式,如果css样式写了我们就不用自己写*/
+                    list[i].style.listStyle = "none";
+                    list[i].style.height = "20px";
+                    list[i].style.background = "pink";
+                }
+                if(i%3 == 1){
+                    list[i].height = "20px";
+                    list[i].style.height = "20px";
+                    list[i].style.listStyle = "none";
+                    list[i].color = "yellow";
+                    list[i].style.background = "yellow"
+
+                    list[i].style.width = "500px";
+                }
+                if(i%3 == 2){
+                    list[i].height = "20px";
+                    list[i].style.height = "20px";
+                    list[i].style.listStyle = "none";
+                    list[i].color = "orange";
+                    list[i].style.background = "orange";
+                }
+
+            list[i].onmouseover = function(){
+                this.style.height = "80px";
+                this.style.background = "transparent";
+            
+            };
+            list[i].onmouseout = function(){
+                /*移除后返回原来的值*/
+                    this.style.background = this.color;
+                    this.style.height = this.height;
+                
+            };
+
+            list[i].onclick = function(){
+                this.style.background = "gray";
+            };
+
+        }
+        
+        
+    </script>
+
+</body>
+</html>

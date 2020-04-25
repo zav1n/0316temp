@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="text" id="search">
+    <input type="button" id="btn" value="搜索">
+    <ul id="citylist">
+      <li>北京</li>
+      <li>上海</li>
+      <li>广州</li>
+      <li>深圳</li>
+    </ul>
+    <div id="result">
+
+    </div>
+    <script>
+/**
+ * ---------------------和写法1不同的店-----------------------------------
+ * 不用return，用break
+ * 因为使用到break，一触碰到break就会中断，如果不把搜索不到的结果放在此break的判断前的话，就会互相覆盖，最后的样式将会覆盖前面的
+ * 所以要把搜索不到的结果放在该break的外面，放在此break判断之前
+ * 如果成功搜索到，就直接覆盖了原有的搜索不到的结果
+ * 如果搜索不到，就中断了，没有覆盖，直接显示搜索不到的结果
+*/
+      //定义元素
+      const oSearch = document.getElementById("search");
+      const oBtn = document.getElementById("btn");
+      const oCityList = document.getElementById("citylist");
+      const aCitys = oCityList.getElementsByTagName("li");
+      const oResult = document.getElementById("result")
+
+      oBtn.onclick = function () {
+        //重置样式
+        for (let i = 0; i < aCitys.length; i++) {
+          aCitys[i].style.backgroundColor = ""
+        }
+
+        //让文本默认为错误文本
+        oResult.style.color = "red"
+        oResult.innerHTML = "对不起,没有该城市"
+
+        //获取文本框的内容
+        for (let i = 0; i < aCitys.length; i++) {
+          if (oSearch.value === aCitys[i].innerHTML) {
+            aCitys[i].style.backgroundColor = "pink"
+            oResult.style.color = "green"
+            oResult.innerHTML = "恭喜您,搜索成功了耶"
+            // return   
+            break
+          }
+        }
+      }
+    </script>
+  </body>
+
+</html>

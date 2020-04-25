@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<style>
+.center{
+	width:1024px;
+	margin:auto;
+	}
+	
+#bao,#jian,#chui{
+	width:100px;
+	height:100px;
+	display:block;
+	float:left;}
+#bao{
+	background:url(bu.png)}
+#jian{
+	background:url(jian.png)}
+#chui{
+	background:url(shitou.png)}
+#bao:hover{
+	background-color:#0FF}
+#jian:hover{
+	background-color:#936}
+#chui:hover{
+	background-color:#F00}
+</style>
+<script type="application/javascript">
+	var score=0;
+function Run(myval)
+{
+	//myval我选择的参数，cmpval电脑随机抽取参数
+	//获取用户选择的值，1包2剪3捶
+	//实现电脑随机抽取1~3
+	var cmpval=Math.floor(Math.random(Date.now())*(3-1+1))+1;
+	console.log(cmpval);
+	//提示电脑出的包剪捶地情况
+		switch(cmpval)
+		{
+			case 1:alert("电脑出的是布");break;
+			case 2:alert("电脑出的是剪");break;
+			case 3:alert("电脑出的是捶");break;
+		}
+		//输赢平的判断 if-else
+		/*我赢
+		1  3
+		2  1
+		3  2
+		*/
+		if((myval==1&&cmpval==3)||(myval==2&&cmpval==1)||(myval==3&&cmpval==2))
+		{
+			alert("你赢了");
+			score +=1;	
+		}
+		if((myval==3&&cmpval==1)||(myval==1&&cmpval==2)||(myval==2&&cmpval==3))
+		{
+			alert("你输了");
+			score -=1;
+		}
+		if((myval==3&&cmpval==3)||(myval==2&&cmpval==2)||(myval==1&&cmpval==1))
+		{
+			alert("平局，不加分");
+			//score-=1;
+		}
+		document.getElementById("score").innerHTML=score;
+		//把总分score显示到ID=“score”的span元素中
+		//若改变两个标签中的内容。.innerHtml
+		//改变标签中value属性的值。.value
+	}
+</script>
+<body>
+<div class="center">
+<h1>当前得分：<span id="score">0</span></h1>
+<a href="javascript:;" id="bao" onclick="Run(1)">布</a>
+<a href="javascript:;" id="jian" onclick="Run(2)">剪刀</a>
+<a href="javascript:;" id="chui" onclick="Run(3)">锤</a>
+
+
+</div>
+</body>
+</html>

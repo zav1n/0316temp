@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <style>
+    /* 清浮动 空对空 地对空 */
+    /* 方法二 直接添加一个子标签 设置属性clear (没人用) */
+    .container {
+      width: 400px;
+      /* height: 300px; */
+      border: 10px solid black;
+      margin: 0 auto;
+    }
+
+    .box {
+      width: 200px;
+      /* height: 300px; */
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container clearfix">
+    <div class="box fr">
+      文字文字文字文字文字文字文字文字文字<br />
+      文字文字文字文字文字文字文字文字文字<br />
+      文字文字文字文字文字文字文字文字文字<br />
+      文字文字文字文字文字文字文字文字文字<br />
+      文字文字文字文字文字文字文字文字文字<br />
+      文字文字文字文字文字文字文字文字文字<br />
+      文字文字文字文字文字文字文字文字文字<br />
+      文字文字文字文字文字文字文字文字文字<br />
+    </div>
+  </div>
+</body>
+
+</html>
