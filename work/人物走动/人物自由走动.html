@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物自由走动</title>
+</head>
+
+<body>
+    <style>
+
+    </style>
+    <!-- 1.创建一个背景 和 人物 的div-->
+    <div id="bgMap">
+        <div id="person"></div>
+    </div>
+
+    <script>
+        let obgMap = document.querySelector("#bgMap")
+        let oPreson = document.querySelector("#person")
+
+        bgMap = (width, height, image, position) => {
+            obgMap.style.width = `${width}px`
+            obgMap.style.height = `${height}px`
+            obgMap.style.backgroundImage = image
+            obgMap.style.position = `${position}`
+        }
+        personCharacter = (width, height, image, position) => {
+            oPreson.style.width = `${width}px`
+            oPreson.style.height = `${height}px`
+            oPreson.style.backgroundImage = image
+            oPreson.style.position = `${position}`
+        }
+
+        bgMap(485, 323, "url(allmap.gif)", "relative")
+        personCharacter(32, 48, "url(xiaoying.png)", "absolute")
+
+        document.addEventListener("keydown", e => {
+        switch (e.key) {
+          case "ArrowLeft":
+            if (oPreson.offsetLeft > 0) {
+              oPreson.style.left = oPreson.offsetLeft - 30 + "px"
+            }
+            break;
+          case "ArrowRight":
+            if (oPreson.offsetLeft < oPreson.offsetParent.offsetWidth - oPreson.offsetWidth*2) {
+              oPreson.style.left = oPreson.offsetLeft + 30 + "px"
+            }
+            break;
+          case "ArrowUp":
+            if (oPreson.offsetTop > 0) {
+              oPreson.style.top = oPreson.offsetTop - 30 + "px"
+            }
+            break;
+          case "ArrowDown":
+            if (oPreson.offsetTop < oPreson.offsetParent.offsetHeight - oPreson.offsetHeight) {
+              oPreson.style.top = oPreson.offsetTop + 30 + "px"
+            }
+            break;
+        }
+      })
+
+    </script>
+</body>
+
+</html>

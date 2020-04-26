@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入姓名" id="username">
+    <input type="button" value="检查" id="search"><br/>
+    <input type="password" placeholder="请输入密码" id="pwd"><br/>
+    <input type="text" placeholder="请输入邮箱" id="email"><br/>
+    <input type="button" value="保存" id="save">
+    <div id="tip"></div>
+    <script>
+        let userName = document.getElementById("username")
+        let passWord = document.getElementById("pwd")
+        let email = document.getElementById("email")
+        let searchBtn = document.getElementById("search")
+        let saveBtn = document.getElementById("save")
+        let tip = document.getElementById("tip")
+            //获取用户信息,如果什么都没获取到就弄个空数组
+            //获得的数据转换为json数据   JSON.parse(string) return object   将字符串转换成json
+        let arrUser = JSON.parse(localStorage.getItem("user")) || []
+        let id = arrUser.length
+        saveBtn.addEventListener("click", () => {
+            let obj = {
+                id,
+                username: userName.value,
+                password: passWord.value,
+                email: email.value,
+            }
+            arrUser.push(obj)
+                // JSON.stringify(object) return string //将json转换成字符串
+                //存进localstorage的值要是字符串,所以需要转换
+            let strUser = JSON.stringify(arrUser)
+            localStorage.setItem("user", strUser)
+            id++
+        })
+
+        //查找有没有此用户
+        searchBtn.addEventListener("click", () => {
+            let strUser = localStorage.getItem("user")
+                // console.log(strUser);
+                //获取到储存用户信息的数组,然后转化为jSON数据
+            let data = JSON.parse(strUser)
+                // console.log(data);
+                //filter过滤  上面的data是获取到loaclstorage字符串转化为数组  才能用filter的方法
+            let user = data.filter((e) => {
+                return e.username === userName.value
+            })
+            console.log(user[0]); //user[0]是获取到id
+            tip.innerHTML = user.length ?
+                `
+            <p>用户名:${user[0].username}</p>
+            <p>密码:${user[0].password}</p>
+            <p>邮箱:${user[0].email}</p>
+            ` : "没有此用户"
+        })
+    </script>
+</body>
+
+</html>

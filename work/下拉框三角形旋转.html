@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>下拉框三角形旋转</title>
+    <link rel="stylesheet" href="..//4-21/h5c31/02-代码/font/iconfont.css">
+    <style>
+        #div1 {
+            margin: 25% auto;
+            width: 200px;
+            height: 40px;
+            border: 1px solid black;
+        }
+        
+        #down {
+            position: relative;
+            left: 150px;
+            width: 50px;
+            height: 43px;
+            cursor: pointer;
+            transform: rotate(-90deg);
+            transition: all 1s;
+        }
+        
+        #down:hover {
+            height: 30px;
+            transition: all 1s;
+            transform: rotate(0deg);
+        }
+        
+        .iconfont {
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <div id="down">
+            <i class="iconfont">&#xe6a5;</i>
+        </div>
+    </div>
+
+</body>
+
+</html>

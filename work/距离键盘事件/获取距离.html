@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #div1{
+        width: 500px;
+        height: 500px;
+        background-color: skyblue;
+        position:relative;
+    }
+    #div2{
+        width: 300px;
+        height: 300px;
+        background-color: springgreen;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+    }
+    #div3{
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+
+    }
+</style>
+<body>
+
+<div id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+    <script>
+        let oDiv1 = document.querySelector("#div1")
+        let oDiv2 = document.querySelector("#div2")
+        let oDiv3 = document.querySelector("#div3")
+        //注意！每个div的style要absolute/relative/fixed，要不然获取不到，直接获取到body
+        let getDistance = (element) => {
+            let distance = {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            }
+            while (element.offsetParent) {
+                distance.top += element.offsetTop
+                distance.right += element.offsetRight
+                distance.bottom += element.offsetBottom
+                distance.left += element.offsetLeft
+                element = element.offsetParent
+            }
+            return distance
+        } 
+
+        //调用，用div3
+        getDistance(oDiv3)
+        //div3到body的距离
+        console.log(oDiv3.offsetTop)
+        //div2到body的距离
+        // console.log(oDiv2.offsetTop)
+    </script>
+</body>
+
+</html>

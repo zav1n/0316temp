@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1::before{
+            content: "";/*   用before和after必须要有content   */
+            display: block;
+            width: 50px;
+            height: 200px;
+            background-color: skyblue;
+            position: relative;
+            left: 50px;
+        }
+        .div1::after{
+            content: "";
+            display: block;
+            width: 150px;
+            height: 50px;
+            background-color: pink;
+            position: relative;
+            top:-150px
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+</body>
+</html>

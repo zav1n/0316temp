@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页首页</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="tool.css" />
+    <link rel="stylesheet" href="wangyi.css">
+    <link rel="stylesheet" href="json.js">
+
+</head>
+
+
+<body>
+    <!------------------------- 头部 ------------------------------>
+    <div class="head">
+        <div class="head_l f_l">
+            <a class="logo bg_nrp"></a>
+            <input type="buttom" value="+关注" class="f_l follow" />
+            <span class="f_l">粉丝 45</span>
+        </div>
+
+        <li class="searchbox">
+            <input type="text" class="searchInput" placeholder="请搜索">
+            <i class="search"></i>
+        </li>
+
+        <div class="head_r f_r">
+            <a href="#">网易公开课</a>
+            <a href="#">云课堂</a>
+            <a href="#">中国大学MOOC</a>
+        </div>
+    </div>
+
+
+    <!------------------------- 内容 --------------------------------->
+    <div class="container">
+
+        <div class="wrapper">
+            <ul class="wrapperShow">
+                <li class="slide"><img src="images/banner/banner1.jpg" alt="轮播图"></li>
+                <li class="slide"><img src="images/banner/banner2.jpg" alt="轮播图"></li>
+                <li class="slide"><img src="images/banner/banner3.jpg" alt="轮播图"></li>
+                <li class="slide"><img src="images/banner/banner1.jpg" alt="轮播图"></li>
+            </ul>
+        </div>
+        <div class="container_itrd">
+            <ul>
+                <li>
+                    <div class="info_icon1 info_icon_wh f_l"></div>
+                    <div class="info">
+                        <p class="info_title">网易公开课</p>
+                        <p class="info_word">推出国内外名校公开课，涉及广泛的学科， 名校老师认真讲解深度剖析，网易视频公开课频道搭建起强有力的网络视频教学平台。
+                        </p>
+                        <a href="#" class="info_more">了解更多&nbsp;></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="info_icon2 info_icon_wh f_l"></div>
+                    <div class="info">
+                        <p class="info_title">网易公开课</p>
+                        <p class="info_word">推出国内外名校公开课，涉及广泛的学科， 名校老师认真讲解深度剖析，网易视频公开课频道搭建起强有力的网络视频教学平台。
+                        </p>
+                        <a href="#" class="info_more">了解更多&nbsp;></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="info_icon3 info_icon_wh f_l"></div>
+                    <div class="info">
+                        <p class="info_title">网易公开课</p>
+                        <p class="info_word">推出国内外名校公开课，涉及广泛的学科， 名校老师认真讲解深度剖析，网易视频公开课频道搭建起强有力的网络视频教学平台。
+                        </p>
+                        <a href="#" class="info_more">了解更多&nbsp;></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="container_img f_l">
+            <img src="images/xAxisPic.jpg" alt="照片">
+        </div>
+
+        <div class="container_lesson">
+
+            <ul class="f_l" style="margin-top: 50px;">
+
+                <li class="lesson_right dp_block f_r">
+                    <div class="lesson_right_1" style="border: 1px solid #d5d3d2;">
+                        <span class="dp_block">
+                            <p class="lesson_right_p1">机构介绍</p>
+                        </span>
+                        <div>
+                            <p>观看下面视频了解吧 : </p>
+                            <video src="https://www.w3school.com.cn/i/movie.ogg" controls="controls"></video >
+                        </div>
+                    </div>
+
+                    <div class="lesson_right_2" id="lesson_right_2">
+                        <span class="dp_block">
+                            <p class="lesson_right_p1">热门排行</p>
+                        </span>
+                        <div class="lesson_right_article" id="lesson_right_article">
+
+                            <div id="child2"></div>
+                        </div>
+                    </div>
+                </li>
+
+
+                <input type="button" value="产品设计" class=" dp_block f_l" id="introduce" />
+                <input type="button" value="编程语言" class=" dp_block f_l" id="inputLanguage" />
+                <div id="show_lesson_1" style="width: 920px;">
+
+                    <!-- 数据已经放在json。js里面了 -->
+                </div>
+
+                <div id="show_lesson_2" style="width: 920px;display: none;">
+
+                    <div class="lesson_curson">
+                        <img src="images/2-2.jpg" alt="lesson图片">
+                        <span>分析态维案例实战</span>
+                        <span>作者:苏泽锋</span>
+                        <span><img src="images/icons/people.png" />6666</span>
+                        <span>￥0</span>
+                    </div>
+                </div>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+    <!-- 尾部 -->
+    <div class="container_botton f_l">
+        <ul class="dp_block">
+            <li class="container_botton_li1 dp_block f_l">
+                <div class="bg_nrp"></div>
+                <p class="dp_block">©2014 icourse163.org 浙ICP备08114786号-1</p>
+                <p class="dp_block">icourses.cn 京ICP备12020869号-2 京公网安备110102000459-2</p>
+            </li>
+
+            <li>
+                <div class="f_l" style="width: 110px;line-height: 40px;margin: 55px 0px 0px 100px;">
+                    <p>友情链接 :</p>
+                    <a href="#" class="dp_block f_l">网易公开课</a>
+                    <a href="#" class="dp_block f_l">网易云课堂</a>
+                    <a href="#" class="dp_block f_l">中国大学MOOC</a>
+                </div>
+            </li>
+
+            <li>
+                <div class="f_l" style="width: 35px;line-height: 40px;margin: 55px 0px 0px 100px;">
+                    <p>我们 :</p>
+                    <a href="#">关于</a>
+                    <a href="#">联系</a>
+                    <a href="#">微博</a>
+                </div>
+            </li>
+
+            <li>
+                <div class="f_l" style="width: 65px;line-height: 40px;margin: 55px 0px 0px 100px;">
+                    <p>更多 :</p>
+                    <a href="">常见问题</a>
+                    <a href="">意见反馈</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!------------------------------js-------------------------------->
+    <script src="json.js"></script>
+    <script src="wangyi2.js"></script>
+</body>
+
+</html>

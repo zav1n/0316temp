@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物走动</title>
+</head>
+
+<body>
+    <style>
+        #star {
+            position: absolute;
+            left: 500px;
+            width: 50px;
+        }
+
+        #stop {
+            position: absolute;
+            left: 500px;
+            width: 50px;
+            top: 50px
+        }
+
+        #back {
+            position: absolute;
+            left: 500px;
+            width: 50px;
+            top: 100px
+        }
+    </style>
+    <!-- 1.创建一个背景 和 人物 的div-->
+    <div id="bgMap">
+        <div id="person"></div>
+    </div>
+    <input type="button" value="开始" id="star" />
+    <input type="button" value="暂停" id="stop" />
+    <input type="button" value="后退" id="back" />
+
+    <script>
+        let obgMap = document.querySelector("#bgMap")
+        let oPreson = document.querySelector("#person")
+
+        let oStar = document.querySelector("#star")
+        let oStop = document.querySelector("#stop")
+        let oBack = document.querySelector("#back")
+
+        let step = ["-32px", "-96px"]
+        let iNow = 0
+        let timer = null;
+
+        bgMap = (width, height, image, position) => {
+            obgMap.style.width = `${width}px`
+            obgMap.style.height = `${height}px`
+            obgMap.style.backgroundImage = image
+            obgMap.style.position = `${position}`
+        }
+        personCharacter = (width, height, image, position) => {
+            oPreson.style.width = `${width}px`
+            oPreson.style.height = `${height}px`
+            oPreson.style.backgroundImage = image
+            oPreson.style.position = `${position}`
+        }
+
+        bgMap(485, 323, "url(allmap.gif)", "absolute")
+        personCharacter(32, 48, "url(xiaoying.png)", "absolute")
+
+        oStar.addEventListener("click", () => {
+            clearInterval(timer)
+            timer = setInterval(() => {
+                oPreson.style.backgroundPositionY = "-96px"
+                oPreson.style.backgroundPositionX = step[iNow++ % step.length]//
+                oPreson.style.left = oPreson.offsetLeft + 8 + "px"
+                console.log(oPreson.offsetLeft + 8 + "px")
+
+
+            }, 1000);
+            console.log("点击了")
+        })
+
+    </script>
+</body>
+
+</html>

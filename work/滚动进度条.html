@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滚动进度条</title>
+</head>
+<style>
+    div{
+        width: 10px;
+        height: 10px;
+        background-color: pink;
+        position: fixed;
+    }
+</style>
+<body style="height: 2000px;">
+    <div id="div1"></div>
+    <script>
+        document.addEventListener("scroll",e=>{
+            
+            let sHeight = document.documentElement.scrollHeight
+            let sTop = document.documentElement.scrollTop
+            let cHeight = document.documentElement.clientHeight
+            let oDiv = document.getElementById("div1")
+
+            
+            oDiv.style.width = sTop+"px"
+
+            if(sHeight-sTop === cHeight){
+                console.log('到底部了');
+            }
+        })
+    </script>
+</body>
+</html>
