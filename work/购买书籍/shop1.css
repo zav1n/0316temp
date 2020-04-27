@@ -27,7 +27,11 @@ img {
     border: 1px solid black;
 }
 
+.shopCar ul li span {
+    margin: 80px;
+}
+
 #priceSum {
     position: relative;
-    left: 70%;
+    left: 90%;
 }

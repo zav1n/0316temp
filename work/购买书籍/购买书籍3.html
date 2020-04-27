@@ -15,23 +15,23 @@
             <ul>
                 <li data-id="0" draggable="true">
                     <img src="image/img1.jpg">
-                    <p class="items-name">javaScript语言精髓</p>
-                    <span class="item-price">¥20.68</span>
+                    <p>javaScript语言精髓</p>
+                    <span>¥20.68</span>
                 </li>
                 <li data-id="1" draggable="true">
                     <img src="image/img2.jpg">
-                    <p class="items-name">javaScript权威指南</p>
-                    <span class="item-price">¥5.66</span>
+                    <p>javaScript权威指南</p>
+                    <span>¥5.66</span>
                 </li>
                 <li data-id="2" draggable="true">
                     <img src="image/img3.jpg">
-                    <p class="items-name">精通javaScript</p>
+                    <p>精通javaScript</p>
                     <span>¥30.00</span>
                 </li>
                 <li data-id="3" draggable="true">
                     <img src="image/img4.jpg">
-                    <p class="items-name">javaScript DOM 编程艺术</p>
-                    <span class="item-price">¥28.50</span>
+                    <p>javaScript DOM 编程艺术</p>
+                    <span>¥28.50</span>
                 </li>
             </ul>
         </div>
@@ -72,18 +72,50 @@
     }]
 
     let goodsLi = document.querySelectorAll(".container div ul");
+    let shopCar = document.querySelector(".shopCar ul")
+        //存储购物车里面的数据
     let shopCarData = [];
     //正在被拖动的书
     let dragObj = null;
 
     //对所有书都绑定一个拖拽事件
     for (let i = 0; i < goodsLi.length; i++) {
-        goodsLi[i].addEventListener("dragstart", e => {
+        goodsLi[i].addEventListener("dragstart", function(e) {
             json.map(e => {
+                //
                 if (String(e.id) === String(this.getAttribute("data-id"))) {
                     dragObj = e
+                    console.log(e.id + this.getAttribute("data-id"));
                 }
             })
+        })
+    }
+
+    //为shopCar可以接受丢弃的内容做准备 因为默认任何元素是不可以拖曳且不可以接收拖曳的内容
+    shopCar.addEventListener("dragover", function(e) {
+        //本身是不让接收拖曳 但是现在我想拖曳 所以我允许拖曳 阻止浏览器默认事件发生
+        e.preventDefault();
+    })
+
+    //drop 丢弃事件
+    shopCar.addEventListener("drop", function() {
+        //判断拖曳的对象在不在结果数组中
+        dropShopCar(shopCarData)
+    })
+
+    //把书丢进去，然后在购物车添加丢进去的书
+    function dropShopCar(shopCarData) {
+        shopCar.innerHTML = ""
+        shopCarData.map(e => {
+            shopCar.innerHTML +=
+                `
+                <li data-id="${e.id}">
+                        <img src="${e.imgsrc}" />
+                        <span>${e.bookname}</span>
+                        <span>${e.price}</span>
+                        <span>${e.count}</span>
+                    </li>
+            `
         })
     }
 </script>
