@@ -12,7 +12,7 @@ img {
     height: 260px;
 }
 
-div {
+.container div {
     display: inline-block;
     border: 1px solid black;
     margin: 5px;
@@ -25,14 +25,16 @@ div {
 }
 
 .shopCar {
+    width: 50%;
     border: 1px solid black;
-    margin: 20px;
+    margin: 5px;
 }
 
-.shopCar ul {
+
+/* .shopCar ul {
     position: relative;
     top: 20px;
-}
+} */
 
 .shopCar ul span {
     width: 200px;
@@ -42,11 +44,12 @@ div {
 
 span {
     position: relative;
-    /* top: -22px; */
     left: -35px;
     margin-left: 20px;
 }
 
 #priceSum {
     float: right;
+    position: relative;
+    top: -20px;
 }

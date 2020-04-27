@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="shop1.css">
+
+</head>
+
+<body>
+    <div id="container" class="container">
+        <div>
+            <ul>
+                <li data-id="0" draggable="true">
+                    <img src="image/img1.jpg">
+                    <p class="items-name">javaScript语言精髓</p>
+                    <span class="item-price">¥20.68</span>
+                </li>
+                <li data-id="1" draggable="true">
+                    <img src="image/img2.jpg">
+                    <p class="items-name">javaScript权威指南</p>
+                    <span class="item-price">¥5.66</span>
+                </li>
+                <li data-id="2" draggable="true">
+                    <img src="image/img3.jpg">
+                    <p class="items-name">精通javaScript</p>
+                    <span>¥30.00</span>
+                </li>
+                <li data-id="3" draggable="true">
+                    <img src="image/img4.jpg">
+                    <p class="items-name">javaScript DOM 编程艺术</p>
+                    <span class="item-price">¥28.50</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="shopCar" class="shopCar">
+        <ul>
+            <li>
+                <span>数量</span>
+                <span>书名</span>
+                <span>价格</span>
+            </li>
+            <div id="priceSum"><span style="left: 0;">0</span> : 总价</div>
+        </ul>
+    </div>
+</body>
+<script>
+    let json = [{
+        id: 0,
+        imgsrc: "image/img1.jpg",
+        bookname: "javaScript语言精髓",
+        price: "20.68",
+    }, {
+        id: 1,
+        imgsrc: "image/img2.jpg",
+        bookname: "javaScript权威指南",
+        price: "5.66",
+    }, {
+        id: 2,
+        imgsrc: "image/img3.jpg",
+        bookname: "精通javaScript",
+        price: "30.00",
+    }, {
+        id: 3,
+        imgsrc: "image/img4.jpg",
+        bookname: "javaScript DOM 编程艺术",
+        price: "28.50",
+    }]
+
+    let goodsLi = document.querySelectorAll(".container div ul");
+    let shopCarData = [];
+    //正在被拖动的书
+    let dragObj = null;
+
+    //对所有书都绑定一个拖拽事件
+    for (let i = 0; i < goodsLi.length; i++) {
+        goodsLi[i].addEventListener("dragstart", e => {
+            json.map(e => {
+                if (String(e.id) === String(this.getAttribute("data-id"))) {
+                    dragObj = e
+                }
+            })
+        })
+    }
+</script>
+
+</html>

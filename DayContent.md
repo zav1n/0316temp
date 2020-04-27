@@ -676,3 +676,25 @@ async异步
 # 4-27
 
 1.完成老师的拖拽
+
+2.ES6标准入门第3版
+
+https://es6.ruanyifeng.com
+
+3.流式布局.md
+
+bootstrap中的@media媒体大小
+
+zepto是jq的移动端
+
+msdn
+
+1114370611@qq.com
+
+Szf33090
+
+balenaEtcher
+
+阮一峰，张鑫旭
+
+骰子flex
