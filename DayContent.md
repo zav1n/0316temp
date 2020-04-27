@@ -671,5 +671,8 @@ querySelectorAll
 
 async异步
 
-s
 
+
+# 4-27
+
+1.完成老师的拖拽

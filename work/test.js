@@ -12,7 +12,7 @@ let obj2 = {
 
 eat.call(obj1)
 eat.call(obj2)
-//----------------------------------------------
+    //----------------------------------------------
 
 let animals = [
     { species: 'Lion', name: 'King' },
@@ -20,8 +20,8 @@ let animals = [
 ];
 
 for (var i = 0; i < animals.length; i++) {
-    (function (i) {
-        this.print = function () {
+    (function(i) {
+        this.print = function() {
             console.log('下标：' + i);
             console.log(this.species + ': ' + this.name);
         }
@@ -41,7 +41,7 @@ var obj = {
     sleepDuration: '12到16个小时'
 };
 
-amimals.call(obj);  //猫睡12到16个小时
+amimals.call(obj); //猫睡12到16个小时
 
 //-------------------------------------------------------------
 var array = ['a', 'b'];
@@ -66,8 +66,29 @@ console.log(boundGetX());
 
 //-------------------------------------------------------------
 let str = "北京欢迎您";
-      console.log(str)
-      console.log(str[2])
-      for (let i = 0; i < str.length; i++) {
-        console.log(str[i])
-      }
+console.log(str)
+console.log(str[2])
+for (let i = 0; i < str.length; i++) {
+    console.log(str[i])
+}
+
+//-------------------------------------------------------------
+let arr = ["北京", "深圳", "上海"]
+Array.from(arr, function(e, i) {
+        console.log(e, i)
+    })
+    //-------------------------------------------------------------
+    //element 当前被遍历的元素值
+    //index 当前被遍历的元素下标
+    //array 源数据
+
+let arr = ["北京", "深圳", "上海"]
+    //forEach 不会提供返回值
+arr.forEach(function(e, i, a) {
+        console.log(e, i, a)
+    })
+    //北京 0 [ '北京', '深圳', '上海' ]
+    //深圳 1 [ '北京', '深圳', '上海' ]
+    //上海 2 [ '北京', '深圳', '上海' ]
+
+//-------------------------------------------------------------
