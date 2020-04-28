@@ -687,14 +687,10 @@ bootstrap中的@media媒体大小
 
 zepto是jq的移动端
 
-msdn
-
-1114370611@qq.com
-
-Szf33090
-
 balenaEtcher
 
-阮一峰，张鑫旭
+阮一峰  https://es6.ruanyifeng.com/
 
-骰子flex
+张鑫旭
+
+骰子flex   http://www.ruanyifeng.com/blog/2015/07/flex-examples.html

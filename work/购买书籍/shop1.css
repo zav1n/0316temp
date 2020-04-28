@@ -19,19 +19,36 @@ img {
 
 .shopCar {
     border: 1px solid black;
-    width: 50%;
+    width: 66%;
 }
 
-.container div ul li {
+.container ul li {
     display: inline-block;
     border: 1px solid black;
 }
 
-.shopCar ul li span {
+
+/* .shopCar span {
     margin: 80px;
+} */
+
+.shopCar ul li {
+    border-bottom: 1px solid black;
+    margin: 5px;
+}
+
+.shopCar ul li span {
+    margin: 60px;
+}
+
+.shopCar img {
+    margin: 0 10px;
+    width: auto;
+    height: 70px;
+    vertical-align: middle;
 }
 
 #priceSum {
-    position: relative;
-    left: 90%;
+    position: absolute;
+    right: 48%;
 }

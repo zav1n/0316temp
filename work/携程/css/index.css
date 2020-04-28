@@ -1,0 +1,236 @@
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.search {
+    height: 200px;
+    display: flex;
+    position: relative;
+    background-image: url("../image/adimage.jpg");
+    background-size: 433px;
+    justify-content: center;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background-position: -25px -60px;
+    /* 让 搜索input居中
+    align-items: center; */
+    padding: 5px;
+    /*定在顶部*/
+    top: 0;
+}
+
+.search-input {
+    height: 22px;
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 1px 1px 10px black;
+    flex: 1;
+    margin: 4px;
+    padding-left: 25px;
+}
+
+.search::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url("../image/iconSpirit/home-sprite.png");
+    background-position: 0px 0px;
+    /*缩小*/
+    /* transform-origin: 0 0; */
+    border-radius: 10px;
+    transform: scale(0.55);
+    left: 8px;
+}
+
+.search-user {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    color: black;
+    /* position: relative; */
+}
+
+.search-user::before {
+    width: 42px;
+    height: 42px;
+    content: "";
+    /* position: absolute; */
+    background-image: url("../image/iconSpirit/home-sprite.png");
+    background-repeat: no-repeat;
+    background-position: 7px -41px;
+    /* transform: scale(.7); */
+    display: block;
+    background-size: 24px;
+}
+
+.search-bottom {
+    display: flex;
+    width: 95%;
+    height: 80px;
+    position: absolute;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
+    bottom: -5px;
+}
+
+.search-bottom li {
+    flex: 1;
+}
+
+.search-bottom li a {
+    display: flex;
+    font-size: 12px;
+    flex-direction: column;
+    /* x轴居中 侧轴*/
+    align-items: center;
+}
+
+.search-bottom li .icon-local-scenic {
+    width: 72px;
+    height: 58px;
+    background-image: url("../image/iconSpirit/home-sprite2.png");
+    transform: scale(0.8);
+    background-position: 0px -10px;
+}
+
+.search-bottom li .icon-local-around {
+    width: 72px;
+    height: 58px;
+    background-image: url("../image/iconSpirit/home-sprite2.png");
+    transform: scale(0.8);
+    background-position: 0px -90px;
+}
+
+.search-bottom li .icon-local-food {
+    width: 72px;
+    height: 58px;
+    background-image: url("../image/iconSpirit/home-sprite2.png");
+    transform: scale(0.75);
+    background-position: 0px -169px;
+}
+
+.search-bottom li .icon-local-oneday {
+    width: 72px;
+    height: 58px;
+    background-image: url("../image/iconSpirit/home-sprite2.png");
+    transform: scale(0.78);
+    background-position: 0px -250px;
+}
+
+.search-bottom li .icon-local-strategy {
+    width: 72px;
+    height: 58px;
+    background-image: url("../image/iconSpirit/home-sprite2.png");
+    transform: scale(0.78);
+    background-position: 0px -330px;
+}
+
+.nav {
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 95%;
+    height: 220px;
+    border-radius: 10px;
+    /* background-color: pink; */
+    display: grid;
+    border: 1px solid white;
+    grid-template-columns: 34% 22% 22% 22%;
+    grid-template-rows: 33% 33% 33%;
+}
+
+.nav .grid-nav-common {
+    border: 1px solid white;
+}
+
+.nav .grid-nav-common:nth-child(3) {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.grid-nav-common span {
+    font-size: 14px;
+    line-height: 70px;
+    display: inline-block;
+}
+
+.nav a:nth-child(1) .grid-nav-common-image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/grid-nav-items-hotel@v7.15.png");
+    background-repeat: no-repeat;
+    background-position: 20px 25px;
+    background-size: 100px;
+}
+
+.nav a:nth-child(2) .grid-nav-common-image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/grid-nav-items-minsu@v7.15.png");
+    background-repeat: no-repeat;
+    background-position: 0px 54px;
+    background-size: 30px;
+}
+
+.nav a:nth-child(3) .grid-nav-common-image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/grid-nav-items-jhj@v7.15.png");
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+}
+
+.nav a:nth-child(4) .grid-nav-common-image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/grid-nav-items-flight@v7.15.png");
+    background-repeat: no-repeat;
+    background-position: 0px 18px;
+    background-size: 120px;
+}
+
+.nav a:nth-child(5) .grid-nav-common-image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/grid-nav-items-train.png");
+    background-repeat: no-repeat;
+    background-position: 0px 30px;
+    background-size: 55px;
+}
+
+.nav a:nth-child(8) .grid-nav-common-image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/grid-nav-items-travel@v7.15.png");
+    background-repeat: no-repeat;
+    background-position: 4px 13px;
+    background-size: 115px;
+}
+
+.nav a:nth-child(9) .grid-nav-common-image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/grid-nav-items-dingzhi@v7.15.png");
+    background-repeat: no-repeat;
+    background-position: 0px 45px;
+    background-size: 85px;
+}

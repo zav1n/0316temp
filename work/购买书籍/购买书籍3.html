@@ -11,41 +11,34 @@
 
 <body>
     <div id="container" class="container">
-        <div>
-            <ul>
-                <li data-id="0" draggable="true">
-                    <img src="image/img1.jpg">
-                    <p>javaScript语言精髓</p>
-                    <span>¥20.68</span>
-                </li>
-                <li data-id="1" draggable="true">
-                    <img src="image/img2.jpg">
-                    <p>javaScript权威指南</p>
-                    <span>¥5.66</span>
-                </li>
-                <li data-id="2" draggable="true">
-                    <img src="image/img3.jpg">
-                    <p>精通javaScript</p>
-                    <span>¥30.00</span>
-                </li>
-                <li data-id="3" draggable="true">
-                    <img src="image/img4.jpg">
-                    <p>javaScript DOM 编程艺术</p>
-                    <span>¥28.50</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="shopCar" class="shopCar">
         <ul>
-            <li>
-                <span>数量</span>
-                <span>书名</span>
-                <span>价格</span>
+            <li data-id="0" draggable="true">
+                <img src="image/img1.jpg">
+                <p>javaScript语言精髓</p>
+                <span>¥20.68</span>
             </li>
-            <div id="priceSum"><span style="left: 0;">0</span> : 总价</div>
+            <li data-id="1" draggable="true">
+                <img src="image/img2.jpg">
+                <p>javaScript权威指南</p>
+                <span>¥5.66</span>
+            </li>
+            <li data-id="2" draggable="true">
+                <img src="image/img3.jpg">
+                <p>精通javaScript</p>
+                <span>¥30.00</span>
+            </li>
+            <li data-id="3" draggable="true">
+                <img src="image/img4.jpg">
+                <p>javaScript DOM 编程艺术</p>
+                <span>¥28.50</span>
+            </li>
         </ul>
+    </div>
+    <div class="shop">
+        <div id="shopCar" class="shopCar">
+            <div>请拖入你需要的书籍</div>
+        </div>
+        <div id="priceSum">0</div><span class="zongjia">总价 : </span>
     </div>
 </body>
 <script>
@@ -71,12 +64,14 @@
         price: "28.50",
     }]
 
-    let goodsLi = document.querySelectorAll(".container div ul");
-    let shopCar = document.querySelector(".shopCar ul")
-        //存储购物车里面的数据
+    let goodsLi = document.querySelectorAll(".container ul li");
+    let shopCar = document.querySelector(".shopCar");
     let shopCarData = [];
+    //存储购物车里面的数据
     //正在被拖动的书
     let dragObj = null;
+    //总价清0
+    let total = 0;
 
     //对所有书都绑定一个拖拽事件
     for (let i = 0; i < goodsLi.length; i++) {
@@ -84,8 +79,7 @@
             json.map(e => {
                 //
                 if (String(e.id) === String(this.getAttribute("data-id"))) {
-                    dragObj = e
-                    console.log(e.id + this.getAttribute("data-id"));
+                    dragObj = e;
                 }
             })
         })
@@ -98,25 +92,68 @@
     })
 
     //drop 丢弃事件
-    shopCar.addEventListener("drop", function() {
-        //判断拖曳的对象在不在结果数组中
-        dropShopCar(shopCarData)
-    })
+    shopCar.addEventListener("drop", function(e) {
+            //1.先找,找没有就加，有就不加
+            // debugger
+            searchShopCar(shopCarData, dragObj);
+            //2.判断拖曳的对象在不在结果数组中
+            dropShopCar(shopCarData);
+            //3.所有书的总价
+            shopCarPrice(shopCarData, total)
+        })
+        //查找购物车
+
+    function searchShopCar(shopCarData, dragObj) {
+        let flag = true;
+        shopCarData.map(e => {
+            //用id判断购物车是否有此书
+            // debugger
+            if (String(dragObj.id) === String(e.id)) {
+                //这里是找到了，就只加数量count
+                e.count++;
+                //把开关变一下
+                flag = !flag
+            }
+        })
+        if (flag) {
+            // debugger
+            let newbook = {
+                id: dragObj.id,
+                imgsrc: dragObj.imgsrc,
+                bookname: dragObj.bookname,
+                price: dragObj.price,
+                count: 1
+            }
+            shopCarData.push(newbook)
+        }
+    }
 
     //把书丢进去，然后在购物车添加丢进去的书
     function dropShopCar(shopCarData) {
-        shopCar.innerHTML = ""
+        shopCar.innerHTML = "";
         shopCarData.map(e => {
             shopCar.innerHTML +=
                 `
-                <li data-id="${e.id}">
+                <ul>
+                    <li data-id="${e.id}">
                         <img src="${e.imgsrc}" />
+                        <span>${e.count}</span>
                         <span>${e.bookname}</span>
                         <span>${e.price}</span>
-                        <span>${e.count}</span>
                     </li>
+                </ul>
             `
         })
+    }
+
+    //所有书的总价
+    function shopCarPrice(shopCarData, total) {
+        total = 0
+        shopCarData.map(e => {
+            total += e.price * e.count
+        })
+        let totalPrice = document.querySelector("#priceSum")
+        totalPrice.innerHTML = Number(total).toFixed(2)
     }
 </script>
 
