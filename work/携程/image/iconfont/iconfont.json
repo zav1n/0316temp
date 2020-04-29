@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "700857",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "2551812",
+      "name": "操作-电话",
+      "font_class": "dianhua",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "4933422",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "e762",
+      "unicode_decimal": 59234
+    }
+  ]
+}
