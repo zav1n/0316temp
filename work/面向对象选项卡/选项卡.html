@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .tab {
+        width: 500px;
+        margin: 100px auto;
+    }
+    
+    .tab .tab-title {
+        float: left;
+        width: 10%;
+        background-color: skyblue;
+    }
+    
+    .tab .tab-title li {
+        cursor: pointer;
+    }
+    
+    .tab .tab-title .click {
+        background-color: pink;
+    }
+    
+    .tab .tab-container {
+        float: left;
+        width: 90%;
+        background-color: pink;
+    }
+    
+    .tab .tab-container li {
+        display: none;
+        width: 90%;
+        height: 66px;
+    }
+    
+    .tab .tab-container .active {
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="tab">
+        <ul class="tab-title">
+            <li class="click">第一个</li>
+            <li>第二个</li>
+            <li>第三个</li>
+        </ul>
+        <ul class="tab-container">
+            <li class="active">内容一内容一内容一内容一内容一</li>
+            <li>内容二内容二内容二内容二内容二内容二内容二</li>
+            <li>内容三内容三内容三内容三内容三内容三内容三</li>
+        </ul>
+    </div>
+    <script>
+        let tTitleLi = document.querySelectorAll(".tab-title li");
+
+        for (let i = 0; i < tTitleLi.length; i++) {
+            tTitleLi[i].addEventListener("click", function() {
+                tTitleLi[i].className = ""
+            })
+
+        }
+    </script>
+</body>
+
+</html>

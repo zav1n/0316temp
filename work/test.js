@@ -92,3 +92,104 @@ arr.forEach(function(e, i, a) {
     //上海 2 [ '北京', '深圳', '上海' ]
 
 //-------------------------------------------------------------
+
+//保留所有的奇数 [1, 3, 5, 7, 9]
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    //遍历所有的元素 当该元素的返回值 是真的时候 就保留 是假的时候就不保留
+let newArr1 = arr.filter(e => e % 2 === 1) // 简写
+let newArr = arr.filter(function(e) {
+    if (e % 2 === 0) {
+        //2 4 6 8 10
+        return false
+    } else {
+        //1 3 5 7 9
+        return true
+    }
+})
+console.log(newArr)
+console.log(newArr1)
+    //-------------------------------------------------------------
+var items = [
+    { name: 'Edward', value: 21 },
+    { name: 'And', value: 45 },
+    { name: 'The', value: -12 },
+    { name: 'Magnetic' },
+    { name: 'Zeros', value: 37 }
+];
+// 按年龄排序
+items.sort(function(a, b) {
+    return (a.value - b.value)
+});
+console.log(items);
+
+// [
+//     { name: 'The', value: -12 },
+//     { name: 'Edward', value: 21 },
+//     { name: 'Zeros', value: 37 },
+//     { name: 'And', value: 45 },
+//     { name: 'Magnetic' }
+// ]
+
+// 按英文名字排序
+
+items.sort(function(a, b) {
+    var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+    var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+    // names must be equal
+    return 0;
+});
+
+console.log(items);
+// [
+//     { name: 'And', value: 45 },
+//     { name: 'Edward', value: 21 },
+//     { name: 'Magnetic' },
+//     { name: 'The', value: -12 },
+//     { name: 'Zeros', value: 37 }
+// ]
+
+//-------------------------------------------------------------
+
+//sort 方法的本质 是将 所有的元素 转换成 字符串 再根据UTF-16进行排序
+let arr = ["apple", "cherry", "AAA", "zzz", "banana", 1, 2, 3]
+let newArr = arr.sort(); //1, 2, 3, AAA, apple, banana, cherry, zzz
+console.log(newArr);
+[1, 2, 3, 'AAA', 'apple', 'banana', 'cherry', 'zzz']
+
+
+
+//在正常的字符串比较的时候是没有任何问题的 但是在纯数字的理解上 计算机和人类产生了冲突
+//需要为sort提供一个回调函数 主动的提供自定义的排序方法
+//在这个回调函数中 又规定两个 回调参数
+//第一个参数 代表的是当前值
+//第二个参数 代表的是下一个值
+//再为这个回调函数提供一个返回值
+//如果返回值是负数的话 那么前后两个参数 就会原地发生交换 否则不交换
+let arr2 = [1, 11, 2, 22];
+
+console.log(arr2.sort(function(a, b) {
+    if (a < b) {
+        return -1
+    } else if (a === b) {
+        return 0
+    } else {
+        return 1
+    }
+    // return a - b
+})); //1, 11,2, 22
+arr2.sort((a, b) => a - b)
+
+//-------------------------------------------------------------
+let arr = ["A", "B", "B", "B", "D", "C", "D", "B"]
+let Search_A = arr.lastIndexOf("A")
+if (Search_A != -1) {
+    console.log("lastIndexOf()写法：" + true)
+} else {
+    console.log("lastIndexOf()写法：" + false)
+}
