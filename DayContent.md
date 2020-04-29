@@ -694,3 +694,215 @@ balenaEtcher
 张鑫旭
 
 骰子flex   http://www.ruanyifeng.com/blog/2015/07/flex-examples.html
+
+
+
+# 4-29
+
+今天没讲课
+
+不过发了面试题
+
+
+
+H5手机横屏，与安卓的不一样
+
+监听屏幕横竖屏切换事件
+window.orientationchange
+
+screen.orientation.angle
+是一个属性 属性值是0 90 180 270
+
+0 代表手机默认竖屏
+
+0 180 代表的就是竖屏
+
+所以 如何做一个横竖屏都能正常展示的内容?
+
+面试题的重点：add，冒泡排序，深复制，闭包，递归，数组扁平化
+
+
+
+
+
+n
+
+```HTML
+<div>
+    <div>
+        <span id="span1">
+            <span id="span2">大家好</span>
+            <span class="span2">
+            我好
+                <h3>
+                    <span class="span1">你好</span>
+                </h3>
+            </span>
+        </span>
+    </div>
+</div>
+```
+
+A
+
+```css
+span#span1 h3 span .span2 {color: red;}
+```
+
+B
+
+```css
+h3.span1 {color: red;}
+```
+
+C
+
+```CSS
+h3.span2 span.span1 {color: red;}
+```
+
+**D**
+
+```css
+span#span1 h3 span.span1 {color: red;}
+```
+
+
+
+2.
+
+```js
+var i = 12;
+var sum = i++ + ++i + ++i*2 + i-- + i--;
+console.log(sum+" "+i);
+13+14*2+15+14+13
+```
+
+```
+**A**：85 13	 B：84 12  C：83 11 D：85 14
+```
+
+
+
+3.//如何将arr的数组降序排序
+
+```js
+var arr = [25, 111, 18, 12, 92, 5, 15]
+```
+
+```js
+A.arr.sort()
+B.arr.sort(function(a, b) { return a - b })
+C.arr.sort(function(a, b) { return b - a })
+D.arr.sort(b - a)
+
+//答案 B
+arr.sort() //[111,12,15,18,25,5,92]
+arr.sort(function(a, b) { return a - b }) //[5,12,15,18,25,92,111]
+arr.sort(function(a, b) { return b - a })//[111,92,25,18,15,12,5]
+arr.sort(b - a) //报错，b is not defined
+```
+
+
+
+4.
+
+```js
+var arr = [1, 2, 3, 4]
+// 执行arr.concat(1,2,3,[1,2,3,],5)后，arr的长度为（）
+A:4	B:9	C:11	D:5
+
+//答案 C
+//let newArr = arr.concat(1, 2, 3, [1, 2, 3, ], 5)   //[1,2,3,4,1,2,3,1,2,3,5]
+//console.log(newArr.length);  // 11
+
+```
+
+5.
+
+```js
+// var now = new Date(),设置3天后的时间正确写法（）
+// A：now.setDate(now.getDate()+3)
+// B：now.setTime(now.getTime()+3)
+// C：now.setTime(now.getDate()+3*1000*3600*24)
+// D：now.setTime(now.getMILLISECONDS()+3*1000*3600*24)
+
+//不懂
+```
+
+6.请实现一个数组的冒泡排序
+
+大概有四种：
+
+1.双重for夹if
+
+2.快速排序
+
+3.flat方法
+
+4.sort方法
+
+5.两边排序，就是有个中立变量，一边在左边判断，一边在右边判断
+
+7.请写出你目前知道的除Vue等企业型框架外其他前端开源框架或者前端调试工具，有什么优缺点
+
+8.请写出你前端编码中你认为比较好的编码规范和代码习惯
+
++ 常保存，以免宕机或者其他意外
++ 实现好一个功能或者代码块时复制多一份，再到副本继续编写，以免其他功能或者代码块也一同修改，并且可以作为参考
++ 函数封装，不能太多冗余代码，例如定义的属性应该用函数包装再调用。还有常用的函数可以另外创建一个js文件作为工具类调用，提高效率
++ 符合从上往下执行的顺序，有利于代码的查看和修改
++ HTML,CSS,JS，image，iconfont等等要分开文件夹存放，提高工作效率
+
+9.以下下那个plus的方法能使手机旋转至横屏（）猜测是B
+
+```
+A：plus.screen.lockOrientation("portrait-primary")
+B：plus.screen.lockOrientation("landscape-primary")
+C：plus.screen.lockOrientation("landscape-secondary")
+D：plus.screen.lockOrientation("portrait-secondary")
+```
+
+10，下面哪一个是JQ用来追加到指定元素的末尾的？（D）
+
+```
+A insertAfter（）B.append（）C.appendTo()	D.after（）
+```
+
+11.在JQ中，想要从DOM中删除所有匹配的元素，下面那一个是正确的？（D）
+
+```
+A delete() 	B empty() 	C remove() 	D removeAll()
+```
+
+12.下面哪一个不是JQ对象访问的方法？（）应该是B吧
+
+A each(callback)	B size() 	C index(subject)	D after()
+
+13.5+App访问手机存储文件正确的方法为：（A）
+
+A: plus.io.requestFileSystem
+
+B: plus.io.resolveLocalFileSystemURL
+
+C: plus.io.convertLocalFileSystemURL
+
+D: plus.io.convertAbsoluteFileSystem
+
+14.以下获取动态路由{path:‘/user/:id’}中id的值正确的是()
+
+A：this.$route.params.id
+
+B：this.route.params.id
+
+C：this.$router.params.id
+
+D：this.router.params.id
+
+15.以下对vue的
+
+16
+
+17
+
+b

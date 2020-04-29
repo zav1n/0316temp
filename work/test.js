@@ -193,3 +193,33 @@ if (Search_A != -1) {
 } else {
     console.log("lastIndexOf()写法：" + false)
 }
+//-------------------------------------------------------------
+var i = 12;
+var sum = i++ + ++i + ++i * 2 + i-- + i--;
+console.log(sum + " " + i);
+//-------------------------------------------------------------
+//如何将arr的数组降序排序
+var arr = [25, 111, 18, 12, 92, 5, 15]
+console.log(arr.sort()); //[111,12,15,18,25,5,92]
+console.log(arr.sort(function(a, b) { return a - b })); //[5,12,15,18,25,92,111]
+console.log(arr.sort(function(a, b) { return b - a })); //[111,92,25,18,15,12,5]
+console.log(arr.sort(b - a)); //报错，b is not defined
+//-------------------------------------------------------------
+var arr = [1, 2, 3, 4]
+    // 执行arr.concat(1,2,3,[1,2,3,],5)后，arr的长度为（）
+let newArr = arr.concat(1, 2, 3, [1, 2, 3, ], 5)
+console.log(newArr.length);
+//-------------------------------------------------------------
+// var now = new Date(),设置3天后的时间正确写法（）
+// A：now.setDate(now.getDate()+3)
+// B：now.setTime(now.getTime()+3)
+// C：now.setTime(now.getDate()+3*1000*3600*24)
+// D：now.setTime(now.getMILLISECONDS()+3*1000*3600*24)
+var now = new Date()
+console.log(now.setDate(now.getDate() + 3));
+console.log(now.setTime(now.getTime() + 3));
+console.log(now.setDate(now.getDate()));
+console.log(now.setTime(now.getTime()));
+console.log(now.setTime(now.getDate() + 3 * 1000 * 3600 * 24));
+console.log(now.setTime(now.getMilliseconds() + 3 * 1000 * 3600 * 24));
+//一天39024秒
