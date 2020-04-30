@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "echarts": "^4.7.0",
-    "less": "^3.11.1"
+    "echarts": "^4.7.0"
   },
   "devDependencies": {},
   "scripts": {
