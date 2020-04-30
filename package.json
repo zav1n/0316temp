@@ -6,7 +6,9 @@
   "dependencies": {
     "echarts": "^4.7.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "^1.1.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
