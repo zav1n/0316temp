@@ -223,3 +223,48 @@ console.log(now.setTime(now.getTime()));
 console.log(now.setTime(now.getDate() + 3 * 1000 * 3600 * 24));
 console.log(now.setTime(now.getMilliseconds() + 3 * 1000 * 3600 * 24));
 //一天39024秒
+
+//-------------------------------------------------------------
+let add = (...outerArg) => {
+    let inner = (...innerArg) =>
+        add(...outerArg, ...innerArg)
+    inner.toString = () => outerArg.reduce((acc, cur) => acc + cur)
+    return inner
+
+}
+
+console.log(add(1, 2, 3)(4, 5)(6));
+
+//-------------------------------------------------------------
+
+function add2(...outerArgs) {
+    function inner(...innerArgs) {
+        return add2(...outerArgs, ...innerArgs)
+    }
+    inner.toString = function() {
+        // 参数的处理
+        let result = 0;
+        for (let i = 0; i < outerArgs.length; i++) {
+            result += outerArgs[i]
+        }
+        return result
+    }
+    return inner
+}
+console.log(add2(1, 2, 3)(4, 5)(6, 7))
+    /*************************/ //////////////===========/ */
+function add1(...outerArgs) {
+    inner.toString = function() {
+        let result = 0;
+        for (let i = 0; i < outerArgs.length; i++) {
+            result += outerArgs[i]
+        }
+        return result
+    }
+
+    function inner(...innerArgs) {
+        return add1(...outerArgs, ...innerArgs)
+    }
+    return inner
+}
+console.log(add1(1, 2, 3)(4, 5)(6, 7))

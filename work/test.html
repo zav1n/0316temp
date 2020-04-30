@@ -36,6 +36,20 @@
             </span>
         </div>
     </div>
+
+    <div id="app">
+        {{message.split("").reverse().join("")}}
+    </div>
+    <script>
+        new Vue {
+            {
+                el: '#app',
+                data: {
+                    message: 'hello'
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

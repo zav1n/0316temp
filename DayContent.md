@@ -725,8 +725,6 @@ screen.orientation.angle
 
 
 
-n
-
 ```HTML
 <div>
     <div>
@@ -838,11 +836,7 @@ A:4	B:9	C:11	D:5
 
 2.快速排序
 
-3.flat方法
-
-4.sort方法
-
-5.两边排序，就是有个中立变量，一边在左边判断，一边在右边判断
+3.sort方法
 
 7.请写出你目前知道的除Vue等企业型框架外其他前端开源框架或者前端调试工具，有什么优缺点
 
@@ -889,7 +883,7 @@ C: plus.io.convertLocalFileSystemURL
 
 D: plus.io.convertAbsoluteFileSystem
 
-14.以下获取动态路由{path:‘/user/:id’}中id的值正确的是()
+14.以下获取动态路由{path:‘/user/:id’}中id的值正确的是(A)
 
 A：this.$route.params.id
 
@@ -899,10 +893,47 @@ C：this.$router.params.id
 
 D：this.router.params.id
 
-15.以下对vue的
+15.以下对vue的的双向绑定说法不正确的是(D)
 
-16
+A:采用数据劫持结合发布者,订阅者模式的方式
 
-17
+B:通过Object.defineProperty()来劫持各个属性的setter,getter,在数据变动时发布消息给订阅者,触发相应监听回调
 
-b
+C:MVVM作为数据绑定的入口,整合Observer,Compile和Watcher三者,通过Observer来监听自己的model的数据变化
+
+D:vue是通过基于脏检查机制实现双向绑定
+
+16.以下代码输出结果为(C)
+
+```HTML
+    <div id="app">
+        {{message.split("").reverse().join("")}}
+    </div>
+    <script>
+        new Vue{{el:'#app',data:{message:'hello'}}}
+    </script>
+```
+
+A:hello	B:hel	C:olleh	D:llo
+
+17.Vue父子组件间的参数传递时如何做到的?
+
+答:
+
++ 父组件向子组件传值：
+
+  1）子组件在props中创建一个属性，用来接收父组件传过来的值；
+
+  2）在父组件中注册子组件；
+
+  3）在子组件标签中添加子组件props中创建的属性；
+
+  4）把需要传给子组件的值赋给该属性
+
++ 子组件向父组件传值：
+
+  1）子组件中需要以某种方式（如点击事件）的方法来触发一个自定义的事件；
+
+  2）将需要传的值作为$emit的第二个参数，该值将作为实参传给响应事件的方法；
+
+  3）在父组件中注册子组件并在子组件标签上绑定自定义事件的监听。

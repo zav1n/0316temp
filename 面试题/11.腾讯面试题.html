@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <!-- 以下代码的功能是要实现为5个input按钮循环绑定click点击事
     件，绑定完成后点击1、2、3、4、5五个按钮分别会alert输出
@@ -21,16 +23,17 @@
         <input type="button" value="button_5" />
     </div>
     <script type="text/javascript">
-        var btnBox=document.getElementById('btnBox'),
-        inputs=btnBox.getElementsByTagName('input');
-        var l=inputs.length;
-        for(var i=0;i<l;i++){    
-            inputs[i].onclick=function(){
+        var btnBox = document.getElementById('btnBox'),
+            inputs = btnBox.getElementsByTagName('input');
+        var l = inputs.length;
+        for (var i = 0; i < l; i++) {
+            inputs[i].onclick = function() {
                 alert(i);
             }
         }
     </script>
 </body>
+
 </html>
 
 <!-- 不懂
