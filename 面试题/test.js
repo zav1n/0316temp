@@ -51,3 +51,158 @@ console.log(fn(3)) //3
 console.log(fn(4)) //5
 console.log(fn(5)) //8
 console.log(fn(10)) //89
+
+//
+let arr = [1, [2, [3, 3], 2], 1];
+// let arr2 = arr
+
+//一层深复制
+// let arr2 = arr.slice();
+// let arr2 = [...arr]
+// let arr2 = arr.concat([])
+
+//递归深复制
+function deepClone(arr) {
+    let newArr = [];
+    //遍历
+    for (let i = 0; i < arr.length; i++) {
+        //判断每个元素是不是数组
+        if (Object.prototype.toString.call(arr[i]) === "[object Array]") {
+            //如果是数组就递归调用deepClone
+            newArr.push(deepClone(arr[i]))
+        } else {
+            //如果是元素直接push
+            newArr.push(arr[i])
+        }
+    }
+    return newArr
+}
+
+let arr2 = deepClone(arr)
+console.log(arr2 === arr) //false
+arr[1][1][1] = 100
+console.log(arr) //[ 1, [ 2, [ 3, 100 ], 2 ], 1 ]
+console.log(arr2) //[ 1, [ 2, [ 3, 3 ], 2 ], 1 ]
+
+
+
+
+
+//
+
+let obj = {
+    name: "张三",
+    wife: {
+        name: "小红",
+        car: {
+            name: "玛莎拉蒂"
+        }
+    }
+}
+
+//一层深复制
+// let arr2 = arr.slice();
+// let arr2 = [...arr]
+// let arr2 = arr.concat([])
+
+//递归深复制
+function deepClone(obj) {
+    //初始化一个新的对象
+    let newObj = {};
+    //遍历 所有的的key
+    for (let key of Object.keys(obj)) {
+        //判断每个是对象还是元素
+        if (Object.prototype.toString.call(obj[key]) === "[object Object]") {
+            //如果是对象
+            newObj[key] = deepClone(obj[key])
+        } else {
+            //如果是元素
+            newObj[key] = obj[key]
+        }
+    }
+    return newObj
+}
+
+let obj2 = deepClone(obj)
+    // console.log(obj2 === obj)
+obj2.wife.car.name = "比亚迪"
+console.log(obj) //{ name: '张三', wife: { name: '小红', car: { name: '玛莎拉蒂' } } }
+console.log(obj2) //{ name: '张三', wife: { name: '小红', car: { name: '比亚迪' } } }
+
+//
+
+
+
+
+//
+let obj = {
+    name: "张三",
+    wife: {
+        name: "小红",
+        car: {
+            name: "玛莎拉蒂"
+        }
+    }
+}
+let arr = [1, [2, [3, 3], 2], 1]
+let obj2 = {
+    name: "张三",
+    hobby: [{
+        name: "唱歌",
+        play: function() {
+            return "我喜欢" + this.name
+        }
+    }, {
+        name: "跳舞"
+    }]
+}
+
+//一层深复制
+// let arr2 = arr.slice();
+// let arr2 = [...arr]
+// let arr2 = arr.concat([])
+
+//递归深复制
+// JSON.parse(JSON.stringify())
+
+function deepClone(obj) {
+    //初始化一个新的对象或数组或直接返回
+    let newObj;
+    if (Object.prototype.toString.call(obj) === "[object Object]") {
+        //如果是对象 我的主数据就是对象 所以需要初始化一个最大的对象
+        newObj = {}
+    } else if (Object.prototype.toString.call(obj) === "[object Array]") {
+        //如果是数组 我的主数据就是数组 所以需要初始化一个最大的数组
+        newObj = []
+    }
+
+    for (let key in obj) {
+        //对里面的属性进行遍历
+        let temp = Object.prototype.toString.call(obj[key])
+        if (temp === "[object Object]") {
+            //如果这个属性是 对象
+            //递归调用该方法
+            newObj[key] = deepClone(obj[key])
+        } else if (temp === "[object Array]") {
+            //如果这个属性是数组 递归调用该方法
+            newObj[key] = deepClone(obj[key])
+        } else if (temp === "[object Function]") {
+            // console.log(obj[key].toString())
+            newObj[key] = obj[key].bind(newObj)
+        } else {
+            //如果既不是数组 也不是对象 就直接copy
+            newObj[key] = obj[key]
+        }
+    }
+    return newObj
+}
+let obj22 = deepClone(obj2);
+console.log(obj22 === obj2); //false
+obj2.hobby[0].name = "游泳";
+console.log(obj2)
+    // {name: '张三',hobby: [ { name: '游泳', play: [Function: play] }, { name: '跳舞' } ]}
+console.log(obj22)
+    //{name: '张三',hobby: [ { name: '唱歌', play: [Function: bound play] }, { name: '跳舞' } ]}
+console.log(obj2.hobby[0].play === obj22.hobby[0].play) //false
+console.log(obj2.hobby[0].play()) //我喜欢游泳
+console.log(obj22.hobby[0].play()) //我喜欢唱歌

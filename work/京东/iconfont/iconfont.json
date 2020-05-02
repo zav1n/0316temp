@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5968807",
+      "name": "关  闭",
+      "font_class": "close",
+      "unicode": "e501",
+      "unicode_decimal": 58625
+    },
+    {
+      "icon_id": "6981682",
+      "name": "小圆点",
+      "font_class": "point-copy-6",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "7122366",
+      "name": "列表",
+      "font_class": "liebiao",
+      "unicode": "e530",
+      "unicode_decimal": 58672
+    }
+  ]
+}
