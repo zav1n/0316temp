@@ -61,10 +61,9 @@ slideContainer.addEventListener("touchstart", function(e) {
     startX = e.touches[0].pageX;
     //点触开始的时候停止轮播定时器
     clearInterval(slideTimer)
-})
-
-
-slideContainer.addEventListener("touchend", function(e) {
+});
+//左右滑动
+function show(e) {
     // console.log("结束点触了")
     // console.log(e.changedTouches[0].pageX)
     endX = e.changedTouches[0].pageX
@@ -88,11 +87,24 @@ slideContainer.addEventListener("touchend", function(e) {
             slideContainer.style.transition = "all .3s"
             slideContainer.style.transform = `translateX(${n})`
         }
+        //让定时器可以重新运动
+        starSlide(3000);
     }
-
-    //让定时器可以重新运动
-    starSlide(3000);
+}
+let flag = true;
+slideContainer.addEventListener("touchend", function throttle(e) {
+    // 节流   函数防抖
+    if (flag) {
+        //调用左右滑动函数
+        show(e)
+        flag = false;
+        setTimeout(() => {
+            flag = true;
+        }, 500);
+    }
 })
+
+
 
 //关闭打开App
 let openApp = document.querySelector(".openApp")
@@ -194,4 +206,55 @@ function getDate(enddate) {
 
 function tow(n) {
     return n >= 0 && n < 10 ? '0' + n : '' + n;
+
+}
+
+//----------------------------------- 京东快报新闻滚动
+let jdNewsListUl = document.querySelector(".jdNews-list ul")
+let ntly = -19;
+let slideNow1 = 0;
+setInterval(() => {
+    console.log(slideNow1);
+    let ntly2 = ntly - 45 * slideNow1
+    slideNow1++
+    jdNewsListUl.style.transform = `translateY(${ntly2}px)`
+    console.log(jdNewsListUl.style.transform);
+    if (slideNow1 === 4) {
+        slideNow1 = 0
+    }
+}, 2500);
+//-----------------------------------为你推荐 + JSON
+let rcListGoods = document.querySelector(".recommend-list")
+json.forEach(e => {
+    rcListGoods.innerHTML +=
+        `
+            <div class="recommend-list-goods">
+                <div>
+                    <img src="${e.image}">
+                    <span>${e.title}</span>
+                    <span><em>¥</em>${e.price}</span>
+                    <span>找相似</span>
+                </div>
+                <div>
+                    <img src="${e.image2}">
+                    <span>${e.title2}</span>
+                    <span><em>¥</em>${e.price2}</span>
+                    <span>找相似</span>
+                </div>
+            </div>
+        `
+})
+
+/*************************加载***********************/
+window.onscroll = function() {
+    //文档内容实际高度（包括超出视窗的溢出部分）
+    var scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+    //滚动条滚动距离
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    //窗口可视范围高度
+    var clientHeight = window.innerHeight || Math.min(document.documentElement.clientHeight, document.body.clientHeight);
+
+    if (clientHeight + scrollTop >= scrollHeight) {
+        console.log("===加载更多内容……===");
+    }
 }

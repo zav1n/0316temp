@@ -817,3 +817,113 @@
         width: 100%;
         height: 1.5rem;
     }
+    /* <!-- 京东快报 --> */
+    
+    .jdNews {
+        margin: 20px 5px;
+        /* width: 100%; */
+        height: 0.8rem;
+        /* background-color: greenyellow; */
+    }
+    
+    .jdNews-bg {
+        width: 2rem;
+        height: 0.65rem;
+        display: inline-block;
+        /*行内块元素水平垂直居中*/
+        /* text-align: center; */
+        /* vertical-align: middle; */
+        background-size: 2rem;
+        background-image: url("../image/jdkb_icon.png");
+        background-repeat: no-repeat;
+    }
+    
+    .jdNews-list {
+        width: 6rem;
+        height: 0.8rem;
+        display: inline-block;
+        overflow: hidden;
+    }
+    
+    .jdNews-list ul {
+        width: 6rem;
+        height: 0.8rem;
+        display: inline-block;
+        transform: translateY(-19px);
+        transition: all 1s;
+    }
+    
+    .jdNews-list ul li {
+        font-size: .6rem;
+        line-height: .8rem;
+        height: .8rem;
+        margin: .4rem 0 .3rem;
+    }
+    
+    .jdNews-list ul li span:nth-of-type(1) {
+        color: rgba(201, 0, 0, 0.836);
+    }
+    
+    .jdNews div:nth-of-type(3) {
+        display: inline-block;
+        vertical-align: super;
+        color: gray;
+    }
+    /* <!-- 为你推荐 --> */
+    /* .recommend {
+        margin: 15px 8px 0px 8px;
+    } */
+    
+    .recommend-title {
+        /* width: 100%; */
+        height: 1rem;
+        background-size: 10rem;
+        border: 1px solid rgba(204, 204, 204, 0.25);
+        background-image: url("../image/wntj_bg.png");
+        /* background-color: palevioletred; */
+    }
+    
+    .recommend-list-goods {
+        height: 6rem;
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    
+    .recommend-list-goods div {
+        margin: 3px;
+        border: 1px solid black;
+    }
+    
+    .recommend-list-goods div img {
+        width: 100%;
+        height: 4rem;
+    }
+    
+    .recommend-list-goods div span:nth-of-type(1) {
+        /* width: 100%;
+        height: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        -webkit-line-clamp: 2;
+        word-break: break-all;
+        display: inline-block; */
+        font-size: 13px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        line-height: 16px;
+    }
+    
+    .recommend-list-goods div span:nth-of-type(2) {
+        color: red;
+    }
+    
+    .recommend-list-goods div span:nth-of-type(3) {
+        margin-left: 90px;
+        /* width: 50px;
+        height: 20px; */
+        border: 1px solid gray;
+        color: gray;
+    }

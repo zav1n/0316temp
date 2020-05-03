@@ -1,0 +1,43 @@
+let json = [{
+    image: "../京东/image//recommend-list-goods1.png",
+    title: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price: "299",
+    image2: "../京东/image//recommend-list-goods1.png",
+    title2: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price2: "299"
+}, {
+    image: "../京东/image//recommend-list-goods1.png",
+    title: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price: "299",
+    image2: "../京东/image//recommend-list-goods1.png",
+    title2: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price2: "299"
+}, {
+    image: "../京东/image//recommend-list-goods1.png",
+    title: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price: "299",
+    image2: "../京东/image//recommend-list-goods1.png",
+    title2: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price2: "299"
+}, {
+    image: "../京东/image//recommend-list-goods1.png",
+    title: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price: "299",
+    image2: "../京东/image//recommend-list-goods1.png",
+    title2: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price2: "299"
+}, {
+    image: "../京东/image//recommend-list-goods1.png",
+    title: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price: "299",
+    image2: "../京东/image//recommend-list-goods1.png",
+    title2: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price2: "299"
+}, {
+    image: "../京东/image//recommend-list-goods1.png",
+    title: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price: "299",
+    image2: "../京东/image//recommend-list-goods1.png",
+    title2: "真机械手感键盘鼠标套装游戏有线背光电竞吃鸡笔记本台式电脑外设办公牧马人键鼠朋克网吧三件套",
+    price2: "299"
+}]
