@@ -1,0 +1,155 @@
+/*画圆点 1*/
+
+.boxOne {
+    /*核心代码*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /**/
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    background-color: white;
+}
+
+.itemOne {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+
+/*画圆点 2*/
+
+.boxTwo {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    background-color: white;
+}
+
+.itemTwo:nth-child(1) {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+    margin: 10px;
+}
+
+.itemTwo:nth-child(2) {
+    margin: 10px;
+    align-self: flex-end;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+
+/*画圆点 3*/
+
+.boxThree {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 20%;
+    background-color: white;
+}
+
+.itemThree:nth-child(1) {
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.itemThree:nth-child(2) {
+    align-self: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.itemThree:nth-child(3) {
+    margin: 10px;
+    align-self: flex-end;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+
+/*画圆点 4*/
+
+.boxFour {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    border: 1px solid black;
+    border-radius: 20%;
+    /* background-color: white; */
+}
+
+.columnFour {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.itemFour {
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+
+/*画圆点 5*/
+
+.boxFive {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 20%;
+    background-color: white;
+}
+
+.columnFive {
+    flex-basis: 100%;
+    display: flex;
+}
+
+.itemFive {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.columnFive:nth-child(1) {
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.columnFive:nth-child(2) {
+    justify-content: center;
+}
+
+.columnFive:nth-child(3) {
+    margin: 10px;
+    justify-content: space-between;
+}

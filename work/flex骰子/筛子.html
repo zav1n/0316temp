@@ -17,7 +17,7 @@
             margin: 0;
             padding: 0;
         }
-        /*******************************/
+        /*画圆点 1*/
         
         .boxOne {
             /*核心代码*/
@@ -38,7 +38,7 @@
             border-radius: 50%;
             background-color: black;
         }
-        /*******************************/
+        /*画圆点 2*/
         
         .boxTwo {
             display: flex;
@@ -66,7 +66,7 @@
             border-radius: 50%;
             background-color: black;
         }
-        /*******************************/
+        /*画圆点 3*/
         
         .boxThree {
             display: flex;
@@ -101,7 +101,7 @@
             border-radius: 50%;
             background-color: black;
         }
-        /*******************************/
+        /*画圆点 4*/
         
         .boxFour {
             display: flex;
@@ -127,9 +127,9 @@
             border-radius: 50%;
             background-color: black;
         }
-        /*******************************************/
+        /*画圆点 5*/
         
-        .box {
+        .boxFive {
             display: flex;
             flex-wrap: wrap;
             width: 100px;
@@ -139,31 +139,33 @@
             background-color: white;
         }
         
-        .row {
+        .columnFive {
             flex-basis: 100%;
             display: flex;
         }
         
-        .item {
+        .itemFive {
             width: 20px;
             height: 20px;
             border-radius: 50%;
             background-color: black;
         }
         
-        .row:nth-child(1) {
+        .columnFive:nth-child(1) {
             margin: 10px;
             justify-content: space-between;
         }
         
-        .row:nth-child(2) {
+        .columnFive:nth-child(2) {
             justify-content: center;
         }
         
-        .row:nth-child(3) {
+        .columnFive:nth-child(3) {
             margin: 10px;
             justify-content: space-between;
         }
+        /* 画圆点 6  */
+        /* http: //www.ruanyifeng.com/blog/2015/07/flex-examples.html */
     </style>
 
     <div class="boxOne">
@@ -196,20 +198,33 @@
 
 
 
-    <div class="box">
-        <div class="row">
-            <span class="item"></span>
-            <span class="item"></span>
+    <div class="boxFive">
+        <div class="columnFive">
+            <span class="itemFive"></span>
+            <span class="itemFive"></span>
         </div>
-        <div class="row">
-            <span class="item"></span>
+        <div class="columnFive">
+            <span class="itemFive"></span>
         </div>
-        <div class="row">
-            <span class="item"></span>
-            <span class="item"></span>
+        <div class="columnFive">
+            <span class="itemFive"></span>
+            <span class="itemFive"></span>
         </div>
     </div>
 
+    <div class="boxSix">
+        <span class="columnSix">
+            <span class="itemSix"></span>
+        <span class="itemSix"></span>
+        <span class="itemSix"></span>
+        </span>
+
+        <span class="columnSix">
+            <span class="itemSix"></span>
+        <span class="itemSix"></span>
+        <span class="itemSix"></span>
+        </span>
+    </div>
 </body>
 
 </html>

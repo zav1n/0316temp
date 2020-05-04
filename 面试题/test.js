@@ -206,3 +206,25 @@ console.log(obj22)
 console.log(obj2.hobby[0].play === obj22.hobby[0].play) //false
 console.log(obj2.hobby[0].play()) //我喜欢游泳
 console.log(obj22.hobby[0].play()) //我喜欢唱歌
+
+//------------------数组去重--------------------------------------
+function unique(arr) {
+    return Array.from(new Set(arr))
+}
+var arr = [1, 1, 'true', 'true', true, true, 15, 15, false, false, undefined, undefined, null, null, NaN, NaN, 'NaN', 0, 0, 'a', 'a', {}, {}];
+var arr1 = [6, 8.9, 9.12, 13, 14, 13]
+let newArr = Array.from(new Set(arr1))
+    // console.log(unique(arr))
+console.log(newArr)
+    //
+var arr = [6, 8.9, 9.12, 13, 14, 13]
+for (var i = 0; i < arr.length; i++) {
+    for (var j = i + 1; j < arr.length; j++) {
+        if (arr[i] == arr[j]) { //第一个等同于第二个，splice方法删除第二个
+            arr.splice(j, 1);
+            j--;
+        }
+    }
+}
+
+console.log(arr)
