@@ -1,6 +1,6 @@
 至少回答出10个ES6新增的东西
 
-#### for...of
+## for...of
 
 //4-1：
 1 .ES6新增常用方法
@@ -16,7 +16,7 @@
 //4-2：
 数组中ES6新增
 
-####     1.forEach   
+##     1.forEach   
 
 ​	forEach() 被调用时，不会改变原数组
 ​	但是有个致命缺陷，不能提供返回值return，而且一直遍历
@@ -31,18 +31,18 @@
 
 //4-3 :
 
-#### 	1.string,prototype.startsWith
+## 	1.string,prototype.startsWith
 
 ​	    判断给定的字符串是否等于当前字符串开头
 ​	    语法：str.startsWith(searchString[, position])
 
-#### 	2.String.prototype.endsWith()
+## 	2.String.prototype.endsWith()
 
 方法用来判断当前字符串是否是以另外一个给定的子字符串“结尾”的，根据判断结果返回 `true` 或 `false`。
 
 
 
-#### String.prototype.includes()
+## String.prototype.includes()
 
 includes()
 
@@ -100,4 +100,4 @@ Set { 0, 1, 100, 20, 90, 10 }
       
 ```
 
-#### startWith()& &endWith()
+## document.querySelect()

@@ -1,4 +1,4 @@
- # 4.1
+ # **4.1**
 
 1.栈类似一个井，先进后出
 3.队列，先进先出
@@ -738,3 +738,49 @@ screen.orientation.angle
 5.vh，vm
 
 # 5-5
+
+面试题，用过哪些插件？less
+
+额外学一下ts
+
+插件
+
+Lodash库
+
+underscore库
+
+echart
+
+移动端zpeto	 
+
+
+
+模块化
+
+```
+jq使用到，尽量用js去实现
+链式操作方式，prototype
+11：00
+隐式迭代
+```
+
+```
+${function(){
+}}等价于$(document).ready(function(){
+})
+DOM渲染完毕即可执行内部代码，不用等到所有外部资源加载完成,JQ已经封装了
+原理是利用JS的DOMContentLoaded
+不同于原生js的load事件是页面文档，外部JS文件等等要加载完毕才执行内部代码
+```
+
+querySelect和getElementById的区别
+
+querySelect效率低
+
+mouseover和mouseout配套
+
+JQ的优点
+
+1.隐式迭代，不用for循环
+
+2.链式操作方式

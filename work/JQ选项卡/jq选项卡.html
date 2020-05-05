@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* .tab {
+        width: 100px;
+        height: 100px;
+    } */
+    
+    .content div {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        display: none;
+    }
+    
+    .clicked {
+        background-color: red;
+    }
+    
+    .content .active {
+        display: block;
+    }
+</style>
+
+<body>
+    <div id="tab">
+        <button class="clicked">0</button>
+        <button>1</button>
+        <button>2</button>
+    </div>
+    <div id="content" class="content">
+        <div class="active">内容1111</div>
+        <div>内容2222</div>
+        <div>内容3333</div>
+    </div>
+</body>
+<script src="../jquery-3.5.1.js"></script>
+<script>
+    $("button").click(function() {
+
+        $(this).addClass("clicked").siblings().removeClass("clicked")
+        $("#content div").eq($(this).index()).addClass("active").siblings().removeClass("active")
+    })
+</script>
+
+</html>

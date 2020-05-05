@@ -27,7 +27,9 @@
     }
     
     .openApp .close-App {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         float: left;
         text-align: center;
         height: 90%;
