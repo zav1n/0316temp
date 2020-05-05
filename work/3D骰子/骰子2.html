@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="circle.css">
     <style>
         .box {
             width: 200px;
@@ -33,36 +34,36 @@
         
         .box div:nth-child(6) {
             transform: translateZ(50px);
-            background-color: rgba(255, 0, 0, 0.8);
+            background-color: rgba(255, 0, 0, 0.3);
         }
         
         .box div:nth-child(5) {
             transform-origin: top;
             transform: rotateX(90deg) translateY(-50px);
-            background-color: rgba(255, 192, 203, 0.8);
+            background-color: rgba(255, 192, 203, 0.3);
             /*将轴线变成 顶边 */
         }
         
         .box div:nth-child(4) {
             transform-origin: left;
             transform: rotateY(-90deg) translateX(-50px);
-            background-color: rgba(172, 255, 47, 0.8);
+            background-color: rgba(172, 255, 47, 0.3);
         }
         
         .box div:nth-child(3) {
             transform-origin: right;
             transform: rotateY(90deg) translateX(50px);
-            background-color: rgba(255, 166, 0, 0.8);
+            background-color: rgba(255, 166, 0, 0.3);
         }
         
         .box div:nth-child(2) {
             transform-origin: bottom;
             transform: rotateX(-90deg) translateY(50px);
-            background-color: rgba(128, 128, 128, 0.8);
+            background-color: rgba(128, 128, 128, 0.3);
         }
         
         .box div:nth-child(1) {
-            transform: rotateZ(180deg) translateZ(-50px);
+            transform: translateZ(-50px);
             /* background-color: rgba(100, 244, 244, 1); */
         }
     </style>
@@ -72,14 +73,50 @@
     <div class="container">
         <!-- 骰子空间 这个空间是将要变成3D空间 -->
         <div class="box">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
+            <!-- 骰子的六个面 -->
+            <!-- 1 -->
+            <div class="boxOne">
+                <span class="itemOne"></span>
+            </div>
+            <!-- 2 -->
+            <div class="boxTwo">
+                <span class="itemTwo"></span>
+                <span class="itemTwo"></span>
+            </div>
+            <!-- 3 -->
+            <div class="boxThree">
+                <span class="itemThree"></span>
+                <span class="itemThree"></span>
+                <span class="itemThree"></span>
+            </div>
+            <!-- 4 -->
+            <div class="boxFour">
+                <span class="columnFour">
+                    <span class="itemFour"></span>
+                <span class="itemFour"></span>
+                </span>
+                <span class="columnFour">
+                    <span class="itemFour"></span>
+                <span class="itemFour"></span>
+                </span>
+            </div>
+            <!-- 5 -->
+            <div class="boxFive">
+                <span class="columnFive">
+                    <span class="itemFive"></span>
+                <span class="itemFive"></span>
+                </span>
+                <span class="columnFive">
+                    <span class="itemFive"></span>
+                </span>
+                <span class="columnFive">
+                    <span class="itemFive"></span>
+                <span class="itemFive"></span>
+                </span>
+            </div>
+            <!-- 6 -->
             <div>6</div>
         </div>
-    </div>
     </div>
     <script>
         let oBox = document.querySelector(".box");

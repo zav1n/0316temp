@@ -268,3 +268,21 @@ function add1(...outerArgs) {
     return inner
 }
 console.log(add1(1, 2, 3)(4, 5)(6, 7))
+
+/**************************************************** */
+let arr = [1, -1, [
+    [2, 0], 5, [3]
+], 5]
+
+function flatArr(arr) { //一定要有形参!要不然会显示undefined
+    let newArr = [] //定义一个空的数组来接新的数组
+    for (let i = 0; i < arr.length; i++) {
+        if (Object.prototype.toString.call(arr[i]) === "[object Array]") {
+            newArr.push(...flatArr(arr[i]))
+        } else {
+            newArr.push(arr[i])
+        }
+    }
+    return newArr //一定要return newArr  要不然会显示undefined
+}
+console.log(flatArr(arr))
