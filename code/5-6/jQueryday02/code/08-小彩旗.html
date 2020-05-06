@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      .red {
+        background-color: pink;
+      }
+
+      .yellow {
+        background-color: yellow;
+      }
+
+      .blue {
+        background-color: skyblue;
+      }
+
+      .green.green {
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+    </ul>
+    <script src="./lib/jquery.3.5.1.js"></script>
+    <script>
+      $("ul li:nth-child(3n+1)").addClass("red");
+      $("ul li:nth-child(3n+2)").addClass("yellow");
+      $("ul li:nth-child(3n)").addClass("blue");
+
+      // $("ul li").mouseover(function () {
+      //   $(this).toggleClass("green")
+      // })
+
+      // $("ul li").mouseout(function () {
+      //   $(this).toggleClass("green")
+      // })
+
+      // $("ul li").hover(function () {
+      //   $(this).toggleClass("green")
+      // }, function () {
+      //   $(this).toggleClass("green")
+      // })
+
+      $("ul li").hover(function () {
+        $(this).addClass("green")
+      })
+    </script>
+  </body>
+
+</html>

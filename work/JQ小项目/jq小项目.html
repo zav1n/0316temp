@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../jquery-3.5.1.js"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul li {
+        list-style: none;
+    }
+    /* 因为li左右有距离，要清除ul的字体再去li设置一下字体就解决li的间距了 */
+    
+    ul {
+        font-size: 0;
+    }
+    
+    li {
+        font-size: 15px;
+        color: white;
+    }
+    
+    .navTop {
+        height: 50px;
+        background-color: #7EBE23;
+    }
+    
+    .navTop-ul {
+        margin-left: 18%;
+    }
+    
+    .navTop-ul li {
+        width: 150px;
+        height: 50px;
+        display: inline-block;
+        text-align: center;
+        line-height: 50px;
+        margin: auto;
+        cursor: pointer;
+        border-right: 1px solid rgb(128, 128, 128, 0.5);
+        box-sizing: border-box;
+    }
+    
+    .navTop-ulList {
+        display: flex;
+        /* justify-content: center; */
+        margin-left: 18%;
+    }
+    
+    .navTop-ulList li {
+        display: inline-block;
+        width: 150px;
+        height: 200px;
+        background-color: violet;
+        visibility: hidden;
+    }
+    
+    .navTop-ulList .active {
+        visibility: visible;
+    }
+</style>
+
+<body>
+    <!-- 头部导航栏 -->
+    <div class="navTop">
+        <ul class="navTop-ul">
+            <li>首页</li>
+            <li>第二个</li>
+            <li>第三个</li>
+            <li>第四个</li>
+            <li>第五个</li>
+            <li>第六个</li>
+            <li>第七个</li>
+        </ul>
+        <ul class="navTop-ulList">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+        </ul>
+    </div>
+</body>
+<script src="../jquery-3.5.1.js"></script>
+<script>
+    $(".navTop-ul li").mouseover(function() {
+        $(this).css("backgroundColor", "#87CF27")
+        $(".navTop-ulList li").eq($(this).index()).addClass("active")
+        $(".navTop-ulList li").fadeTo("1000")
+        $(this).mouseout(function() {
+            $(this).css("backgroundColor", "#7EBE23")
+            $(".navTop-ulList li").removeClass("active")
+        })
+    })
+</script>
+
+</html>

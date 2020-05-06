@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .tab {
+        width: 500px;
+        margin: 100px auto;
+    }
+    
+    .tab .tab-title {
+        float: left;
+        width: 10%;
+        background-color: skyblue;
+    }
+    
+    .tab .tab-title li {
+        cursor: pointer;
+    }
+    
+    .tab .tab-title .click {
+        background-color: pink;
+    }
+    
+    .tab .tab-container {
+        float: left;
+        width: 90%;
+        background-color: pink;
+    }
+    
+    .tab .tab-container li {
+        display: none;
+        width: 90%;
+        height: 154px;
+    }
+    
+    .tab .tab-container .active {
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="tab">
+        <ul class="tab-title">
+            <li class="click">第一个</li>
+            <li>第二个</li>
+            <li>第三个</li>
+            <li>第四个</li>
+            <li>第五个</li>
+            <li>第六个</li>
+            <li>第七个</li>
+        </ul>
+        <ul class="tab-container">
+            <li class="active">内容一内容一内容一内容一内容一</li>
+            <li>内容二内容二内容二内容二内容二内容二内容二</li>
+            <li>内容三内容三内容三内容三内容三内容三内容三</li>
+            <li>内容四内容四内容四内容四内容四内容四内容四</li>
+            <li>内容五内容五内容五内容五内容五内容五内容五</li>
+            <li>内容六内容六内容六内容六内容六内容六内容六</li>
+            <li>内容七内容七内容七内容七内容七内容七内容七</li>
+        </ul>
+    </div>
+    <script>
+        let tTitleUl = document.querySelector(".tab-title")
+        let tTitleLi = document.querySelectorAll(".tab-title li");
+        let tContainerLi = document.querySelectorAll(".tab-container li")
+        changeLi()
+            //清空所有title样式
+        function resetLi() {
+            for (let i = 0; i < tTitleLi.length; i++) {
+                tTitleLi[i].className = ""
+                tContainerLi[i].className = ""
+            }
+        }
+        //改变Li样式
+        function changeLi() {
+            for (let i = 0; i < tTitleLi.length; i++) {
+                tTitleLi[i].addEventListener("click", function() {
+                    resetLi()
+                    console.log(tTitleLi[i]);
+                    tTitleLi[i].className = "click"
+                    tContainerLi[i].className = "active"
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>

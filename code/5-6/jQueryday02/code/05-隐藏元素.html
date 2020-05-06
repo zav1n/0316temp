@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      div:nth-child(1) {
+        display: none;
+        /*宽度高度都为0 不占用dom*/
+        /* hidden 只能监听display: none;的属性 */
+      }
+
+      div:nth-child(2) {
+        visibility: hidden;
+        /* 宽度高度还有 占用dom*/
+      }
+
+      div:nth-child(3) {
+        /* 完全透明 */
+        opacity: 0;
+      }
+
+      div:nth-child(4) {
+        width: 0;
+        height: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <!-- 隐藏域 国籍 -->
+    <input type="hidden" value="中华人民共和国" name="country">
+    <script src="./lib/jquery.3.5.1.js"></script>
+    <script>
+      console.log($("div,input:hidden"))
+    </script>
+  </body>
+
+</html>

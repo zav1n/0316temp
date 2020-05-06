@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>选项卡</title>
 </head>
+<script src="../jquery-3.5.1.js"></script>
 <style>
     * {
         margin: 0;
@@ -73,17 +74,12 @@
             <li>内容七内容七内容七内容七内容七内容七内容七</li>
         </ul>
     </div>
-    <script>
+    <!-- <script>
         let tTitleUl = document.querySelector(".tab-title")
         let tTitleLi = document.querySelectorAll(".tab-title li");
         let tContainerLi = document.querySelectorAll(".tab-container li")
-
-
-
         changeLi()
-
-
-        //清空所有title样式
+            //清空所有title样式
         function resetLi() {
             for (let i = 0; i < tTitleLi.length; i++) {
                 tTitleLi[i].className = ""
@@ -101,6 +97,14 @@
                 })
             }
         }
+    </script> -->
+    <script>
+        $(function() {
+            $(".tab-title li").mouseover(function() {
+                $(this).addClass("click").siblings().removeClass("click")
+                $(".tab-container li").eq($(this).index()).addClass("active").siblings().removeClass("active")
+            })
+        })
     </script>
 </body>
 

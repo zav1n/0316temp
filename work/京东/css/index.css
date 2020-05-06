@@ -6,6 +6,7 @@
     
     * {
         box-sizing: border-box;
+        font-size: 24px;
     }
     
     a {
@@ -19,9 +20,7 @@
         height: 1rem;
         background-color: #333333;
         transition: all 2s;
-        /* position: absolute; */
         top: 0;
-        width: 100%;
         position: fixed;
         z-index: 2;
     }
@@ -81,7 +80,7 @@
     
     .search-top {
         width: 100%;
-        top: 38px;
+        top: 34px;
         position: fixed;
         z-index: 1;
         background-color: #de1124;
@@ -96,7 +95,6 @@
         width: 75%;
         line-height: 1;
         border-radius: .5rem;
-        /* margin: 5px; */
         margin-left: -60px;
         padding-left: 60px;
         font-size: 70%;
@@ -107,7 +105,8 @@
         width: .6rem;
         height: .6rem;
         background-size: 5rem;
-        transform: translate(15px, 11px);
+        transform: translate(11px, 9px);
+        ;
         background-image: url("../image/jd-sprites.png");
     }
     
@@ -116,8 +115,8 @@
         width: .6rem;
         height: .6rem;
         background-size: 5rem;
-        transform: translate(10px, 11px);
-        background-position: -111px 0px;
+        transform: translate(10px, 10px);
+        background-position: -110px 0px;
         background-image: url("../image/jd-sprites.png");
     }
     
@@ -138,7 +137,6 @@
     }
     
     .slide ul {
-        /* 一屏的宽度 */
         width: 10rem;
         height: 100%;
         position: relative;
@@ -148,62 +146,48 @@
     .slide ul li {
         width: 10rem;
         height: 100%;
+        background-size: 9rem;
         position: absolute;
     }
     
     .slide ul li:nth-child(1) {
         background-image: url("../image/banner5.png");
-        /*把图片缩小到适配手机屏幕*/
-        background-size: 9rem;
         left: -100%;
     }
     
     .slide ul li:nth-child(2) {
         background-image: url("../image/banner1.png");
-        background-size: 9rem;
-        /*把图片缩小到适配手机屏幕*/
         left: 0;
     }
     
     .slide ul li:nth-child(3) {
         background-image: url("../image/banner2.png");
-        background-size: 9rem;
-        /*把图片缩小到适配手机屏幕*/
         left: 100%;
     }
     
     .slide ul li:nth-child(4) {
         background-image: url("../image/banner3.png");
-        background-size: 9rem;
-        /*把图片缩小到适配手机屏幕*/
         left: 200%;
     }
     
     .slide ul li:nth-child(5) {
         background-image: url("../image/banner4.png");
-        background-size: 9rem;
-        /*把图片缩小到适配手机屏幕*/
         left: 300%;
     }
     
     .slide ul li:nth-child(6) {
         background-image: url("../image/banner5.png");
-        background-size: 9rem;
-        /*把图片缩小到适配手机屏幕*/
         left: 400%;
     }
     
     .slide ul li:nth-child(7) {
         background-image: url("../image/banner1.png");
-        background-size: 9rem;
-        /*把图片缩小到适配手机屏幕*/
         left: 500%;
     }
     /* <!-- 其他商城 --> */
     
     .boxMail {
         margin: auto;
-        /* width: 9.5rem; */
         height: 4.5rem;
         position: relative;
         overflow: hidden;
@@ -216,20 +200,14 @@
         display: grid;
         grid-template-columns: 20% 20% 20% 20% 20%;
         grid-template-rows: 47% 47%;
-        /* background-color: pink; */
         position: absolute;
         left: 0;
     }
-    /* .boxMail-list_1 a {
-    border: 1px solid black;
-} */
     
     .boxMail-list_1 a span,
     .boxMail-list_2 a span {
         display: inline-block;
         font-size: 0.35rem;
-        /* margin-top: -135px; */
-        /* transform: translateY(-13px); */
         transform: translate(10px, -15px);
     }
     
@@ -297,14 +275,9 @@
         display: grid;
         grid-template-columns: 20% 20% 20% 20% 20%;
         grid-template-rows: 47% 47%;
-        /* background-color: teal; */
         position: absolute;
         left: 100%;
     }
-    /* 
-.boxMail-list_2 a {
-    border: 1px solid black;
-} */
     
     .boxMail-list_1 a:nth-of-type(8) span {
         transform: translate(23px, -15px);
@@ -373,7 +346,6 @@
     .boxMail-list_2 a:nth-of-type(10) img {
         background-image: url("../image/icon/nav_r_img10.webp");
     }
-    /***/
     
     .boxMail-change {
         position: absolute;
@@ -385,7 +357,6 @@
     
     .boxMail-change i {
         display: inline-block;
-        /* margin-top: -28px; */
         position: absolute;
         top: -3px;
         color: rgba(173, 173, 173, 0.877);
@@ -397,10 +368,8 @@
     /* <!-- 秒杀 --> */
     
     .boxMiaosha {
-        /* width: 20rem; */
         height: 5rem;
         border-radius: 0.4rem;
-        /* background-color: gray; */
     }
     
     .boxMiaosha-top {
@@ -427,19 +396,15 @@
         height: 0.5rem;
         background-size: 2rem;
         background-image: url(../image/seckill.png);
-        /* transform: translate(7px, -35px);*/
     }
     
     .boxMiaosha-top-seckillMore {
         height: 25px;
         display: inline-block;
-        /* width: 2rem; */
         transform: translateX(97px);
-        /* transform: translate(280px, -17px); */
     }
     
     .boxMiaosha-top-seckillMore p {
-        /* line-height: 2; */
         display: inline-block;
         font-size: 13px;
         color: #f23030;
@@ -453,9 +418,7 @@
         background-image: url("../image/more_icon.png");
         background-repeat: no-repeat;
         transform: translateY(12px);
-        /* transform: translate(58px, -28px); */
     }
-    /* 隐藏滚动条 */
     
      ::-webkit-scrollbar {
         width: 0;
@@ -463,13 +426,8 @@
     
     .boxMiaosha-ul {
         display: block;
-        /* width: 20rem; */
-        /* width: 100%; */
-        /* display: -webkit-box; */
         overflow: scroll;
-        /**/
         width: 815px;
-        /* position: relative; */
     }
     
     ul::-webkit-scrollbar {
@@ -479,16 +437,9 @@
     .boxMiaosha-ul li {
         width: 2rem;
         height: 3.5rem;
-        /* position: relative; */
         float: left;
         margin-left: 0.1rem;
-        /* background-color: pink; */
     }
-    /* .boxMiaosha-ul li::after {
-    content: "";
-    display: block;
-    clear: both;
-} */
     
     em,
     span {
@@ -502,7 +453,6 @@
         margin-left: 5px;
         color: red;
         font-weight: 600;
-        /* text-align: center; */
     }
     
     .boxMiaosha-ul li span:nth-of-type(2) {
@@ -543,15 +493,11 @@
     /* <!-- 新人专场 --> */
     
     .newConsumer {
-        /* width: 100%; */
         margin: 10px;
         height: 3.2rem;
         display: grid;
         grid-template-columns: 50% 50%;
     }
-    /* .newConsumer div {
-    border: 1px solid black;
-} */
     
     .newConsumer div:nth-of-type(1) {
         border-top-left-radius: 12px;
@@ -569,7 +515,6 @@
     /* <!-- 东家小院 --> */
     
     .goods-djxy {
-        /* width: 100%; */
         height: 1rem;
         background-image: url("../image/djxy_bj.png");
         background-size: 10rem;
@@ -680,7 +625,6 @@
     .goods-list-3 div:nth-of-type(2) div {
         background-image: url("../image/goods-6.png");
     }
-    /*********************/
     
     .goods-list-4 div:nth-of-type(1) div {
         background-image: url("../image/goods-7.png");
@@ -696,19 +640,10 @@
         height: 1.3rem;
         bottom: 0;
         position: fixed;
-        bottom: 0;
         z-index: 31;
         box-sizing: border-box;
         background-color: #fff;
         box-shadow: 0 0 10px 0 hsla(0, 6%, 58%, .6);
-        /**/
-        margin: 0;
-        padding: 0;
-        left: 0;
-        list-style: none;
-        -webkit-box-shadow: 0 0 10px 0 hsla(0, 6%, 58%, .6);
-        -moz-box-shadow: 0 0 10px 0 hsla(0, 6%, 58%, .6);
-        /*  */
         display: flex;
     }
     

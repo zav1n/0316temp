@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      div {
+        background-color: pink;
+        border: 1px solid black;
+      }
+
+      div:nth-child(1) {
+        width: 50px;
+      }
+
+      div:nth-child(2) {
+        width: 100px;
+      }
+
+      div:nth-child(3) {
+        width: 200px
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script src="./lib2/jquery.3.5.7.js"></script>
+    <script>
+      // console.log(jQuery)
+      // console.log($)
+      // console.log($("div").css("width"))
+      // $("div").css({
+      //   width: "400px",
+      //   height: "400px",
+      //   backgroundColor: "pink",
+      //   border: "1px solid black"
+      // })
+      // $("div").css("width", "100px")
+      // console.log($("div").css("11", "22"))
+      // console.log($("div").css("width", "200px")) //已经构建了一个init实例 自然可以调用.css()
+      // $("div").css("width", "100px").css("height", "100px").css({
+      //   backgroundColor: "blue"
+      // })
+      $("div:eq(2)").css({
+        backgroundColor: "blue"
+      })
+    </script>
+  </body>
+
+</html>

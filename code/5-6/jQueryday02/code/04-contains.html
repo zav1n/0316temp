@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul>
+      <!-- <li>张三</li>
+      <li>张三丰</li>
+      <li>王五</li>
+      <li>李四</li> -->
+      <li>sss</li>
+      <li>aaa</li>
+      <li>王五</li>
+      <li>李四</li>
+    </ul>
+    <script src="./lib/jquery.3.5.1.js"></script>
+    <script>
+      // 确定某个选择器是否有某些文本
+      // $("ul li:contains(张三)").css("backgroundColor", "pink")
+      $("ul li:contains(/\w+/)").css("backgroundColor", "pink")
+    </script>
+  </body>
+
+</html>

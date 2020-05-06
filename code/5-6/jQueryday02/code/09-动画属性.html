@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      /* 过渡的起点 */
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        /* 如果你要移动他的话 那么你必须给这个元素提供定位 */
+        position: absolute;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button>变化</button>
+    <div></div>
+    <script src="./lib/jquery.3.5.1.js"></script>
+    <script>
+      $("button").click(function () {
+        //过渡的重点
+        $("div").animate({
+          width: 400,
+          height: 400,
+          left: 400,
+          borderWidth: 10
+        }).animate({
+          width: 200,
+          height: 200,
+          left: 0
+        })
+      })
+
+      //如果需要生成颜色动画，您需要从 jquery.com 下载 Color Animations 插件。
+      // 链接：https://github.com/jquery/jquery-color
+    </script>
+  </body>
+
+</html>

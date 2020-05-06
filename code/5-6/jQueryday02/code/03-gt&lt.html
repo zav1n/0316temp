@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <script src="./lib/jquery.3.5.1.js"></script>
+    <script>
+      $("ul li:gt(1)").css("backgroundColor", "pink")
+      $("ul li:lt(1)").css("backgroundColor", "blue")
+      $("ul li:eq(1)").css("backgroundColor", "yellow")
+    </script>
+  </body>
+
+</html>

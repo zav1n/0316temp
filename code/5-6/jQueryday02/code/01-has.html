@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>
+      我是div
+      <p id="box" class="box">我是div中的p</p>
+    </div>
+    <div>
+      我是div2
+    </div>
+    <script src="./lib/jquery.3.5.1.js"></script>
+    <script>
+      /* 包含一个box类名的元素的标签 */
+      $("div:has(.box)").css({
+        width: 400,
+        height: 400,
+        backgroundColor: "pink"
+      })
+    </script>
+  </body>
+
+</html>
