@@ -793,6 +793,5 @@ gt,lt,eq
 
 search，exec，text，match函数，用于验证是否跟正则表达式符合
 
-
-
 如果没有报错能不能使用抛出异常
+

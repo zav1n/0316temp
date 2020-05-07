@@ -95,11 +95,14 @@
     $(".navTop-ul li").mouseover(function() {
         $(this).css("backgroundColor", "#87CF27")
         $(".navTop-ulList li").eq($(this).index()).addClass("active")
-        $(".navTop-ulList li").fadeTo("1000")
-        $(this).mouseout(function() {
-            $(this).css("backgroundColor", "#7EBE23")
-            $(".navTop-ulList li").removeClass("active")
+        $(".navTop-ulList li").eq($(this).index()).animate({
+            height: 200,
         })
+    })
+    $(".navTop-ul li").mouseout(function() {
+        $(this).css("backgroundColor", "#7EBE23")
+        $(".navTop-ulList li").removeClass("active")
+        $(".navTop-ulList li").eq($(this).index()).height("0")
     })
 </script>
 
