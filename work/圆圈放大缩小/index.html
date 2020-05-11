@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    div {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: pink;
+        position: absolute;
+        margin-left: -150px;
+        margin-top: -150px;
+        left: 50%;
+        top: 50%;
+        transition: all 2s;
+        transform: scale(0.5);
+    }
+</style>
+
+<body>
+    <div class="div1"></div>
+</body>
+<script>
+    let oDiv = document.querySelector(".div1")
+    oDiv.addEventListener("mouseover", function() {
+        oDiv.style.transform = "scale(1)"
+    })
+    oDiv.addEventListener("mouseout", function() {
+        oDiv.style.transform = "scale(0.5)"
+    })
+
+    // let flat = true
+    // setInterval(() => {
+    //     if (flat) {
+    //         flat = false
+    //         oDiv.style.transform = "scale(1)"
+    //         setInterval(() => {
+    //             flat = true
+    //             oDiv.style.transform = "scale(0.5)"
+    //         }, 2000);
+    //     }
+    // }, 2000)
+</script>
+
+</html>

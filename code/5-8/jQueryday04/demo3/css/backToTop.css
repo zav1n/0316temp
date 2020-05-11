@@ -1,0 +1,57 @@
+/* --------- 返回顶部代码 --------- */
+#shangxia {
+  position: fixed;
+  right: 50%;
+  margin-right: -670px;
+  top: 63%;
+  z-index: 9993;
+  -webkit-animation: dh_ffdb 2s steps(24) infinite;
+  -o-animation: dh_ffdb 2s steps(24) infinite;
+  animation: dh_ffdb 2s steps(24) infinite;
+  background: url(../img/gotop.png) no-repeat;
+  width: 54px;
+  height: 300px;
+  transition: 1s;
+}
+
+/* 悬停变为青绿色滤镜动画 */
+#shangxia:hover {
+  -webkit-filter: hue-rotate(-227deg);
+  filter: hue-rotate(-227deg);
+}
+
+#shang,
+#comt,
+#xia {
+  width: 33px;
+  position: absolute;
+  z-index: 9996;
+  cursor: pointer;
+}
+
+/* png序列的关键帧动画 */
+@keyframes dh_ffdb {
+  100% {
+    background-position: -1296px 0;
+  }
+}
+
+#comt {
+  height: 33px;
+  top: 71px;
+  left: 10px;
+}
+
+#shang {
+  height: 32px;
+  top: 37px;
+  left: 10px;
+}
+
+#xia {
+  height: 33px;
+  top: 106px;
+  left: 10px;
+}
+
+/* 返回顶部代码完 */

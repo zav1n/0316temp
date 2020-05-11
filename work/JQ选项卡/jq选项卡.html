@@ -45,6 +45,8 @@
     $("button").click(function() {
 
         $(this).addClass("clicked").siblings().removeClass("clicked")
+        console.log($("#content div"));
+        console.log($(this).index());
         $("#content div").eq($(this).index()).addClass("active").siblings().removeClass("active")
     })
 </script>

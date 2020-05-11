@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="./jquery.min.js"></script>
+    <script>
+      let obj = {
+        name: "张三",
+        age: 18,
+        gender: "male"
+      }
+
+      let obj1 = {
+        name: "李四",
+        hobby: ["唱歌", "跳舞"]
+      }
+
+      let obj2 = {
+        city: "深圳市"
+      }
+
+      //将obj1集成到obj中
+      //将obj1合并到obj中
+      //如果旧对象没有 那么新对象就赋值 
+      // 如果旧对象有的 新对象也有 就覆盖
+      // 如果旧对象有的 新对象没有 就保留
+      let newObj = $.extend(true, obj, obj1, obj2)
+      console.log(obj1.hobby === newObj.hobby) //false
+      console.log(newObj)
+      // {
+      //   name: "李四"
+      //   age: 18,
+      //   gender: "male",
+      //   hobby: "唱歌"
+      // }
+    </script>
+  </body>
+
+</html>

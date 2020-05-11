@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div>div{
+				width:200px;
+				height: 200px;
+				display: none;
+				position: absolute;
+				border:1px solid #000;
+			}
+			body>div{
+				height:250px;
+			}
+			div.active{
+				display: block;
+			}
+			input.active{
+				background:red
+			}
+		</style>
+	</head>
+	<body>
+		<div id='tab1'>
+			<input type="button" value="1111" class='active btn' />
+			<input type="button" value="2222" class='btn' />
+			<input type="button" value="3333" class='btn' />
+			<div class='active'>11111</div>
+			<div>22222</div>
+			<div>33333</div>
+		</div>
+		<div id='tab2'>
+			<input type="button" value="1111" class='active btn' />
+			<input type="button" value="2222" class='btn' />
+			<input type="button" value="3333" class='btn' />
+			<input type="button" value="4444" class='btn' />
+			<div class='active'>11111</div>
+			<div>22222</div>
+			<div>33333</div>
+			<div>44444</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.1.js" charset="utf-8"></script>
+	<!--<script src="js/tab.js" type="text/javascript" charset="utf-8"></script>-->
+	<script src="js/tab1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+//		写插件必须设计好功能，还需要考虑通用性问题。
+		
+//		$('#tab1>input').on('click',function(){
+//			$(this).addClass('active').siblings('input').removeClass('active');
+//			let i = $(this).index('#tab1>input');
+//			$('#tab1>div').eq(i).show().siblings('div').hide();
+//		})
+		
+//		正常的选项卡
+		$('#tab1').tab();
+//		$('#tab2').tab();
+		
+//		淡入淡出选项卡
+		$('#tab2').tab({
+			durations:500
+		});
+		
+//		$('#tab2').tab('呵呵');
+
+//		淡入淡出轮播图
+//		$('#wrap').mySlider();
+
+//		划入划出轮播图
+//		$('#wrap').mySlider({
+//			mode:'slider'
+//		});
+
+	</script>
+	
+</html>

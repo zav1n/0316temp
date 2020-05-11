@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <p>111</p>
+      <span>222</span>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+      //多事件绑定
+      //one函数 事件只会触发一次 因为内部原理 先执行on方法 绑定事件 当事件执行完毕的时候 自动触发on的回调函数 会调用本身 off函数 当然就解绑了
+      $("div").one("click", "p", function () {
+        $(this).css("backgroundColor", "blue")
+      })
+
+      //移除span的点击事件
+      // $("div").off("click", "span")
+      //移除span的所有事件
+      // $("div").off(undefined, "span")
+      //第三个参数表示的是我要移除那个事件
+      // $("div").off("click", "span", fn1)
+    </script>
+  </body>
+
+</html>

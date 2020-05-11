@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>111</div>
+		<p>111</p>
+	</body>
+	<script src="js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+		let arr = [1,2,3];
+
+//		如何给所有的数组添加一个自定义的公有方法？
+		
+//		Array.prototype.abc = function(){alert('我是数组的abc')};		
+//		[1,2,3].abc();
+//		[3,4,5,6].abc();
+
+//		如何给所有的js对象添加一个自定义的公有方法
+		
+//		Object.prototype.fn = function(){alert('我是对象的fn')};
+		
+//		({name:'mimi'}).fn();
+//		window.fn();
+//		document.fn();
+//		arr.fn();
+//		(100).fn();
+		
+//		如何给所有的jq对象添加一个自定义的公有方法 -> 在jq的类的原型上添加	
+
+//		给所有jq实例添加一个公有的abc属性。
+//		jQuery.prototype.abc = 1000;		
+//		console.log($('div').abc);
+//		console.log($('p').abc);
+
+//		给所有jq实例添加一个公有的fn1方法。
+//		$.fn.fn1 = function(){
+//			alert(9999)
+//		}
+//		$('div').fn1();
+
+//		添加fn1公有方法。
+//		$.extend($.fn,{
+//			fn1:function(){
+//				alert(99999)
+//			}
+//		})
+
+//		添加fn1公有方法。
+		$.fn.extend({
+			fn1:function(){
+				alert(99999)
+			}
+		})
+		
+		$('div').fn1();
+		
+	</script>
+</html>

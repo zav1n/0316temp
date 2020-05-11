@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <p>111</p>
+      <span>222</span>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+      //多事件绑定
+      $("div").on({
+        click: function () {
+          console.log("点击")
+        },
+        mouseover: function () {
+          console.log("进入")
+        }
+      })
+      //移除这个元素的所有事件
+      // $("div").off();
+      //移除单个事件
+      $("div").off("click mouseover")
+    </script>
+  </body>
+
+</html>

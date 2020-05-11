@@ -5,12 +5,24 @@ $(function() {
         if (flat) {
             flat = false
             $("input[class='j-checkbox']").prop("checked", true)
+            let obj = getChatItem($(this))
+            changeSum(obj.$count, obj.$price, obj.$sum)
+            calcTotal()
         } else {
             flat = true
             $("input[class='j-checkbox']").prop("checked", false)
+
+            $(".price-sum em").text(`¥0`)
         }
     });
-    //点击增加 + 
+    //单点商品的选择框
+    $(".j-checkbox").click(function() {
+            console.log('点击了');
+            let obj = getChatItem($(this))
+            changeSum(obj.$count, obj.$price, obj.$sum)
+            calcTotal()
+        })
+        //点击增加 + 
     $(".increment").click(function() {
         //在+的同级找到文本框的值，val有两个参数,i不能删掉，因为要获取当前哪个文本框
         $(this).siblings(".itxt").val(function(i, v) {
@@ -54,18 +66,18 @@ $(function() {
     }
 
     //计算总价
+
     function calcTotal() {
         let total = 0;
         $(".cart-item").has(".j-checkbox:checked").each(function(index, domEle) {
-                console.log(domEle)
                 let obj = getChatItem($(domEle)); //所有的对象
-                console.log(obj)
                 let sum = getSum(getCount(obj.$count), getPrice(obj.$price)) //小记价格
                 total += sum
             })
             // 渲染总价
         $(".price-sum em").text(`¥${total.toFixed(2)}`)
     }
+
     //删除按钮
     $(".p-action a").click(function() {
         let obj = getChatItem($(this))
@@ -79,8 +91,12 @@ $(function() {
     });
     //删除选中的商品
     $(".remove-batch").click(function() {
-        $(".cart-item input:checkbox:checked").parents(".cart-item").remove();
-        calcTotal()
+            $(".cart-item input:checkbox:checked").parents(".cart-item").remove();
+            calcTotal()
+        })
+        //选中商品
+    $(".cart-item").click(function() {
+        $(this).addClass("check-cart-item").siblings().removeClass("check-cart-item")
     })
 
     function getChatItem($ele) {
@@ -97,7 +113,8 @@ $(function() {
             $decrement: $parent.find(".decrement"),
             $increment: $parent.find(".increment"),
             $sum: $parent.find(".p-sum"),
-            $delete: $parent.find(".p-action a")
+            $delete: $parent.find(".p-action a"),
+            $checkInput: $parent.find(".cart-item .j-checkbox")
         }
     }
 })

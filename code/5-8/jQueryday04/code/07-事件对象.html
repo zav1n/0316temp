@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+      // document.addEventListener("click", function (e) {
+      //   console.log(e)
+      // })
+      $(document).on("click", function (e) {
+        console.log("document被点击了")
+      })
+      $("div").on("click", function (e) {
+        console.log("div被点击了")
+        e.stopPropagation();
+      })
+
+      //jQuery只支持事件冒泡 不支持事件捕获
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        #wrap {
+            width: 500px;
+            border: 1px solid #000;
+            margin: 200px auto;
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        ul>li {
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            text-align: center;
+            font-size: 50px;
+            line-height: 300px;
+        }
+        
+        .dots>li {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            float: left;
+            margin-left: 40px;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        .dots>.active {
+            background: #000;
+            color: #fff;
+        }
+        
+        ol {
+            position: absolute;
+            top: 250px;
+            left: 70px;
+            z-index: 2
+        }
+    </style>
+</head>
+
+<body>
+    <div id='wrap'>
+        <ol class='dots'>
+            <li class='active'>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+        <ul>
+            <li style="background: red;z-index:1">1</li>
+            <li style="background: pink;">2</li>
+            <li style="background: green;">3</li>
+            <li style="background: skyblue;">4</li>
+            <li style="background: orange;">5</li>
+        </ul>
+    </div>
+</body>
+<script src="js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    //		获取li,图片的宽度
+    let liw = $('ul>li').outerWidth();
+
+    //		图片的个数
+    let length = $('ul>li').length;
+
+    //		把1之外的图片移到窗口的右边(防止轮播时挡住别的图片)
+    $('ul>li').slice(1).css('left', liw);
+
+    //		表示动画是否结束(动画结束了才可以点击.防抖节流).
+    let flag = true;
+
+    //		给指示器添加点击事件切换图片。
+    $('.dots>li').on('click', function() {
+        if (flag) {
+            //				点击把flag变false，700毫秒没有结束再次点击无效。				
+            flag = false;
+            //				被点击图片的下标			
+            let index = $(this).index();
+            //				设置轮番图样式			
+            changeCss($(this), index);
+            //				把当前按钮的下标设置为滚动图片的下标。
+            i = index;
+        }
+    })
+
+    //默认显示的图片的图片的下标。
+    let i = 0;
+
+    let id = setInterval(fn, 3000);
+
+    //鼠标移入父元素停止滚动，移出继续滚动
+    $('#wrap').hover(function() {
+        clearInterval(id);
+    }, function() {
+        id = setInterval(fn, 3000);
+    })
+
+    function fn() {
+        //			前一张图片		
+        $('ul>li').eq(i).animate({
+            'left': -liw
+        }, 700);
+        //			如果是最后一张，切换到第一张。
+        i = i == length - 1 ? 0 : ++i;
+        //			后一张图片。
+        $('ul>li').eq(i).css('left', liw).animate({
+            'left': 0
+        }, 700);
+        //			切换显示指示器样式
+        $('ol>li').eq(i).addClass('active').siblings().removeClass('active');
+    }
+
+    function changeCss(el, index) {
+        //切换指示器样式。
+        el.addClass('active').siblings().removeClass('active');
+
+        //切换图片样式。				
+        //如果被点击图片的下标比当前显示图片的下标大。
+        if (index > i) {
+            //需要先把被点击的图片放到轮播图的右边
+            $('ul>li').eq(index).css('left', liw).animate({
+                'left': 0
+            }, 500);
+            //当前显示的图片.
+            $('ul>li').eq(i).animate({
+                'left': -liw
+            }, 500, function() {
+                flag = true
+            });
+        } else if (index < i) {
+            //需要先把被点击的图片放到轮播图的左边
+            $('ul>li').eq(index).css('left', -liw).animate({
+                'left': 0
+            }, 500);
+            //当前显示的图片.
+            $('ul>li').eq(i).animate({
+                'left': liw
+            }, 500, function() {
+                flag = true
+            });
+        }
+    }
+</script>
+
+</html>

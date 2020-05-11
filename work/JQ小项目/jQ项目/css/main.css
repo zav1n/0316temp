@@ -38,7 +38,7 @@
 			
 			#header .navitem {
 			    display: none;
-			    width: 180px;
+			    width: 100%;
 			    position: absolute;
 			    z-index: 101;
 			    left: 0;
@@ -49,7 +49,6 @@
 			}
 			
 			#header .navitem ul li {
-			    width: 180px;
 			    padding: 0;
 			    color: #333;
 			}
@@ -301,8 +300,6 @@
 			    margin-top: 20px;
 			    margin-right: 20px;
 			}
-			
-			.tab-img li {}
 			
 			#con-item {
 			    width: 1200px;

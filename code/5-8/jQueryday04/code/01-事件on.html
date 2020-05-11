@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+
+      .over {
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>123</div>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+
+    <script src="./jquery.min.js"></script>
+    <script>
+      //完全相当于addEventListener
+      // 1. 完全替代jQuery的其他事件方法
+      // $("div").on("click", function () {
+      //   console.log("你被点击了")
+      // })
+
+      // $("div").on("mouseover", function () {
+      //   $(this).css("backgroundColor", "green")
+      // })
+
+      // $("div").on("mouseout", function () {
+      //   $(this).css("backgroundColor", "yellow")
+      // })
+
+      //默认的事件是完全不支持新元素的点击事件的
+      //遍历当时的ul中的所有的li 而当时的li只有5个 所以第六个新增的li绝对没有绑定点击事件
+      //筛选器 ul的事件总是会被触发 但是前提是你要点击的是li
+      //事件的触发者必须是ul 且事件源 必须是 li 才行
+      // 2.可以实现事件委托
+      // $("ul").on("click", "li", function () {
+      //   $(this).css("backgroundColor", "pink")
+      // })
+      // //我现在初始化一个li 且添加
+      // $("ul").append($("<li>我是一个新增加的li</li>"))
+
+      // $("ul li").on("click", function () {
+      //   $(this).css("backgroundColor", "pink")
+      // })
+      // //对ul中的第一个li做克隆操作 然后将该节点 插入到ul中
+      // //clone(true) 不仅克隆你形状样式 还可以 克隆你所有事件
+      // $("ul li:first").clone(true).appendTo($("ul"))
+      // $("ul").append()
+      // $("ul").append($("<li>我是一个新增加的li</li>"))
+
+      // 3.可以传参 on
+      // let arr = [11, 22, 33, 44, 55]
+      // $("ul").on("click", "li", { arr: arr }, function (e) {
+      //   console.log($(this).index())
+      //   console.log(e.data.arr[$(this).index()])
+      //   $(this).css("backgroundColor", "pink")
+      // })
+      // 4.可以多事件触发
+      $("div").on("mouseout mouseover", function () {
+        //这个事件源是js对象
+        $(this).toggleClass("over")
+      })
+
+      //面试前 你问下公司的负责人(人事) 贵公司的前端技术栈是什么? 主营业务是什么? 项目组人数是多少?
+    </script>
+  </body>
+
+</html>

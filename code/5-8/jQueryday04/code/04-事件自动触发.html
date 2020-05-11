@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div></div>
+    <input type="text" value="123">
+    <script src="./jquery.min.js"></script>
+    <script>
+      $("div").on("click", function () {
+        console.log("自动触发了")
+      })
+
+      //你的光标真的跑到那个文本框 浏览器的默认事件
+      $("input").on("focus", function (e) {
+        $("input").val(456)
+        // e.preventDefault();
+      })
+
+      //模拟一个脚本进行了一次点击
+      //事件名称是什么 我直接调用对应的事件就OK了
+      //trigger 会触发浏览器默认行为
+      // $("div").click()
+      // $("input").focus();
+
+
+      //阻止默认事件 有两个方法 e.preventDefault() return false
+      //trigger 会触发浏览器默认行为
+      // $("div").trigger("click");
+      $("input").trigger("focus");
+
+      //trigger 不会触发浏览器默认行为
+      // $("div").triggerHandler("click");
+      // $("input").triggerHandler("focus");
+    </script>
+  </body>
+
+</html>

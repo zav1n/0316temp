@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			
+			#wrap{
+				width: 500px;
+				border:1px solid #000;
+				margin:200px auto;
+				position: relative;
+				height:300px;
+			}
+											
+			ul>li{
+				width: 500px;
+				height: 300px;
+				position: absolute;
+				text-align: center;
+				font-size:50px;
+				line-height: 300px;
+			}
+			
+			.dots>li{
+				border-radius: 50%;
+				width: 30px;
+				height: 30px;
+				background:#fff;
+				float: left;
+				margin-left:40px;
+				text-align: center;
+				line-height: 30px;
+			}
+			
+			.dots>.active{
+				background:#000;
+				color:#fff;
+			}
+			
+			ol{
+				position: absolute;
+				top: 250px;
+    			left: 70px;
+    			z-index:2
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id='wrap'>
+			<ol class='dots'>
+				<li class='active'>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+			<ul>
+				<li style="background: red;z-index:1">1</li>
+				<li style="background: pink;">2</li>
+				<li style="background: green;">3</li>
+				<li style="background: skyblue;">4</li>
+				<li style="background: orange;">5</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+//		图片的个数
+		let length = $('ul>li').length;
+		
+//		给指示器添加点击事件切换图片。
+		$('.dots>li').on('click',function(){
+			let index = $(this).index();
+//			设置轮番图样式			
+			changeCss($(this),index);
+//			把当前按钮的下标设置为滚动图片的下标。
+			i = index;
+		})
+		
+		//默认显示的图片的图片的下标。
+		let i = 0;
+		
+		let id = setInterval(fn,3000);
+		
+		//鼠标移入父元素停止滚动，移出继续滚动
+		$('#wrap').hover(function(){
+			clearInterval(id);
+		},function(){
+			id = setInterval(fn,3000);
+		})
+		
+		function fn(){
+//			如果是最后一张图，切换到第一张
+			i = i==length-1?0:++i;
+//			设置轮番图样式			
+			changeCss($('ol>li').eq(i),i);
+		}
+		
+		function changeCss(el,i){
+			//切换指示器样式。
+			el.addClass('active').siblings().removeClass('active');
+			//切换图片样式。
+			$('ul>li').eq(i).fadeIn(700).siblings().fadeOut(700);
+		}
+		
+		
+	</script>
+</html>

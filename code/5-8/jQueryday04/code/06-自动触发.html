@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+  </head>
+
+  <body>
+    <form action="login.action">
+      <input type="text" name="username" id="username" value="张三">
+      <button>提交</button>
+    </form>
+    <script src="./jquery.min.js"></script>
+    <script>
+      $("button").on("click", function () {
+        console.log("click")
+      })
+      $("button").on("submit", function () {
+        console.log("submit")
+      })
+      //阻止默认事件 有两个方法 e.preventDefault() return false
+      //trigger 会触发浏览器默认行为
+      // $("button").click();
+      // $("button").trigger("click");
+
+      //triggerHandler 不会提交表单
+      $("button").triggerHandler("click");
+
+      //trigger 不会触发浏览器默认行为
+      // $("div").triggerHandler("click");
+      // $("input").triggerHandler("focus");
+    </script>
+  </body>
+
+</html>
