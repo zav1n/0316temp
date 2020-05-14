@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+    <!-- </body>
+<script src="../vue.js"></script> -->
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                msg: "这是data里面的msg"
+            }
+        })
+
+
+
+        function Vue(obj) {
+            let {
+                el,
+                data
+            } = obj;
+            let odiv = document.querySelector(el);
+            for (let key in data) {
+                this.key = data[key]
+                odiv.innerText = data[key] //先初始一下
+
+                let val = data[key]; //定义val   避免get的时候不知道return谁
+                Object.defineProperty(this, key, {
+                    //watcher!!~~~~
+                    get() {
+                        return val;
+                    },
+                    set(newval) {
+                        val = newval; //把新的值重新赋值给val
+                        odiv.innerHTML = newval; //再显示到视图
+                    }
+                })
+            }
+
+        }
+    </script>
+
+</html>

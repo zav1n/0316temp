@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    function getUserAccount() {
+        console.log('第一个');
+        return axios({
+            methods: "post",
+            url: 'https://api.it120.cc/small4/user/m/login?deviceId=007&deviceName=monkey',
+            params: {
+                mobile: 13500000000,
+                pwd: 12345
+            }
+        });
+    }
+
+
+
+    function getUserPermissions() {
+        console.log('第二个');
+        return axios({
+            methods: "post",
+            url: 'https://api.it120.cc/small4/user/m/login?deviceId=007&deviceName=monkey',
+            params: {
+                mobile: 13500000000,
+                pwd: 12345
+            }
+        });
+    }
+    axios.all([getUserPermissions(), getUserAccount()])
+        .then(axios.spread(function(acct, perms) {
+            // 两个请求现在都执行完成
+            console.log(acct);
+            console.log(perms)
+        }));
+    // console.dir(axios)
+</script>
+
+</html>

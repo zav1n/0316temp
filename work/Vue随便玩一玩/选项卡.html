@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        display: none;
+    }
+    
+    div.active {
+        display: block;
+    }
+    
+    input.active {
+        background-color: pink;
+    }
+</style>
+
+<body>
+    <div id="wrap">
+        <input type="button" class="active" value="1">
+        <input type="button" value="2">
+        <input type="button" value="3">
+        <div class="active">内容1</div>
+        <div>内容2</div>
+        <div>内容3</div>
+    </div>
+
+    <div id="app">
+        <input type="button" :class='{active:i===index}' v-for='(d,i) in arr' :value="d" @click='fn(i)' />
+        <div :class='{active:i===index}' v-for='(d,i) in arr'>{{d}}</div>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    //修改数组希望有响应式，只能修改数组本身,通过下标修改是不行的
+    //可以修改数组的方法  push  pop  shift unshitft  sort  splice  reverse
+    new Vue({
+        el: '#app',
+        data: {
+            arr: [111, 222, 333],
+            index: 0
+        },
+        methods: {
+            fn(i) {
+                this.index = i
+            }
+        }
+    })
+
+    let oDiv = document.getElementById("wrap")
+    let aInput = oDiv.getElementsByTagName("input")
+    let aDiv = oDiv.getElementsByTagName("div")
+    let index = 0
+
+    for (let i = 0; i < aInput.length; i++) {
+        aInput[i].addEventListener("click", function() {
+            index = i;
+            for (let j = 0; j < aDiv.length; j++) {
+                if (index == j) {
+                    aDiv[j].className = "active"
+                    aInput[j].className = "active"
+
+                } else {
+                    aDiv[j].className = ""
+                    aInput[j].className = ""
+                }
+            }
+
+        })
+    }
+</script>
+
+</html>

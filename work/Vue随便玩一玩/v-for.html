@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 每次点击添加按钮，ul会新增li，并且点击li会删除当前的li -->
+
+<body>
+    <div id="app">
+        <input type="button" value="添加li" @click='add()'>
+        <ul>
+            <li v-for='(a,i) in arr'>{{a}}
+                <input type="button" value="删除" @click='del(i)'>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            arr: []
+        },
+        methods: {
+            add() {
+                this.arr.push(Math.random());
+            },
+            del(i) {
+                this.arr.splice(i, 1);
+            }
+        }
+    })
+</script>
+
+</html>

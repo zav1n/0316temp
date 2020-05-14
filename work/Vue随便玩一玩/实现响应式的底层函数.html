@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="button" value="点击更新">
+        <p class="word"></p>
+    </div>
+
+    <p></p>
+</body>
+<script>
+    let oInput = document.querySelector("input")
+    let oWord = document.querySelector(".word")
+    let obj = {
+        msg: "我是obj对象的msg"
+    }
+    oInput.addEventListener("click", function() {
+        oWord.innerHTML = obj.msg;
+    })
+
+    //响应式的原理    Object.defineProperty
+    let val = obj.msg
+    Object.defineProperty(obj, "msg", {
+        get() {
+            //当访问obj.msg时进入set
+            console.log('进入get了');
+            //如果不return,则访问的时候会显示undefined
+            //而return的值已经在上面定义了,定义的就是obj.msg
+            return val;
+        },
+        //当修改obj中的msg就会进入set
+        set(newval) {
+            console.log('进入set了');
+            //个人理解,因为在get中获取到obj.msg,再修改obj.msg的值就会赋值给set中的形参,然后形参再赋值给val容器(就是obj.msg)
+            val = newval;
+            //如果要实时更新数据就要实时赋值
+            oWord.innerHTML = obj.msg;
+        }
+    })
+</script>
+
+</html>

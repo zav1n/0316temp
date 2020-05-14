@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        单价：<input type="text" v-model='price' /> </br>
+        数量：<input type="text" v-model='count' />
+        <p>总价{{total}}</p>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            count: 0,
+            price: 0,
+        },
+        // methods: {
+        //     fn() {
+        //         this.total = this.count * this.price
+        //     },
+
+        //如果一个数据是依赖于其他数据计算得出的，都应该用计算属性
+        //如果要计算的值非常长，可以用computed这个属性
+        computed: {
+            total() {
+                //每一次内部的数据变化时，都会重新触发
+                console.log('每次输入框的值变化就会每次触发');
+                return this.count * this.price
+            }
+        }
+    })
+</script>
+
+</html>

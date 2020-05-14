@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <div>
+        <input type="button" value="新闻列表">
+        <ul></ul>
+    </div>
+</body>
+<script type="text/javascript">
+    let oUl = document.querySelector("ul")
+    let oBtn = document.querySelector("input")
+
+    oBtn.addEventListener("click", function() {
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://192.168.1.5:8080/0316ajax01/getNews.php');
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    console.log('321321');
+                    let data = JSON.parse(xhr.responseText)
+                    for (let i = 0; i < data.length; i++) {
+                        oUl.innerHTML += `${data.title}`
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+</html>

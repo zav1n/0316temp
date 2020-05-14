@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            count: 0,
+            price: 0,
+            total: 0,
+            obj: {
+                x: 10,
+                y: {
+                    name: {
+                        firstName: "李",
+                        lastName: "子"
+                    }
+                }
+            }
+        },
+        //全写是一个对象，简写是一个函数
+        //这个是简写
+        watch: {
+            obj: {
+                immediate: true, //初始页面时会立马执行一次
+                deep: true, //如果层级太深又要访问其中一个值就加这个
+                //这两个参数可选
+
+                //监听的数据发生变化时触发的函数
+                handler() {
+                    console.log('obj其中的某个值发生变化');
+                }
+            }
+        }
+    })
+</script>
+
+</html>

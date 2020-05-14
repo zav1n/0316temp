@@ -1,468 +1,471 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
-  <style>
+</head>
+<style>
     * {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
-
+    
     .navTop {
-      width: 100%;
-      height: 50px;
-      background-color: #9ade3b;
+        width: 100%;
+        height: 50px;
+        background-color: #9ade3b;
     }
-
+    
     .navTop-ul {
-      display: flex;
-      justify-content: center;
+        display: flex;
+        justify-content: center;
     }
-
+    
     .navTop-ul li {
-      width: 110px;
-      line-height: 50px;
-      text-align: center;
-      /* margin: auto; */
-      float: left;
-      border-right: 1px solid rgba(193, 193, 193, 0.681);
-      cursor: pointer;
+        width: 110px;
+        line-height: 50px;
+        text-align: center;
+        /* margin: auto; */
+        float: left;
+        border-right: 1px solid rgba(193, 193, 193, 0.681);
+        cursor: pointer;
     }
-
+    
     .ulList {
-      width: 100%;
-      height: 50px;
+        width: 100%;
+        height: 50px;
     }
-
+    
     .ulList ul {
-      display: flex;
-      justify-content: center;
+        display: flex;
+        justify-content: center;
     }
-
+    
     .ulList ul li {
-      width: 110px;
-      line-height: 50px;
-      text-align: center;
-      /* margin: auto; */
-      float: left;
-      cursor: pointer;
-      visibility: hidden;
-      border-right: 1px solid rgba(0, 0, 0, 0);
-      z-index: 100;
+        width: 110px;
+        line-height: 50px;
+        text-align: center;
+        /* margin: auto; */
+        float: left;
+        cursor: pointer;
+        visibility: hidden;
+        border-right: 1px solid rgba(0, 0, 0, 0);
+        z-index: 100;
     }
-
+    
     .ulList ul li span {
-      width: 100%;
-      display: inline-block;
-      background-color: rgba(211, 211, 211, 0.664);
+        width: 100%;
+        display: inline-block;
+        background-color: rgba(211, 211, 211, 0.664);
     }
-
+    
     .ulList ul li.active {
-      visibility: visible;
+        visibility: visible;
     }
-
+    
     .slider {
-      width: 100%;
-      height: 500px;
-      margin-top: -50px;
-      position: relative;
-      overflow: hidden;
+        width: 100%;
+        height: 500px;
+        margin-top: -50px;
+        position: relative;
+        overflow: hidden;
     }
-
+    
     .slider-ul li {
-      width: 100%;
-      height: 500px;
-      text-align: center;
-      line-height: 500px;
-      font-size: 50px;
-      position: absolute;
+        width: 100%;
+        height: 500px;
+        text-align: center;
+        line-height: 500px;
+        font-size: 50px;
+        position: absolute;
     }
-
+    
     .slider-ul li:nth-of-type(1) {
-      background-color: skyblue;
+        background-color: skyblue;
     }
-
+    
     .slider-ul li:nth-of-type(2) {
-      background-color: coral;
+        background-color: coral;
     }
-
+    
     .slider-ul li:nth-of-type(3) {
-      background-color: pink;
+        background-color: pink;
     }
-
+    
     .slider-ul li:nth-of-type(4) {
-      background-color: rgb(247, 143, 160);
+        background-color: rgb(247, 143, 160);
     }
-
+    
     .slider-ul li:nth-of-type(5) {
-      background-color: rgb(253, 101, 126);
+        background-color: rgb(253, 101, 126);
     }
-
+    
     .slider-ol {
-      position: absolute;
-      left: 40%;
-      bottom: 0;
-      /* width: 100%; */
+        position: absolute;
+        left: 40%;
+        bottom: 0;
+        /* width: 100%; */
     }
-
+    
     .slider-ol li {
-      width: 25px;
-      height: 25px;
-      display: inline-block;
-      border-radius: 50%;
-      background-color: rgba(128, 128, 128, 0.295);
-      text-align: center;
-      line-height: 25px;
-      margin: 20px;
-      cursor: pointer;
-      left: 50%;
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        border-radius: 50%;
+        background-color: rgba(128, 128, 128, 0.295);
+        text-align: center;
+        line-height: 25px;
+        margin: 20px;
+        cursor: pointer;
+        left: 50%;
     }
-
+    
     .slider-ol .active {
-      background-color: white;
+        background-color: white;
     }
-
+    
     .slider-next,
     .slider-prev {
-      width: 50px;
-      height: 50px;
-      display: inline-block;
-      border-radius: 50%;
-      background-color: rgba(128, 128, 128, 0.219);
-      position: absolute;
-      top: 50%;
-      text-align: center;
-      line-height: 50px;
-      font-size: 20px;
-      cursor: pointer;
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        border-radius: 50%;
+        background-color: rgba(128, 128, 128, 0.219);
+        position: absolute;
+        top: 50%;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        cursor: pointer;
     }
-
+    
     .slider-next {
-      right: 100px;
+        right: 100px;
     }
-
+    
     .slider-prev {
-      left: 100px;
+        left: 100px;
     }
-
+    
     .selectCard {
-      margin: 50px auto;
-      width: 1200px;
+        margin: 50px auto;
+        width: 1200px;
     }
-
+    
     .selectCard-nav {
-      height: 45px;
+        height: 45px;
     }
-
+    
     .selectCard-body {
-      height: 500px;
-      overflow: hidden;
-      border: 2px solid black;
+        height: 500px;
+        overflow: hidden;
+        border: 2px solid black;
     }
-
+    
     .selectCard-nav-ul li {
-      width: 200px;
-      height: 45px;
-      float: left;
-      border: 2px solid pink;
-      box-sizing: border-box;
-      text-align: center;
-      line-height: 45px;
-      cursor: pointer;
+        width: 200px;
+        height: 45px;
+        float: left;
+        border: 2px solid pink;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 45px;
+        cursor: pointer;
     }
-
+    
     .selectCard-body div {
-      display: none;
-      height: 500px;
+        display: none;
+        height: 500px;
     }
-
+    
     .selectCard-body div.active {
-      display: block;
+        display: block;
     }
-
+    
     .selectCard-body-article-1,
     .selectCard-body-article-2 {
-      margin: 40px;
-      float: left;
+        margin: 40px;
+        float: left;
     }
-
+    
     .selectCard-body-article-1 li,
     .selectCard-body-article-2 li {
-      line-height: 30px;
-      cursor: pointer;
+        line-height: 30px;
+        cursor: pointer;
     }
-
+    
     .showCard {
-      width: 1200px;
-      margin: 50px auto;
-      background-color: skyblue;
+        width: 1200px;
+        margin: 50px auto;
+        background-color: skyblue;
     }
-
+    
     .showCard-div {
-      width: 70px;
-      height: 300px;
-      float: left;
-      border: 1px solid black;
-      box-sizing: border-box;
-      overflow: hidden;
+        width: 70px;
+        height: 300px;
+        float: left;
+        border: 1px solid black;
+        box-sizing: border-box;
+        overflow: hidden;
     }
-
+    
     .showCard-div-ul {
-      display: block;
-      width: 500px;
-      height: 300px;
-      background-color: gray;
-      float: left;
-      position: relative;
+        display: block;
+        width: 500px;
+        height: 300px;
+        background-color: gray;
+        float: left;
+        position: relative;
     }
-
+    
     .width1 {
-      width: 570px;
+        width: 570px;
     }
-
+    
     .showCard-div::after {
-      content: "";
-      display: block;
-      clear: both;
+        content: "";
+        display: block;
+        clear: both;
     }
-
+    
     .showCard-div-name {
-      width: 68px;
-      background-color: #87cb27;
-      float: left;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 300px;
-      color: white;
+        width: 68px;
+        background-color: #87cb27;
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        color: white;
     }
-
+    
     .visit {
-      overflow: visible;
+        overflow: visible;
     }
+    
     .showCard-div-ul li {
-      margin: 10px;
-      width: 260px;
+        margin: 10px;
+        width: 260px;
     }
+    
     .showCard-div-ul img {
-      width: 215px;
-      height: 200px;
-      position: absolute;
-      top: 50px;
-      right: 0;
+        width: 215px;
+        height: 200px;
+        position: absolute;
+        top: 50px;
+        right: 0;
     }
-  </style>
+</style>
 
-  <body>
+<body>
     <!-- 头部列表 -->
     <div class="navTop">
-      <ul class="navTop-ul">
-        <li>首页</li>
-        <li>第一个</li>
-        <li>第二个</li>
-        <li>第三个</li>
-        <li>第四个</li>
-        <li>第五个</li>
-        <li>第六个</li>
-      </ul>
+        <ul class="navTop-ul">
+            <li>首页</li>
+            <li>第一个</li>
+            <li>第二个</li>
+            <li>第三个</li>
+            <li>第四个</li>
+            <li>第五个</li>
+            <li>第六个</li>
+        </ul>
     </div>
     <div class="ulList">
-      <ul class="ulList-ul">
-        <li>
-          <span>首页.1</span>
-        </li>
-        <li>
-          <span>1.1</span>
-          <span>1.2</span>
-        </li>
-        <li>
-          <span>2.1</span>
-          <span>2.2</span>
-          <span>2.3</span>
-        </li>
-        <li>
-          <span>3.1</span>
-          <span>3.2</span>
-          <span>3.3</span>
-          <span>3.4</span>
-        </li>
-        <li>
-          <span>4</span>
-          <span>4</span>
-          <span>4</span>
-          <span>4</span>
-        </li>
-        <li>
-          <span>5</span>
-          <span>5</span>
-          <span>5</span>
-          <span>5</span>
-          <span>5</span>
-        </li>
-        <li>
-          <span>6</span>
-          <span>6</span>
-          <span>6</span>
-          <span>6</span>
-        </li>
-      </ul>
+        <ul class="ulList-ul">
+            <li>
+                <span>首页.1</span>
+            </li>
+            <li>
+                <span>1.1</span>
+                <span>1.2</span>
+            </li>
+            <li>
+                <span>2.1</span>
+                <span>2.2</span>
+                <span>2.3</span>
+            </li>
+            <li>
+                <span>3.1</span>
+                <span>3.2</span>
+                <span>3.3</span>
+                <span>3.4</span>
+            </li>
+            <li>
+                <span>4</span>
+                <span>4</span>
+                <span>4</span>
+                <span>4</span>
+            </li>
+            <li>
+                <span>5</span>
+                <span>5</span>
+                <span>5</span>
+                <span>5</span>
+                <span>5</span>
+            </li>
+            <li>
+                <span>6</span>
+                <span>6</span>
+                <span>6</span>
+                <span>6</span>
+            </li>
+        </ul>
     </div>
     <!-- 轮播图 -->
     <div class="slider">
-      <ul class="slider-ul">
-        <li>第1张</li>
-        <li>第2张</li>
-        <li>第3张</li>
-        <li>第4张</li>
-        <li>第5张</li>
-      </ul>
-      <ul class="slider-ol">
-        <li class="active">1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-      </ul>
-      <!-- <span class="slider-next">&gt;</span>
-        <span class="slider-prev">&lt;</span> -->
+        <ul class="slider-ul">
+            <li>第1张</li>
+            <li>第2张</li>
+            <li>第3张</li>
+            <li>第4张</li>
+            <li>第5张</li>
+        </ul>
+        <ul class="slider-ol">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <span class="slider-next">&gt;</span>
+        <span class="slider-prev">&lt;</span>
     </div>
     <!-- 选项卡 -->
     <div class="selectCard">
-      <!-- 头部 -->
-      <div class="selectCard-nav">
-        <ul class="selectCard-nav-ul">
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-        </ul>
-      </div>
-      <!-- 内容 -->
-      <div class="selectCard-body">
-        <div class="active">
-          <ul class="selectCard-body-article-1">
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-            <li>测试测试测试测试测试测试测试</li>
-          </ul>
-          <ul class="selectCard-body-article-2">
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-            <li>JQ玩多了就废了JQ玩多了就废了</li>
-          </ul>
+        <!-- 头部 -->
+        <div class="selectCard-nav">
+            <ul class="selectCard-nav-ul">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
         </div>
-        <div>内容2</div>
-        <div>内容3</div>
-        <div>内容4</div>
-        <div>内容5</div>
-        <div>内容6</div>
-      </div>
+        <!-- 内容 -->
+        <div class="selectCard-body">
+            <div class="active">
+                <ul class="selectCard-body-article-1">
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                    <li>测试测试测试测试测试测试测试</li>
+                </ul>
+                <ul class="selectCard-body-article-2">
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                    <li>JQ玩多了就废了JQ玩多了就废了</li>
+                </ul>
+            </div>
+            <div>内容2</div>
+            <div>内容3</div>
+            <div>内容4</div>
+            <div>内容5</div>
+            <div>内容6</div>
+        </div>
     </div>
     <!-- 展示 -->
     <div class="showCard">
-      <div class="showCard-div width1">
-        <div class="showCard-div-name">
-          <span>李白</span>
+        <div class="showCard-div width1">
+            <div class="showCard-div-name">
+                <span>李白</span>
+            </div>
+            <ul class="showCard-div-ul">
+                <li>李白李白李白李白李白李白李白李白</li>
+                <li>李白李白李白李白李白李白李白李白</li>
+                <li>李白李白李白李白李白李白李白李白</li>
+                <li>李白李白李白李白李白李白李白李白</li>
+                <li>李白李白李白李白李白李白李白李白</li>
+                <li>李白李白李白李白李白李白李白李白</li>
+                <li>李白李白李白李白李白李白李白李白</li>
+                <li>李白李白李白李白李白李白李白李白</li>
+                <li>李白李白李白李白李白李白李白李白</li>
+                <img src="../img/chun1.jpg" />
+            </ul>
         </div>
-        <ul class="showCard-div-ul">
-          <li>李白李白李白李白李白李白李白李白</li>
-          <li>李白李白李白李白李白李白李白李白</li>
-          <li>李白李白李白李白李白李白李白李白</li>
-          <li>李白李白李白李白李白李白李白李白</li>
-          <li>李白李白李白李白李白李白李白李白</li>
-          <li>李白李白李白李白李白李白李白李白</li>
-          <li>李白李白李白李白李白李白李白李白</li>
-          <li>李白李白李白李白李白李白李白李白</li>
-          <li>李白李白李白李白李白李白李白李白</li>
-          <img src="../img/chun1.jpg" />
-        </ul>
-      </div>
-      <div class="showCard-div">
-        <div class="showCard-div-name">
-          <span>杜甫</span>
+        <div class="showCard-div">
+            <div class="showCard-div-name">
+                <span>杜甫</span>
+            </div>
+            <ul class="showCard-div-ul">
+                <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
+                <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
+                <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
+                <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
+                <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
+                <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
+                <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
+                <img src="../img/chun1.jpg" />
+            </ul>
         </div>
-        <ul class="showCard-div-ul">
-          <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
-          <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
-          <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
-          <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
-          <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
-          <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
-          <li>杜甫杜甫杜甫杜甫杜甫杜甫杜甫杜甫</li>
-          <img src="../img/chun1.jpg" />
-        </ul>
-      </div>
-      <div class="showCard-div"></div>
-      <div class="showCard-div"></div>
-      <div class="showCard-div"></div>
-      <div class="showCard-div"></div>
-      <div class="showCard-div"></div>
-      <div class="showCard-div"></div>
-      <div class="showCard-div"></div>
-      <div class="showCard-div"></div>
+        <div class="showCard-div"></div>
+        <div class="showCard-div"></div>
+        <div class="showCard-div"></div>
+        <div class="showCard-div"></div>
+        <div class="showCard-div"></div>
+        <div class="showCard-div"></div>
+        <div class="showCard-div"></div>
+        <div class="showCard-div"></div>
     </div>
-  </body>
-  <script src="../js/jquery-3.2.1.min.js"></script>
-  <script>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
     // 头部列表---------------------------------------------
-    $(".navTop-ul li").on("mouseover", function () {
-      $(this).css("backgroundColor", "#76af25");
-      // $(".ulList-ul li").eq($(this).index()).addClass("active").siblings().removeClass("active")
-      $(".ulList-ul li")
-        .eq($(this).index())
-        .addClass("active")
-        .siblings()
-        .removeClass("active");
+    $(".navTop-ul li").on("mouseover", function() {
+        $(this).css("backgroundColor", "#76af25");
+        // $(".ulList-ul li").eq($(this).index()).addClass("active").siblings().removeClass("active")
+        $(".ulList-ul li")
+            .eq($(this).index())
+            .addClass("active")
+            .siblings()
+            .removeClass("active");
     });
-    $(".navTop-ul li").on("mouseout", function () {
-      $(this).css("backgroundColor", "#9ade3b");
+    $(".navTop-ul li").on("mouseout", function() {
+        $(this).css("backgroundColor", "#9ade3b");
     });
-    $(".ulList-ul li").on("mouseout", function () {
-      $(this).removeClass("active");
+    $(".ulList-ul li").on("mouseout", function() {
+        $(this).removeClass("active");
     });
 
     //轮播图---------------------------------------------------------------
     let i = 0;
     //适应浏览器宽度,高不用获取
     let windowWidth = $(window).width();
-    $(window).resize(function () {
-      //获取浏览器宽度
-      windowWidth = $(window).width();
-      $(".slider-ul li").each(function () {
-        let liLeft = parseInt($(this).css("left"));
-        //还有一个当前的li不能改变,所以要两个if判断,一个判断被移到左边的li修改为window的宽度,另一个判断被移到右边的li修改为window的宽度
-        if (liLeft > 0) {
-          $(this).css("left", windowWidth);
-        }
-        if (liLeft < 0) {
-          $(this).css("left", -windowWidth);
-        }
-      });
+    $(window).resize(function() {
+        //获取浏览器宽度
+        windowWidth = $(window).width();
+        $(".slider-ul li").each(function() {
+            let liLeft = parseInt($(this).css("left"));
+            //还有一个当前的li不能改变,所以要两个if判断,一个判断被移到左边的li修改为window的宽度,另一个判断被移到右边的li修改为window的宽度
+            if (liLeft > 0) {
+                $(this).css("left", windowWidth);
+            }
+            if (liLeft < 0) {
+                $(this).css("left", -windowWidth);
+            }
+        });
     });
     //打开浏览器最开始的界面
     //除了[  .not() ]第一个li[ $(".slider-ul li").eq(0) ],其他的都放在左边
@@ -472,121 +475,140 @@
     let lunbotu = setInterval(sliderMove, 3000);
 
     $(".slider").hover(
-      function () {
-        console.log("进入轮播图,停止切换");
-        clearInterval(lunbotu);
-      },
-      function () {
-        console.log("离开轮播图,开始切换");
-        lunbotu = setInterval(sliderMove, 3000);
-      }
+        function() {
+            console.log("进入轮播图,停止切换");
+            clearInterval(lunbotu);
+        },
+        function() {
+            console.log("离开轮播图,开始切换");
+            lunbotu = setInterval(sliderMove, 3000);
+        }
     );
 
     function sliderMove() {
-      //把旧的li放到左边
-      $(".slider-ul li").eq(i).animate(
-        {
-          left: -windowWidth,
-        },
-        700
-      );
-      //判断第几个li   i为中立变量
-      i = i === $(".slider-ul li").length - 1 ? 0 : ++i;
-      //显示当前的li
-      $(".slider-ul li").eq(i).css("left", windowWidth).animate(
-        {
-          left: 0,
-        },
-        700
-      );
-      $(".slider-ol li")
-        .eq(i)
-        .addClass("active")
-        .siblings()
-        .removeClass("active");
+        //把旧的li放到左边
+        $(".slider-ul li").eq(i).animate({
+                left: -windowWidth,
+            },
+            700
+        );
+        //判断第几个li   i为中立变量
+        i = i === $(".slider-ul li").length - 1 ? 0 : ++i;
+        //显示当前的li
+        $(".slider-ul li").eq(i).css("left", windowWidth).animate({
+                left: 0,
+            },
+            700
+        );
+        $(".slider-ol li").eq(i).addClass("active").siblings().removeClass("active");
     }
     let flag = true; //点击节流
-    $(".slider-ol li").on("click", function () {
-      if (flag) {
-        //点击后不能再被点击,只有在动画完成时候才能被点击,动画完成时改为true
-        flag = false;
-        let index = $(this).index();
-        change($(this), index);
-        i = index;
-      }
+    $(".slider-ol li").on("click", function() {
+        if (flag) {
+            //点击后不能再被点击,只有在动画完成时候才能被点击,动画完成时改为true
+            flag = false;
+            let index = $(this).index();
+            change($(this), index);
+            i = index;
+        }
     });
 
     function change(e, index) {
-      e.addClass("active").siblings().removeClass("active");
-      if (index > i) {
-        $(".slider-ul li").eq(index).css("left", windowWidth).animate(
-          {
-            left: 0,
-          },
-          700
-        );
-        $(".slider-ul li")
-          .eq(i)
-          .animate(
-            {
-              left: -windowWidth,
-            },
-            700,
-            function () {
-              //只有动画过了0.7s后才能再次点击
-              flag = true;
-            }
-          );
-      } else if (index < i) {
-        $(".slider-ul li").eq(index).css("left", -windowWidth).animate(
-          {
-            left: 0,
-          },
-          700
-        );
-        $(".slider-ul li")
-          .eq(i)
-          .animate(
-            {
-              left: windowWidth,
-            },
-            700,
-            function () {
-              //只有动画过了0.7s后才能再次点击
-              flag = true;
-            }
-          );
-      }
+        e.addClass("active").siblings().removeClass("active");
+        if (index > i) {
+            $(".slider-ul li").eq(index).css("left", windowWidth).animate({
+                    left: 0,
+                },
+                700
+            );
+            $(".slider-ul li").eq(i).animate({
+                    left: -windowWidth,
+                },
+                700,
+                function() {
+                    //只有动画过了0.7s后才能再次点击
+                    flag = true;
+                }
+            );
+        } else if (index < i) {
+            $(".slider-ul li").eq(index).css("left", -windowWidth).animate({
+                    left: 0,
+                },
+                700
+            );
+            $(".slider-ul li").eq(i).animate({
+                    left: windowWidth,
+                },
+                700,
+                function() {
+                    //只有动画过了0.7s后才能再次点击
+                    flag = true;
+                }
+            );
+        }
     }
-    $(".selectCard-nav-ul li").on("click", function () {
-      $(".selectCard-body div")
-        .eq($(this).index())
-        .fadeIn()
-        .addClass("active")
-        .siblings()
-        .removeClass("active")
-        .fadeOut();
+    $(".selectCard-nav-ul li").on("click", function() {
+        $(".selectCard-body div").eq($(this).index()).fadeIn().addClass("active").siblings().removeClass("active").fadeOut();
     });
 
-    $(".showCard-div").hover(function () {
-      $(this)
-        .stop()
-        .animate(
-          {
-            width: 570,
-          },
-          500
-        )
-        .siblings()
-        .stop()
-        .animate(
-          {
-            width: 70,
-          },
-          500
+    $(".showCard-div").hover(function() {
+        $(this).stop().animate({
+                width: 570,
+            },
+            700
+        ).siblings().stop().animate({
+                width: 70,
+            },
+            700
         );
-      // $(".showCard-div-ul").addClass("visit")
-      // $(this).siblings().children(".showCard-div-ul").removeClass("visit")
     });
-  </script>
+
+    $(".slider-next").on("click", function() {
+        let next = $(".slider-ol li.active").next()
+        next.addClass("active").siblings().removeClass("active");
+
+        if (next.index() === -1) {
+            $(".slider-ol li").eq(0).addClass("active").siblings().removeClass("active");
+            $(".slider-ul li").eq(0).css("left", windowWidth).animate({
+                left: 0,
+            }, 700);
+            $(".slider-ul li").eq(4).animate({
+                left: -windowWidth,
+            }, 700);
+        } else {
+            $(".slider-ul li").eq(next.index()).css("left", windowWidth).animate({
+                left: 0,
+            }, 700);
+            $(".slider-ul li").eq(i).animate({
+                left: -windowWidth,
+            }, 700);
+        }
+        i = next.index()
+    })
+
+
+    $(".slider-prev").on("click", function() {
+        let prev = $(".slider-ol li.active").prev()
+        prev.addClass("active").siblings().removeClass("active");
+
+        if (prev.index() === -1) {
+            $(".slider-ol li").eq(4).addClass("active").siblings().removeClass("active");
+            $(".slider-ul li").eq(4).css("left", -windowWidth).animate({
+                left: 0,
+            }, 700);
+            $(".slider-ul li").eq(0).animate({
+                left: windowWidth,
+            }, 700);
+        } else {
+            $(".slider-ul li").eq(prev.index()).css("left", -windowWidth).animate({
+                left: 0,
+            }, 700);
+            $(".slider-ul li").eq(i).animate({
+                left: windowWidth,
+            }, 700);
+        }
+        i = prev.index()
+    })
+</script>
+
 </html>
