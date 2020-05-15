@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    axios({
+            url: "",
+            method: "GET",
+            data: "",
+
+            //请求拦截
+            transformRequest: [function(data) {
+                // 对 data 进行任意转换处理
+                //如果数据没问题,就return 发送.
+                //如果数据有问题,可以不return发送.
+                //记得里面要return!!
+                return data;
+            }],
+            //响应拦截
+            transformResponse: [function(data) {
+                // 对 data 进行任意转换处理
+                //如果不return data，在then内是接收不到服务器响应结果的。
+                //记得里面要return!!
+                return data;
+            }]
+
+        })
+        //回调参数
+        .then(function(res) {
+            console.log(res);
+        })
+</script>
+
+</html>

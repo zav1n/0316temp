@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //全局 请求拦截  对所有请求生效
+        axios.interceptors.request.use(function(config) {
+                console.log('url', config.url);
+                //如果不return config  本次请求会被中断
+                return config
+            }, function(err) {
+                return Promise.reject(err)
+            })
+            //全局  响应拦截
+        axios.interceptors.response.use(function(response) {
+            console.log('');
+            //如果不return response 则then拿不到错误结果
+            return response
+        }, function(err) {
+            return Promise.reject(err)
+        })
+
+        //请求1
+        axios({
+            url: "",
+            methond: "",
+            params: "",
+        }).then(function(res) {
+            console.log(res);
+        })
+
+        //请求2
+        axios({
+            url: "",
+            methond: "",
+            params: "",
+        }).then(function(res) {
+            console.log(res);
+        })
+    </script>
+</body>
+
+</html>

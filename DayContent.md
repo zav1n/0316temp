@@ -957,7 +957,7 @@ token发送给后端，后端会根据token得到该token相对应的用户信�
 
 每次请求数据都必须发送token给后端
 
-怎么发送token？通过本地储存或cookie储token
+怎么发送token？通过本地储存或cookie存储token
 
 在请求头发送token的键名一般叫：“Authorization”
 
@@ -991,9 +991,21 @@ then默认返回当前promise实例
 
 同一个promise实例可以连续调用多个then，前提是没有return，只有第一个then可以访问resolve的实参
 
+promise的回调是同步触发
+
+then的回调是异步触发
+
 
 
 重看09token请求数据用promise封装
+
+
+
+promise是ES6的语法，是异步编程的解决方案
+
+解决了回调地狱的问题
+
+解决了信任的问题
 
 
 
@@ -1013,19 +1025,55 @@ promise是微任务，其他都是宏任务
 
 如果宏任务长生了微任务，则转而执行微任务
 
-promise的回调函数是同步
-
-then的回调是微任务
-
-定时器的回调函数是宏任务
-
 
 
 闭包条件：
 
-+ 1.父函数有子函数（不一定要有return）
++ 1 .父函数有子函数（不一定要有return）
 + 2.子函数使用了父函数的局部变量
 + 3.子函数还可以通过别的方式调用（重要）
 
 闭包面试题
+
+
+
+
+
+# 5-15
+
+async 写在function前面
+
+await必须在async函数内
+
+await后面应该接一个Promise对象，则await后面的代码会等待Promise结束才触发
+
+await后面接一个Promise对象，这样...
+
+await只能让promise等待，不能让其他操作等待
+
+所有的异步操作都应该用promise书写，因此await只因为Promise是异步（为了标准，为了统一）
+
+await后面接promise才有意义，但实际上，await可以接任意表达式。await表达式
+
+await表达式返回表达式的值
+
+如果await后面的表达式是一个promise对象，则await的返回值是promise内部resolve的实参
+
+await后面的代码会变成异步而且是个微任务
+
+
+
+前端安全，eval，html不安全
+
+如何检测一个字符串内有没有可能存在的危险的脚本
+
+
+
+个人总结：
+
+await解决异步同步，让代码从上往下看有顺序
+
+promise解决回调地狱
+
+
 
