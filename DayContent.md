@@ -1069,15 +1069,21 @@ await后面的代码会变成异步而且是个微任务
 
 
 
-merge 合并
+$ git merge 合并
 
-add 
+$ git add   缓存,暂存
 
-commit
+$ git commit		提交到本地仓库
 
-pull 
+$ git pull 		提交之前更新一下代码,防止覆盖冲突
 
-push
+$ git push  	真正上传
+
+
+
+把仓库同步到文件夹
+
+$ git clone [这里填你的地址]
 
 
 
@@ -1088,8 +1094,6 @@ push
 2.对象解构赋值 -> 按照键名匹配赋值
 
 左边是什么，右边就是什么 
-
-r
 
 
 
@@ -1112,12 +1116,4 @@ promise解决回调地狱
 
 
 
-
-add 
-
-commit
-
-pull 
-
-push
 
