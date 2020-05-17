@@ -1041,13 +1041,15 @@ promise是微任务，其他都是宏任务
 
 # 5-15
 
+async和await 是目前最好的异步编程解决方案.可以把异步操作写起来当同步操作书写
+
 async 写在function前面
 
 await必须在async函数内
 
 await后面应该接一个Promise对象，则await后面的代码会等待Promise结束才触发
 
-await后面接一个Promise对象，这样...
+await后面接一个Promise对象，这样做await后面的代码会自动等待这个Promise结束才触发
 
 await只能让promise等待，不能让其他操作等待
 
