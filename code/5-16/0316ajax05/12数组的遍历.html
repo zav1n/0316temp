@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id='ul'>
+			<li>11</li>
+			<li>11</li>
+			<li>11</li>
+			<li>11</li>
+			<li>11</li>
+			<li>11</li>
+		</ul>
+		
+		<ul>
+			<li><input type='checkbox' />苹果</li>
+			<li><input type='checkbox' />香蕉</li>
+			<li><input type='checkbox' />山竹</li>
+			<li><input type='checkbox' />西瓜</li>
+		</ul>
+		<li><input type='checkbox' />全选</li>
+		
+		
+	</body>
+	<script type="text/javascript">
+		
+//		框架内,经常需要使用数组的操作方法和遍历方法
+
+//		数组的遍历方法有?
+//			forEach,没有返回值。
+//			map,返回一个新数组(用于生成一个新的数组)
+//			filter,返回一个新数组(从一个数组中过滤出符合条件的元素,组成新数组)
+//			some,返回一个布尔值.(数组内有至少一个元素满足符合的条件，返回true)
+//			every,返回一个布尔值.(数组内有每一个元素满足符合的条件，返回true)
+//			reduce。不一定。(所有的元素进行一个算术运算)
+//		可以中断遍历的是?
+//			some,every
+
+//		点击li,被点击的li变红.
+//		每次点击都判断,如果所有的li变红了就弹出一个信息:全红了.
+
+//		let aLi = document.getElementById("ul").getElementsByTagName('li');
+//		
+//		Array.from(aLi).forEach(function(item,i,arr){
+//			item.onclick = function(){
+//				
+//				this.style.background = 'red';
+//				//如果全红了？
+//				let flag = arr.some(function(li,j){
+//					return li.style.background != 'red';
+//				})
+//				
+//				if(!flag){
+//					alert('全红了');
+//				}
+//			}
+//		})
+		
+		let arr = [
+			{name:11,flag:true},
+			{name:22,flag:true},
+			{name:33,flag:true},
+			{name:44,flag:false},
+			{name:55,flag:true},
+			{name:66,flag:false}
+		]
+		
+//		let arr2 = arr.filter((item,i)=>{
+//			return item.flag
+//		})
+		
+		let arr2 = arr.filter(({flag},i)=>flag);
+		
+		
+	</script>
+</html>

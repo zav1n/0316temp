@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+
+//		属性查找(一个对象的属性是什么):
+//			1:写出这个对象的原型链
+//			2:在这个原型链上查找该属性是不是当前对象的私有属性,如果是,就停止查找.如果找不到就返回undefined
+			
+//		let arr = [1,2,3];		
+//		arr.a = 100;
+//		Array.prototype.a = 200;		
+//		console.log(arr.a);//100;
+		
+		let arr = [1,2,3];		
+		Array.prototype.a = 200;
+		Object.prototype.a = 300;
+		
+		console.log(arr.a);//200
+//		数组的原型链:arr -> Array.prototype -> Object.prototype
+
+//		判断arr有没有a这个私有属性.
+//		arr.hasOwnProperty('a');
+		
+
+	</script>
+</html>

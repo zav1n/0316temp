@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <li v-for="(list,i) in list">
+            <input type="checkbox" v-model="list.checked">{{list.name}}
+        </li>
+        <input type="checkbox" v-model="flag">全选
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            list: [{
+                name: "苹果",
+                checked: false
+            }, {
+                name: "香蕉",
+                checked: false
+            }, {
+                name: "榴莲",
+                checked: false
+            }, {
+                name: "草莓",
+                checked: false
+            }],
+        },
+        computed: {
+            flag: {
+                get() {
+                    return this.list.every(list => list.checked)
+                },
+                set(newValue) {
+                    console.log('触发set');
+                    this.list.map(list => list.checked = newValue)
+                },
+            },
+        },
+    })
+</script>
+
+</html>

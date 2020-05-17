@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+//		作用域链 -> 用来找变量.
+
+//		let x = 10;
+//		function show(){
+//			x = 5;
+//			var x = 20;
+//		}
+//		show();
+//		console.log(x);//10
+
+//		如何知道变量是哪个作用域内的变量(变量查找)?
+//		变量查找:
+//			1:写出使用变量的那行代码所在的作用域链.(从里往外数函数)
+//			2:在这个作用域链式查找这个变量的声明.查找到了就停止查找(就近原则).(形参也相当于是变量的声明).
+
+//		var a = 10;
+//		function show(){
+//			var a = 100;
+//			function add(a){
+//				a = 200;// add -> show -> 全局
+//				alert(a);
+//			}
+//			add();
+//			alert(a);//show -> 全局
+//		}
+//		show();
+//		alert(a);
+		
+//		1:a = 10;(全局)
+//		2:show();
+//			a = 100;(show)
+//			add();
+//				a = 200;(show);
+//				alert(a);(show);//200
+//			alert(a);(show)//200
+//		3:alert(a)(全局);//10
+
+//		-----------------------------------------------------------------
+//		var c = 10;
+//		function fn(a,b){
+//			var c = a*b;
+//		}
+//		var a = c*fn(3,2);
+//		console.log(a);
+
+//		1：c=10；
+//		2：a = c*fn(3,2)
+//			c的值是10
+//			fn(3,2)的值是return值,没有return 因此是undefined
+//			c的值是10*undefined.得NaN
+//		3:打印a是NaN.
+
+//		var c = 10;
+//		function fn(a,b){
+//			return c = arguments[2] ? arguments[1]*b : arguments[0]*a;
+//		}
+//		var a = c*fn(3,2);
+//		var a = fn(3,2)*c;
+//		console.log(a);
+//		
+//		let m = c;
+//		let n = fn(3,2);
+//		c*fn(3,2)
+//		
+//		1：c=10；
+//		2：a = c*fn(3,2)
+//		2：a = fn(3,2)*c;
+//			fn(3,2)的值是return值,是9, 全局的c变成了9
+//			c的值是9. 9*9
+//		3:打印a是81.
+
+//		
+//		function test () {
+//			var a=10;
+//			setTimeout(function () {
+//				alert(a);
+//				a=6;
+//			},1000);
+//			a=5;
+//			setTimeout(function () {
+//				alert(a);
+//				a=3;
+//			},2000);
+//		}
+		
+//		test();
+		
+		//1:调用test
+		//	a=10;
+		//	定时器,计时1秒
+		//	a=5;
+		//	定时器,计时2秒
+		//	弹a,5
+		//	a=6;
+		//	弹a,6
+		//	a=3
+			
+		
+		
+	</script>
+</html>

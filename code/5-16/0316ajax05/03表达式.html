@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="value" />
+	</body>
+	<script type="text/javascript">
+		
+//		表达式(运算式)提供的值:
+//			1:原始表达式
+//				单个常量(字面量直接量)和变量.
+//				常量返回自己.
+//				变量返回变量的值.				
+//			2:复合表达式(操作符+原始表达式)
+//				1+1 -> 把1的返回值加上1的返回值.得到1+1这个表达式的返回值
+//				算术,比较,逻辑,三目(三元,条件)
+//				
+//			3:函数调用表达式
+//				函数调用表达式返回值取决于return的值.
+//				没有return 函数默认返回undefined
+			
+		//	表达式一定会有返回值。计算式一定会计算出一个结果。
+		
+		//  如果对表达式理解不够，经常看不懂代码。
+		//  看代码的时候，把所有的表达式都转换成返回值再分析。
+		
+		let oBtn = document.getElementById("btn");
+		
+		// 弹100
+		// 弹100这个表达式的返回值。
+		alert(100);
+		
+		// 把function(){}的返回值赋值给click
+		oBtn.onclick = function(){}
+		// 把show的返回值赋值给click
+		oBtn.onclick = show;
+		// 把show()的返回值赋值给click
+		// 点按钮时,调用show.因此show后面需要写();
+		oBtn.onclick = show();
+		
+		function show(){};
+		
+	</script>
+</html>

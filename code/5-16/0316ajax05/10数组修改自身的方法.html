@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+//		数组的那些方法会修改数组对象本身?
+//		push,pop,shift,unshift,splice,sort,reverse.
+
+//		数组缓存的方法.
+		let arr = [1,2,3];
+//		方法1.
+		let arr1 = [...arr];
+//		方法2.		
+		let arr1 = arr.concat([]);
+//		方法3.(最优)
+		let arr1 = arr.slice();
+
+//		其他的方法(只要是返回新数组的方法都可以用)
+		let arr1 = arr.map(item=>item);
+		let arr1 = arr.filter(item=>true);
+		
+	</script>
+</html>

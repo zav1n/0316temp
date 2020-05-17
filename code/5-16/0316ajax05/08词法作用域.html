@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+//		js的作用域是词法作用域(静态作用域) -> 作用域链跟函数在哪里调用是没有关系的.
+//		写完代码作用域链就确定了.
+
+		var x = 5;
+		
+		function show(){
+			var x = 10;
+			fn();
+		}
+		
+		function fn(){
+			console.log(x); // fn -> 全局 打印5
+		}
+		
+		show();
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    const Box = {
+        template: `
+        <div>
+            <div>{{msg}}</div>
+            <input type="button" value="Box的按钮" @click="boxFn"/>
+        </div>
+        `,
+        // data() {
+        //     return {
+        //         msg: 'Box里面创建的msg',
+        //     }
+        // },
+        props: ['msg'], //定义父级传过来的数据 (msg),不定义会显示undefiend
+        methods: {
+            boxFn() {
+                this.msg = "更改Box的msg的值" //不能更改父的msg
+            }
+        },
+    }
+
+    //根组件
+    const App = {
+        template: `
+        <div id="app">
+                <div>{{msg}}</div>
+                <div>{{str}}</div>
+                <div>App模板的第二个div</div>
+                <Box :msg='str1' />
+                <input type="button" value="app的按钮" @click="fn">
+        </div>
+        `,
+        components: {
+            Box
+        },
+        data() {
+            return {
+                msg: 'App根组件的msg',
+                str: 'App的data()返回str的文字',
+                str1: '传给Box的msg'
+            }
+        },
+        methods: {
+            fn() {
+                this.msg = "你点击了App里定义的按钮"
+            }
+        }
+        // props: []
+    }
+
+    new Vue({
+        el: "#app",
+        template: `
+            <App/>
+        `,
+        components: {
+            App
+        }
+    })
+</script>
+
+</html>
