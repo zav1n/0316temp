@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
-	<script type="text/javascript">
-		
-		//引用类型：
-		//	他变我也变,我变他也变
-		
-		// x是10,10就是x (基本数据类型可以这样想)
-		// x和10可以对等思考.
-		let x = 10;
-		
-		//  obj不是{name:'7777'},只是{name:'7777'}的引用.
-		//	变量是变量,对象是对象.不能等同.
-		 
-		let obj = {name:'7777'}
-		
-		let oYm = {name:'幂幂'};
-		let oCy = {};		
-		oCy = oYm;
-		//(修改对象不会改变变量)
-		oYm.name = '我是小寡妇';
-		console.log(oCy.name);//我是小寡妇		
-		//(修改变量不会改变对象)
-		oCy = {name:'我蓝盆友姓罗'};		
-		console.log(oYm.name);//我是小寡妇
-		console.log(oCy.name);//我蓝盆友姓罗
-		
-		
-	</script>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+    //引用类型：
+    //	他变我也变,我变他也变
+
+    // x是10,10就是x (基本数据类型可以这样想)
+    // x和10可以对等思考.
+    let x = 10;
+
+    //  obj不是{name:'7777'},只是{name:'7777'}的引用.
+    //	变量是变量,对象是对象.不能等同.
+
+    let obj = {
+        name: '我叫obj'
+    }
+
+    let oYm = {
+        name: '幂幂'
+    };
+    let oCy = {};
+    oCy = oYm;
+    //(修改对象不会改变变量)
+    oYm.name = '我是小寡妇';
+    console.log(oCy.name); //我是小寡妇		
+    //(修改变量不会改变对象)
+    oCy = {
+        name: '我蓝盆友姓罗'
+    };
+    console.log(oYm.name); //我是小寡妇
+    console.log(oCy.name); //我蓝盆友姓罗
+</script>
+
 </html>

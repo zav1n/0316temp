@@ -1121,4 +1121,56 @@ promise解决回调地狱
 
 数组的遍历
 
+# 5-17
 
+面试题：wx:if与hidden之间的区别
+
+因为 `wx:if` 之中的模板也可能包含数据绑定，所以当 `wx:if` 的条件值切换时，框架有一个局部渲染的过程，因为它会确保条件块在切换时销毁或重新渲染。
+
+同时 `wx:if` 也是**惰性的**，如果在初始渲染条件为 `false`，框架什么也不做，在条件第一次变成真的时候才开始局部渲染。
+
+相比之下，`hidden` 就简单的多，组件始终会被渲染，只是简单的控制显示与隐藏。
+
+一般来说，`wx:if` 有更高的切换消耗而 `hidden` 有更高的初始渲染消耗。因此，如果需要频繁切换的情景下，用 `hidden` 更好，如果在运行时条件不大可能改变则 `wx:if` 较好。
+
+```
+wx:for-index="index2" wx:key="index2"
+```
+
+index和key有什么区别
+
+index是遍历循环的下标，key就是指定的键，如果wx：key没写会报黄警
+
+### 微信小程序目录结构
+
+pages 目录 放置页面文件的地方
+
+App.js 项目的主入口文件
+
+App.json 项目的全局配置文件
+
+Project.config.json 项目的配置文件
+
+sitemap.json 相当于 robots.txt文件
+
+小程序没有DOM操作，只能数据绑定，用插值表达式去使用
+
+在小程序中改变data的值用过this.setData方法
+
+### 微信开发者社区
+
+https://developers.weixin.qq.com/community/develop/question
+
+小程序没有DOM操作，只能数据绑定，用插值表达式去使用
+
+在小程序中改变data的值用过this.setData方法
+
+
+
+复习：
+
+整理学习资料
+
+整理工作区，上传代码git
+
+（git的学习网站：https://learngitbranching.js.org/?locale=zh_CN）
