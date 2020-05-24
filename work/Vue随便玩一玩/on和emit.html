@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="../vue.js"></script>
+<script>
+    let vm = new Vue({});
+    //给vm绑定一个myEvent事件
+    //第二个参数就是这个事件的事件句柄
+    vm.$on('myEvent', function(num) {
+            console.log(num)
+        })
+        //触发事件
+    vm.$emit('myEvent', 1000)
+    vm.$emit('myEvent', 2000)
+</script>
+
+</html>

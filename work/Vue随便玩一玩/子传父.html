@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    // 子传父:
+    //     1.父组件使用一个方法接受子组件数据
+    //     2.子组件触发父组件的这个方法,并且传入子组件数据
+    //          子组件如何触发附加组件的这个方法?
+    //                模板插入组件标签中传递,然后用props去接收
+
+    const Box = {
+        template: `
+        <div>
+            <input type='text' v-model="msg"/>
+            <input type='button' value='把msg传递给父App' @click='fn'/>
+            <hr />
+            {{msg}}
+        </div>
+
+        `,
+        data() {
+            return {
+                msg: ''
+            }
+        },
+        methods: {
+            fn() {
+                this.getData(this.msg)
+            }
+        },
+        props: ['getData']
+    }
+
+    const App = {
+        template: `
+            <div id='app'>
+                <h3>父组件App</h3>
+                子组件传递上来的数据:{{str}}
+                <hr/>
+                <!-- :getData='getData'  前子后父 -->
+                <Box :getData='getData'/>
+            </div>
+        `,
+        data() {
+            return {
+                str: ''
+            }
+        },
+        components: {
+            Box
+        },
+        methods: {
+            //接受子组件数据的方法
+            getData(val) {
+                this.str = val
+            }
+        }
+    }
+
+    new Vue({
+        el: "#app",
+        template: `<App/>`,
+        components: {
+            App
+        },
+    })
+</script>
+
+</html>
