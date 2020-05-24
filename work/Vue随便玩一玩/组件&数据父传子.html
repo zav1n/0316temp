@@ -17,19 +17,32 @@
     const Box = {
         template: `
         <div>
-            <div>{{msg}}</div>
+            <div>Box的arr：{{arr1}}</div>
             <input type="button" value="Box的按钮" @click="boxFn"/>
         </div>
         `,
         // data() {
         //     return {
-        //         msg: 'Box里面创建的msg',
+        //         arr: 'Box里面创建的arr',
         //     }
         // },
-        props: ['msg'], //定义父级传过来的数据 (msg),不定义会显示undefiend
+        props: ['arr1'], //定义父级传过来的数据 (arr),不定义会显示undefiend
         methods: {
             boxFn() {
-                this.msg = "更改Box的msg的值" //不能更改父的msg
+                //通过props传递引用类型，这是引用赋值
+                //1.父组件传递给子组件的是一个数组的引用
+
+                // this.arr （这个的arr）=== this.$parent.arr1 （这个的父级的arr1就是App在data定义的arr1）
+                console.log("Box的arr等不等于App的arr：", this.arr1 === this.$parent.arr); //输出true  当前子组件的arr等于父组件arr1的值
+
+                //①在操作Box的arr1也是在操作App的arr，因为App的arr传给了Box，所以Box修改arr1也是修改App的arr
+                // this.arr1.splice(1, 1)
+
+                //②直接修改子组件的arr  会警告⚠️
+                this.arr1 = [10, 20, 30] //会warning 因为避免直接改变属性，当父组件重新呈现时，该值将被覆盖
+
+                //为什么②会警告①不会？
+                //因为①修改的是数组而不是修改引用类型  ②是在修改数组的引用，要变成新的数组，当父组件重新呈现时，该值将被覆盖，所以会警告
             }
         },
     }
@@ -41,7 +54,8 @@
                 <div>{{msg}}</div>
                 <div>{{str}}</div>
                 <div>App模板的第二个div</div>
-                <Box :msg='str1' />
+                <div>App的arr{{arr}}</div>
+                <Box :arr1='arr' />     <!-- arr1: '传给Box的arr' 在data里面定义了-->
                 <input type="button" value="app的按钮" @click="fn">
         </div>
         `,
@@ -52,7 +66,7 @@
             return {
                 msg: 'App根组件的msg',
                 str: 'App的data()返回str的文字',
-                str1: '传给Box的msg'
+                arr: [1, 2, 3, 4, 5, 6]
             }
         },
         methods: {
