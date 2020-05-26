@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    //render函数用于替代template属性
+    //为什么要替代？ -> 提高性能
+    //为什么可以提高性能？
+    //template模板都是字符串，vue总是需要把字符串模板编译成虚拟节点
+    //render函数跳过了编译的过程，直接生成虚拟节点.
+    const Item = {
+        // template: `<li>这是Item1的li</li>`
+        render(h) {
+            //形参h事件上的名字是createElement
+            //虚拟DOM描述标签的3个方面的内容：标签名,属性节点列表，子节点列表
+            return h('li', null, ['111111'])
+        }
+    }
+
+    const App = {
+        template: `
+            <div>
+                 <ul>
+                    <!-- is是使用子组件名字 标签名无所谓 -->
+                    <li is='Item'></li> 
+                </ul>
+            </div>
+            `,
+        components: {
+            Item
+        },
+    }
+
+    new Vue({
+        el: '#app',
+        template: `<App/>`,
+        components: {
+            App
+        }
+    })
+</script>
+
+</html>

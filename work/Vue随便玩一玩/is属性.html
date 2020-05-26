@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    const Item = {
+        template: `
+            <li>这是Item的li</li>
+        `
+    }
+
+
+    //通过is属性绑定组件名也可以实现组件挂载
+    const App = {
+        template: `
+            <div>
+                <ul>
+                    <!-- is是使用子组件名字 标签名无所谓 -->
+                    <as is='Item'><as> 
+                </ul>
+            </div>
+            `,
+        components: {
+            Item
+        },
+        data() {
+            return {
+                msg: "这是p标签的msg"
+            }
+        },
+    }
+
+    new Vue({
+        el: '#app',
+        template: `<App/>`,
+        components: {
+            App
+        }
+    })
+</script>
+
+</html>

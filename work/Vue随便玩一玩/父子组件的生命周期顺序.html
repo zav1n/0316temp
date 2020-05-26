@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+<script src="../vue.js"></script>
+<script>
+    // 父组件的beforeCreate
+    // 父组件的created
+    // 父组件的beforeMount
+    // 子组件的beforeCreate
+    // 子组件的created
+    // 子组件的beforeMount
+    // 子组件的mounted
+    // 父组件的mounted
+
+    //有兄弟组件的生命周期
+    // 父组件的beforeCreate
+    // 父组件的created
+    // 父组件的beforeMount
+    // 子1组件的beforeCreate
+    // 子1组件的created
+    // 子1组件的beforeMount
+    // 子2组件的beforeCreate
+    // 子2组件的created
+    // 子2组件的beforeMount
+    // 子1组件的mounted
+    // 子2组件的mounted
+    // 父组件的mounted
+
+
+    const Item2 = {
+        template: `
+            <li>Item2</li>
+        `,
+        beforeCreate() {
+            console.log('Item2的beforeCreate');
+        },
+        created() {
+            console.log('Item2的created');
+        },
+        beforeMount() {
+            console.log('Item2的beforeMount');
+        },
+        mounted() {
+            console.log('Item2的mounted');
+        },
+    }
+
+    const Item1 = {
+        template: `<li>Item1</li>`,
+        beforeCreate() {
+            console.log('子组件的beforeCreate');
+        },
+        created() {
+            console.log('子组件的created');
+        },
+        beforeMount() {
+            console.log('子组件的beforeMount');
+        },
+        mounted() {
+            console.log('子组件的mounted');
+        },
+    }
+
+
+    new Vue({
+        el: '#app',
+        template: `
+        <div>
+            <ul>
+                <li is='Item1'></li>
+                <li is='Item2'></li>
+            </ul>    
+        </div>
+        `,
+        components: {
+            Item1,
+            Item2,
+        },
+        beforeCreate() {
+            console.log('父组件的beforeCreate');
+        },
+        created() {
+            console.log('父组件的created');
+        },
+        beforeMount() {
+            console.log('父组件的beforeMount');
+        },
+        mounted() {
+            console.log('父组件的mounted');
+        },
+    })
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    const App = {
+        template: `
+            <div>
+                <p ref="p1">{{msg}}</p>
+            </div>
+            `,
+        data() {
+            return {
+                msg: "这是p标签的msg"
+            }
+        },
+        mounted() {
+            // this.$refs.名字 ->快速获取视图上的指定元素
+            this.$refs.p1.style.background = 'skyblue'
+
+            console.log(this.$el);
+            // this.$el - > 新视图的app标签 
+        }
+    }
+
+    new Vue({
+        el: '#app',
+        template: `<App/>`,
+        components: {
+            App
+        }
+    })
+</script>
+
+</html>
