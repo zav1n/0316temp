@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    //    vue生命周期钩子函数有8个
+    //    创建阶段4个，运行阶段4个
+
+    //    vue实例的创建阶段的4个钩子函数：
+    //    1.beforeCreated(创建前)
+    //    2.created（创建后）
+    //    3.beforeMount（挂载前）
+    //    4.mounteed（挂载后）
+    //      顺序： 1 -> 2 -> 3 -> 中间夹着method -> 4
+    //      虚拟节点创建：介于beforeMount和mounted之间
+    //      插值表达式求值：同上
+    //
+    //    我们在页面上看到的视图是新视图
+    //      挂载的前和后触发beforeMount和mounted钩子函数
+    //什么时候用钩子函数？
+    //  你要的效果是一种默认生效的效果（不用点击和输入）
+    //  则这个效果一定是需要写在钩子函数中
+    //
+    //什么时候用什么钩子函数？
+    //跟数据相关的操作，写在created内
+    //跟视图相关的操作，写在mounted内 
+    //
+    //创建阶段的4个钩子函数只会触发一次
+    //只会创建一次啊
+
+    //new vue时 如果有template属性，则用template的模板来生成虚拟节点
+    //如果没有template属性，则用el所在的标签作为模板来生成虚拟节点
+    //有template时，el所在的标签仅仅表示一个视图 挂载点而已，不是模板
+
+    //
+    //  5.beforeUpdate
+    //  6.updated
+    //  7.beforeDestroy
+    //  8.destroyed
+    //
+    //  beforeUpdate和destroyed
+    //  运行阶段，如果视图发生了更新，前和后触发beforeUpdate和updated
+    //区别updated和watch
+    //  updated -> 视图更新后触发  无法得知视图更新是因为什么数据变化导致的
+    //  watch -> 数据更新后触发 要
+    //  beforeUpdate和updated不常用的原因是不知道要拿哪个值，缺点之一
+    //  nextTick的使用
+    //  视图更新是异步的（数据变化不会马上导致视图变化）
+    //  如何的值视图更新后的视图内容
+    //  如何只获取某一次数据变化导致的视图更新的视图内容？
+    //  用updated的弊端就是我修改了msg的值，但是str的值我没修改，而updated还是会继续执行
+    //  有些逻辑跟msg挂钩，跟str没挂钩，还是被更新了就导致混乱了
+    //  所以不能知道是哪个数据变化导致的视图更新 或者 不知道哪个数据变化导致我要的视图更新的变化
+    //  所以就有nextTick 使用方法 this.$nextTick(()=>{})
+    //  nextTick的回调函数会在本次视图更新结束之后出发
+    //
+    //  beforeDestroy和destroyed  用来清除定时器 或 组件的数据失去响应式
+    //
+    //
+    //
+</script>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    //      如何在页面运行时，让子元素默认传递给父元素
+    //          父组件不知道子组件何时创建成功，所以只要知道子组件何时创建成功
+    //          当子组件创建成功时，就调用父组件方法，就可以默认传递数据给父组件
+    //      
+    //      生命周期 -> 生命周期钩子函数（在vue实例创建阶段，运行阶段的特定时间点触发的函数）
+    const Box = {
+        template: `
+        <div>
+            <h3>Box的组件</h3>
+            <input type='button' value='把msg传递给父App' @click='fn'/>
+            <hr />
+            {{msg}}
+        </div>
+
+        `,
+        data() {
+            return {
+                msg: 'Box的msg的初始值'
+            }
+        },
+        //当组件创建成功时触发
+        created() {
+            this.$emit('myEvent', this.msg)
+        }
+    }
+
+    const App = {
+        template: `
+            <div id='app'>
+                <h3>父组件App</h3>
+                子组件传递上来的数据:{{str}}
+                <hr/>
+                <!-- 给Box添加一个自定义事件myEvent,当这个myEvent事件发生时,调用getData -->
+                <Box @myEvent='getData'/>
+            </div>
+        `,
+        data() {
+            return {
+                str: ''
+            }
+        },
+        components: {
+            Box
+        },
+        methods: {
+            //接受子组件数据的方法
+            getData(val) {
+                this.str = val
+            }
+        }
+    }
+
+    new Vue({
+        el: "#app",
+        template: `<App/>`,
+        components: {
+            App
+        },
+    })
+</script>
+
+</html>
