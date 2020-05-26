@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    //bus的数据共享,可以实现任意两个组件间的数据共享(包括父子,兄弟...)
+
+    //空的vue实例,给这个bus添加事件接收数据,在适当的地方触发这个事件传递数据
+
+    let bus = new Vue()
+
+    const Box = {
+        template: `
+        <div>
+            <input type='text' v-model="msg"/>
+            <input type='button' value='把msg传递给父App' @click='fn'/>
+            <hr />
+            {{msg}}
+        </div>
+
+        `,
+        data() {
+            return {
+                msg: ''
+            }
+        },
+
+        methods: {
+            fn() {
+                bus.$emit('myEvent', this.msg)
+            }
+        }
+    }
+
+    const App = {
+        template: `
+            <div id='app'>
+                <h3>父组件App</h3>
+                子组件传递上来的数据:{{str}}
+                <hr/>
+                <Box />
+            </div>
+        `,
+        components: {
+            Box
+        },
+        data() {
+            return {
+                str: ''
+            }
+        },
+        created() {
+            bus.$on('myEvent', (val) => {
+                this.str = val
+            })
+        }
+
+    }
+
+    new Vue({
+        el: "#app",
+        template: `<App/>`,
+        components: {
+            App
+        },
+    })
+</script>
+
+</html>

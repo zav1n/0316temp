@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    //Box1传Box2
+    //  Box2组件需要一个方法接收数据
+    //  Box1组件触发Box2组件这个方法,传入Box1组件数据
+    //  怎么触发?通过一个自定义事件触发
+
+    //空的vue实例,给这个bus添加事件接收数据,在适当的地方触发这个事件传递数据
+
+    let bus = new Vue()
+
+    const Box1 = {
+        template: `
+        <div>
+            <h3>Box1组件</h3>
+            <input type='text' v-model="msg"/>
+            <input type='button' value='把msg传递给父App' @click='fn'/>
+            <hr />
+            {{msg}}
+        </div>
+
+        `,
+        data() {
+            return {
+                msg: ''
+            }
+        },
+
+        methods: {
+            fn() {
+                bus.$emit('myEvent', this.msg)
+            }
+        }
+    }
+
+    const Box2 = {
+        template: `
+        <div>
+            <h3>Box2组件</h3>
+            {{msg}}
+        </div>
+
+        `,
+        data() {
+            return {
+                msg: ''
+            }
+        },
+        created() {
+            bus.$on('myEvent', (val) => {
+                this.msg = val
+            })
+        }
+    }
+
+    const App = {
+        template: `
+            <div id='app'>
+                <h3>父组件App</h3>
+                <Box1 />
+                <Box2 />
+            </div>
+        `,
+        components: {
+            Box1,
+            Box2,
+        },
+    }
+
+    new Vue({
+        el: "#app",
+        template: `<App/>`,
+        components: {
+            App
+        },
+    })
+</script>
+
+</html>
