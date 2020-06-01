@@ -1,0 +1,42 @@
+#app .car .car-title {
+  text-align: center;
+}
+#app .car .car-list .list-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#app .car .car-list .list-title div {
+  width: 100px;
+}
+#app .car .car-list .list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#app .car .car-list .list-item div {
+  width: 100px;
+}
+#app .carinfo .carinfo-title {
+  text-align: center;
+}
+#app .carinfo .carinfo-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#app .carinfo .carinfo-list div {
+  width: 100px;
+}
+#app .carinfo .carinfo-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#app .carinfo .carinfo-item div {
+  width: 100px;
+}

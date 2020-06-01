@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./car.css">
+</head>
+
+
+<body>
+    <div id="app">
+        <cart-item></cart-item>
+        <cart-list></cart-list>
+
+        <div class="total">
+            <div class="num">总产品：0</div>
+            <div class="count">总数量：0</div>
+            <input type="button" value="清空">
+        </div>
+    </div>
+</body>
+<script src="../../vue.js"></script>
+<script src="../../vuex.js"></script>
+<script>
+    let store = new Vuex.Store({
+        state: {
+            arr: [{
+                id: 1,
+                name: '米饭',
+                price: 2,
+                count: 1,
+                inCart: false,
+            }, {
+                id: 2,
+                name: '水煮鱼',
+                count: 1,
+                price: 88,
+                inCart: false,
+            }, {
+                id: 3,
+                name: '帝皇蟹',
+                count: 1,
+                price: 300,
+                inCart: false,
+            }, {
+                id: 4,
+                name: '可乐',
+                count: 1,
+                price: 3.5,
+                inCart: false,
+            }, ],
+            cartItem: [],
+        }
+    })
+
+    Vue.component('cart-item', {
+        template: `
+        <div class="car">
+            <div class="car-title">
+                <h1>购物车</h1>
+                <h2>商品信息</h2>
+            </div>
+            <div class="car-list">
+                <div class="list-title">
+                    <div>ID</div>
+                    <div>名称</div>
+                    <div>价格</div>
+                    <div>数量</div>
+                    <div>Actions</div>
+                </div>
+                <div class="list-item" v-for="item,i in arr" >
+                    <div>{{item.id}}</div>
+                    <div>{{item.name}}</div>
+                    <div>{{item.price}}</div>
+                    <div>{{item.count}}</div>
+                    <button @click="joinCart" :value="i" >加入购物车</button>
+                </div>
+            </div>
+        </div>
+        `,
+        data() {
+            return {
+                arr: this.$store.state.arr,
+            }
+
+        },
+        methods: {
+            joinCart(e) {
+                let index = e.target.value
+                    // this.cartItem.length == 0 ? this.cartItem.unshift(this.arr[index]) : this.cartItem
+                console.log(this.$store.state.cartItem);
+                console.log(this.arr[index]);
+
+                return this.$store.state.cartItem.unshift(this.arr[index])
+            },
+        }
+    })
+
+    Vue.component('cart-list', {
+        template: `
+        <div class="carinfo">
+            <div class="carinfo-title">
+                <h1>购物车信息</h1>
+            </div>
+            <div class="carinfo-list">
+                <div>ID</div>
+                <div>名称</div>
+                <div>价格</div>
+                <div>数量</div>
+                <div>总价</div>
+                <div>Actions</div>
+            </div>
+            <div class="carinfo-item" v-for="item,i in cartItem">
+
+                <div>{{item.id}}</div>
+                <div>{{item.name}}</div>
+                <div>{{item.price}}</div>
+                <div>{{item.count}}</div>
+                <div>总价</div>
+
+                <div class="actions">
+                    <input type="button" value="-">
+                    <input type="button" value="+">
+                    <input type="button" value="×">
+                </div>
+            </div>
+        </div>
+        `,
+        data() {
+            return {
+                cartItem: this.$store.state.cartItem
+            }
+        },
+    })
+
+    new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+
+        },
+        store
+    })
+</script>
+
+</html>

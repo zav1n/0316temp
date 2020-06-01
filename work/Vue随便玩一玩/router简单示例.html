@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script src="../vue.js"></script>
+<script src="../VueRouter.js"></script>
+
+<script>
+    //1.子组件必须在route之前定义
+    //2.Vue.component定义的全局组件的名字在routes里面会显示没定义
+
+    //1.在子组件后面书写路由, let router = new VueRouter({})
+    //2.VueRouter里面有两个必选选项,path和component没有s
+    //3.在Vue示例要挂载路由名字
+    //4.在父模板里面要 <router-view/>
+    const home = {
+        template: `
+            <div>
+                首页
+            </div>
+        `
+    }
+
+    const news = {
+        template: `
+            <div>
+                新闻
+            </div>
+        `
+    }
+
+    const sport = {
+        template: `
+            <div>
+                运动
+            </div>
+        `
+    }
+
+    // Vue.component('sport', {
+    //     template: `
+    //         <div>
+    //             运动
+    //         </div>
+    //     `
+    // })
+
+    let router = new VueRouter({
+        routes: [{
+            path: "/",
+            //重定向
+            redirect: "/sport"
+        }, {
+            path: "/home",
+            component: home,
+            name: "home"
+        }, {
+            path: "/news",
+            component: news,
+            name: "news"
+        }, {
+            path: "/sport",
+            component: sport,
+            name: "sport"
+        }, ]
+    })
+
+    new Vue({
+        el: '#app',
+        template: `
+        <div>
+            <router-link :to='{name:"home"}'>首页</router-link>
+            <router-link :to='{name:"news"}'>新闻</router-link>
+            <router-link :to='{name:"sport"}'>运动</router-link>
+            <router-view />
+        </div>
+        `,
+        router
+    })
+</script>
+
+</html>

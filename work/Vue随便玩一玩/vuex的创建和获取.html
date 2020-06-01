@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <c-box1></c-box1>
+        <c-box2></c-box2>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script src="../vuex.js"></script>
+<script>
+    let store = new Vuex.Store({
+        state: {
+            msg: "用Vuex传递数据"
+        }
+    })
+
+
+    Vue.component("c-box1", {
+        template: `
+            <div>{{$store.state.msg}}</div>
+        `,
+    })
+
+    Vue.component("c-box2", {
+        template: `
+            <div>{{msg}}</div>
+        `,
+        computed: {
+            msg() {
+                return this.$store.state.msg
+            }
+        },
+    })
+
+    new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+
+        },
+        store
+    })
+</script>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <c-box1></c-box1>
+        <c-box2></c-box2>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script src="../vuex.js"></script>
+<script>
+    //1.要修改Vuex的数据，就要在Vuex的实例当中添加mutations选项，在这个选项当中添加句柄
+    //2.在Vuex的实例添加完mutations和句柄后，再到需要修改的组件当中去调用 this.$store.commit("句柄名字")
+
+    //注意的是，不要在组件当中直接修改Vuex的数据，如组件中  this.$store.state.msg直接赋值修改会报错
+    //在严格模式下才会显示
+    // 报错：do not mutate vuex store state outside mutation handlers
+    let store = new Vuex.Store({
+        strict: true, //开启严格模式
+        state: {
+            msg: "用Vuex传递数据"
+        },
+        mutations: {
+            setMsg() {
+                this.state.msg = Math.random()
+            },
+            //或者
+            // setMsg(state) {
+            //  state.msg = Math.random()
+            // }
+        }
+    })
+
+
+    Vue.component("c-box1", {
+        template: `
+        <div>
+            <div>{{$store.state.msg}}</div>
+            <input type="button" @click="fn" value="点击box1,修改Vuex数据" /><br>
+        </div>
+        `,
+        methods: {
+            fn() {
+                this.$store.commit("setMsg")
+            }
+        }
+    })
+
+    Vue.component("c-box2", {
+        template: `
+        <div>
+            <div>{{msg}}</div>
+            <input type="button" @click="str" value="点击box2,直接在组件修改数据" />
+        </div>
+        `,
+        computed: {
+            msg() {
+                return this.$store.state.msg
+            }
+        },
+        methods: {
+            str() {
+                //在严格模式下不能直接修改Vuex的数据，要去Vuex的选项添加 mutations 
+                this.$store.state.msg = (Math.random() * 10).toFixed(2)
+            }
+        }
+    })
+
+    new Vue({
+        el: "#app",
+        data: {},
+        methods: {},
+
+        store
+    })
+</script>
+
+</html>

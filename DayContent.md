@@ -1071,7 +1071,7 @@ await后面的代码会变成异步而且是个微任务
 
 
 
-$ git merge 合并
+$ git merge （选择文件）合并
 
 $ git add   缓存,暂存
 
@@ -1079,7 +1079,10 @@ $ git commit		提交到本地仓库
 
 $ git pull 		提交之前更新一下代码,防止覆盖冲突
 
-$ git push  	真正上传
+​       
+
+
+
 
 
 
@@ -1174,3 +1177,496 @@ https://developers.weixin.qq.com/community/develop/question
 整理工作区，上传代码git
 
 （git的学习网站：https://learngitbranching.js.org/?locale=zh_CN）
+
+
+
+# Vue
+
+## 5-29
+
+13-购物小车.html
+
+一个函数里面有值，但是不return这个值，用东西装着，我要用的时候再去取可以吗？
+
+不可以，你不return你怎么去获取函数里面的值，怎么都拿不到函数里面的值
+
+如果你使用的场景需要判断要不要取里面的值，可以先return值，然后用 {{ flag || fn() }}  这个插值表达式的意思是，如果flag是false就去获取fn()里面的值 flag取反就是不获取，**！注意**没有括号就拿不到return的值
+
+fn（）里面可以return一个对象或者数组
+
+如果返回一个对象，例如返回{ name:"张三"，age：18  }
+
+则这么使用：fn().name	获取到函数return出来的name的值为张三
+
+数组的话用[]下标去获取
+
+r
+
+
+
+v-on:事件名=”函数名“
+
+$emit：发送方法
+
+如何理解$emit
+
+整理知识点
+
+
+
+### 组件注册：
+
+组件名的命名
+
++  kebab-case（中间单词与单词之间用-来隔开,例如下面的 ‘my-component-name’ ）
+
+  ```
+  Vue.component('my-component-name', { /* ... */ })
+  ```
+
+  使用方法：直接用 ‘my-component-name’ 
+
++ PascalCase （首字母大写命名, 例如 ' MyComponentName '）
+
+  ``` 
+  Vue.component('MyComponentName', { /* ... */ })
+  ```
+
+  使用方法：
+
+组件中需要注意的地方
+
++ data 选项 必须是个函数
+
+  + data(){}
+
+  不能直接写成跟父组件一样 data:{}
+
++ 用组件的时候，组件名不要使用单标签
+
++ 在组件中，模板必须要有一个根节点，要不然会报警
+
+组件的全局注册和局部注册
+
++ 全局注册
+
+  用Vue实例去调用
+
+  ```
+  Vue.component('组件名', {})
+  ```
+
+  优点：组件和组件可以互相使用
+
+  缺点：如果不使用其中一个组件时，它还是被用户下载下来，造成无谓的增加
+
++ 局部注册
+
+  两种方法
+
+  + 官方局部注册
+
+    通过一个普通的 JavaScript 对象来定义组件
+
+    ```
+    var ComponentA = {  }
+    var ComponentB = {  }
+    var ComponentC = {  }
+    ```
+
+    再到`components` 选项中定义组件
+
+    ```
+    new Vue({
+      el: '#app',
+      components: {
+        'component-a': ComponentA,
+        'component-b': ComponentB
+      }
+    })
+    ```
+
+  + 蒙老师的做法
+
+    定义子组件
+
+    ```js
+    const App = {
+        template: `
+            <div id='app'>{{str}}</div>`,
+        data() {
+            return {
+                str: ''
+            }
+        },
+        components: {
+            Box
+        },
+        methods: {
+            //接受子组件数据的方法
+            getData(val) {
+                this.str = val
+            }
+        }
+    }
+    ```
+
+    再到`components` 选项中定义组件使用子组件
+
+    ```js
+    new Vue({
+        el: "#app",
+        template: `<App/>`,
+        components: {
+            App
+        },
+    })
+    ```
+
+### **`prop` 选项**
+
++ **！注意**如果在父组件的props定义了一个属性，其他组件没有去调用它，那么他就会形成一个$attrs，
+
+  可以利用this.$attri调用
+
++ `prop`具有**单向数据流**，父级 prop 的更新会向下流动到子组件中，但是反过来则不行，原因是防止从子组件变更父级组件的状态，导致应用的数据流向难以理解
+
++ `props`里面的命名
+
+  ```
+  //定义一个全局组件lb
+  Vue.component('lb', {
+    // 在 js(props命名中)是 camelCase (驼峰式)
+    props: ['postTitle'],
+    template: '<h3>{{ postTitle }}</h3>'
+  })
+  
+  <!-- 在 HTML 使用 kebab-case（中间横杠）-->
+  <lb post-title="hello!"></lb>
+  ```
+
++ **`props`支持的类型**
+
+  基本数据类型都支持(Number,String,Object,Array,boolean,Function,Symbol,Date)
+
+  还支持自定义构造函数
+
+  ```
+  function Person(name,sex){
+      this.name = name;
+      this.sex = sex;
+  }
+  
+  Vue.component("todos", {
+        props:{
+            person:{
+                type:Person
+            }
+        }
+  }
+  ```
+
+  **支持定义多个数据类型**
+
+  ```
+  Vue.component('my-component', {
+  	props:{
+  		//定义单个数据类型
+  		title:String
+  		//定义多个数据类型
+  		title2:[String,Number]
+  	}
+  }
+  ```
+
+  **！注意的是   基础的类型检查 (`null` 和 `undefined` 会通过任何类型验证)**
+
++ `props`定义的属性中的类型和
+
+  + required: true	必填的字符串
+
+  + default                默认值
+
+    默认值根据定义的类型去书写
+
+  +  validator: function (value) {}    自定义验证函数
+
+  ```
+  Vue.component('my-component', {
+    props: {
+      // 必填的字符串
+      propC: {
+        type: String,
+        required: true
+      },
+      
+      // 带有默认值的数字
+      propD: {
+        type: Number,
+        default: 100
+      },
+      
+      // 带有默认值的对象
+      propE: {
+        type: Object,
+        
+      // 对象或数组默认值必须从一个工厂函数获取
+        default: function () {
+          return { message: 'hello' }
+        }
+      },
+      
+      // 自定义验证函数
+      propF: {
+        validator: function (value) {
+          // 这个值必须匹配下列字符串中的一个
+          return ['success', 'warning', 'danger'].indexOf(value) !== -1
+        }
+      }
+    }
+  })
+  ```
+
+  
+
+### 父子传值
+
++ 父向子传值 通过属性
+
++ 子向父传值 通过事件
+
+  
+
+  父向子  案例 通过属性 props
+
+  ```html
+      <div id="app" v-cloak>
+          <!-- `.native` - 监听组件根元素的原生事件。 -->
+          <demo :title="title">
+  
+          </demo>
+      </div>
+  ```
+
+  ```js
+  Vue.component("demo", {
+      props:["title"],
+      template: `
+      <section>
+              <h1>{{title}}</h1>
+      </section>
+   `
+  })
+  let vm = new Vue({
+      el: "#app",
+      data: {
+          title: "父传子案例"
+      },
+      methods: {
+  
+      },
+  })
+  ```
+
+  
+
+  子传父  案例  通过事件	
+
+  ```html
+  <div id="app" v-cloak>
+      <!-- `.native` - 监听组件根元素的原生事件。 -->
+      <son v-on:yanlunziyou="sayMessage">
+      </son>
+      <section>
+          {{message}}
+      </section>
+  </div>
+  ```
+
+  ```js
+  // 注册全局组件
+  Vue.component("son", {
+      props:["title"],
+      template: `
+      <section>
+              <h1><button @click="say">老爸打了儿子一下</button></h1>
+      </section>
+   `,
+   methods: {
+       say:function(){
+           // 发送事件
+           this.$emit("yanlunziyou","老爸打我拉");
+       }
+   },
+  })
+  let vm = new Vue({
+      el: "#app",
+      data: {
+          title: "父传子案例",
+          message:"" // 告诉老妈的话
+      },
+      methods: {
+          sayMessage:function(msg){
+              this.message = msg;
+          }
+      },
+  })
+  ```
+
+### Attribute的替换/合并/禁用
+
+组件bootstrap-input 中的type，class和style都命名好了
+
+```
+<input type="date" style="background:pink" class="box">
+```
+
+调用组件bootstrap-input 时，type，class和style又给了一个名字
+
+```
+<bootstrap-input type="text" style="color:blue" class="top"
+></bootstrap-input>
+```
+
+那么它们会合并还是替换呢？
+
+外部提供的type会替换组件内设置好的type，所以保留了type="text"
+
+而class和style不一样，它们会合并在一起
+
+class="box  top"    style="background:pink;color:blue"
+
+**如何禁用Attribute继承？**
+
+在组件的选项中设置`inheritAttrs: false`
+
+```
+Vue.component('my-component', {
+  inheritAttrs: false,
+  // ...
+})
+```
+
+
+
+### 实例的方法/事件
+
+#### $emit
+
+监听事件，listener
+
+```
+$emit("事件名"，参数)  "事件名"必填
+```
+
+```
+vm.$emit( eventName, […args] )    官网介绍
+```
+
++ 简单实例
+
+  ```html
+  <div id="app">   
+  	<welcome-btn v-on:say="hello"></welcome-btn> 
+  </div>
+  ```
+
+  ```js
+  Vue.component('welcome-btn', {
+    template: `
+      <button v-on:click="$emit('say')">
+        Hello
+      </button>
+    `
+  })
+  ```
+
+  ```js
+  new Vue({
+    el: '#app',
+    methods: {
+      hello(){
+        alert('Hi!')
+      }
+    }
+  })
+  ```
+
++ 实例2
+
+  ```html
+  <div id="app">
+    <ad-sug v-on:advice="showAdvice">	</ad-sug>
+  </div>
+  ```
+
+  ```js
+  Vue.component('ad-sug', {
+    data: function () {
+      return {
+        possibleAdvice: ['Yes', 'No', 'Maybe']
+      }
+    },
+    methods: {
+      giveAdvice: function () {
+        var rdIndex = Math.floor(Math.random() * this.possibleAdvice.length)
+        this.$emit('advice', this.possibleAdvice[rdIndex])
+      }
+    },
+    template: `
+      <button v-on:click="giveAdvice">
+        Click me for advice
+      </button>
+    `
+  })
+  ```
+
+  ```js
+  new Vue({
+    el: '#app',
+    methods: {
+      showAdvice: function (agr) {
+        alert(agr)
+      }
+    }
+  })
+  ```
+
+  
+
+#### $on
+
+绑定事件，相当于addEvenlisten 
+
+```
+vm.$on( event, callback )   官方说明
+```
+
++ 实例
+
+  ```js
+  vm.$on('test', function (msg) {
+    console.log(msg)
+  })
+  vm.$emit('test', 'hi')
+  // => "hi"
+  ```
+
+  vm.$on看成 
+
+  vm.addEvenlisten("test",function ( ) { } )
+
+  然后$emit去调用
+
+
+## 5-30
+
+
+
+​			
+
+
+
+​		
+
+​		

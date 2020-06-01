@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <c-box1></c-box1>
+        <c-box2></c-box2>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script src="../vuex.js"></script>
+<script>
+    //1.要异步时，不能在mutations里面添加定时器
+    //在严格模式下它还是会报警，报 do not mutate vuex store state outside mutation handlers
+    //那怎么做呢？
+    //在Vuex里面有个选项，叫actions
+    //在actions里面写句柄，句柄里面包含定时器，定时器包含mutations去异步调用
+
+    //        触发       Vuex选项     用dispatch去调用                             用commit去调用                 触发
+    //点击      ->        actions        ->       dispatch      ->      mutations     ->        commit()       ->    state     -> 修改视图(响应式)
+    //                                             触发actions                               触发器mutations    修改
+    //actions（dispath）    mutations（commit）     注意没有$
+    let store = new Vuex.Store({
+        strict: true, //开启严格模式
+        state: {
+            msg: "用Vuex传递数据"
+        },
+        mutations: {
+            setMsg(state) {
+                state.msg = Math.random()
+            }
+        },
+        actions: {
+            syncSetMsg(store, val) {
+                setTimeout(() => {
+                    store.commit("setMsg", val)
+                }, 1000);
+            }
+        }
+    })
+
+
+    Vue.component("c-box1", {
+        template: `
+        <div>
+            <div>{{$store.state.msg}}</div>
+            <input type="button" @click="fn" value="点击box1,异步修改Vuex数据，隔1秒显示" /><br>
+        </div>
+        `,
+        methods: {
+            fn() {
+                this.$store.dispatch("syncSetMsg", Math.random())
+            }
+        }
+    })
+
+    Vue.component("c-box2", {
+        template: `
+        <div>
+            <div>{{msg}}</div>
+        </div>
+        `,
+        computed: {
+            msg() {
+                return this.$store.state.msg
+            }
+        },
+        methods: {
+
+        }
+    })
+
+    new Vue({
+        el: "#app",
+        data: {},
+        methods: {},
+
+        store
+    })
+</script>
+
+</html>

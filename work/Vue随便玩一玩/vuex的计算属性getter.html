@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <c-box1></c-box1>
+        <c-box2></c-box2>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script src="../vuex.js"></script>
+<script>
+    //1.要修改Vuex的数据，就要在Vuex的实例当中添加mutations选项，在这个选项当中添加句柄
+    //2.在Vuex的实例添加完mutations和句柄后，再到需要修改的组件当中去调用 this.$store.commit("句柄名字")
+
+    //注意的是，不要在组件当中直接修改Vuex的数据，如组件中  this.$store.state.msg直接赋值修改会报错
+    //在严格模式下才会显示
+    // 报错：do not mutate vuex store state outside mutation handlers
+    let store = new Vuex.Store({
+        strict: true, //开启严格模式
+        state: {
+            price: 10,
+            count: 0.8,
+        },
+        getters: {
+            total(state) {
+                return state.price * state.count
+            }
+        }
+    })
+
+
+    Vue.component("c-box1", {
+        template: `
+        <div>
+            <div>c-box1的数据：{{fn1}}</div>
+        </div>
+        `,
+        //用computed去接也可以
+        computed: {
+            fn1() {
+                return this.$store.getters.total
+            }
+        },
+    })
+
+    Vue.component("c-box2", {
+        template: `
+        <div>
+            <div>c-box2的msg：{{fn()}}</div>
+        </div>
+        `,
+        //用methods去接也可以
+        methods: {
+            fn() {
+                return this.$store.getters.total
+            }
+        },
+    })
+
+    new Vue({
+        el: "#app",
+        store
+    })
+</script>
+
+</html>

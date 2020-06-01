@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    const Box = {
+        template: `<input type='button' value='全部删除' @click='setArr'/>`,
+        // methods: {
+        //     fn() {
+        //         let arr = this.arr
+        //         for (let i = arr.length; i >= 0; i--) {
+        //             arr.splice(i, 1)
+        //         }
+        //     },
+        // },
+        props: ['setArr']
+    }
+
+    const App = {
+        template: `
+            <div>
+                <ul>
+                    <li v-for='d in arr'>{{d}}</li>
+                </ul>
+                <Box :setArr='setArr'/>
+            </div>
+        `,
+        data() {
+            return {
+                arr: [1, 2, 3, 4, 5]
+            }
+        },
+        components: {
+            Box
+        },
+        methods: {
+            setArr() {
+                this.arr = this.arr.filter((item, i) => {
+                    return false
+                })
+            }
+        }
+
+    }
+
+    new Vue({
+        el: '#app',
+        render: h => h(App),
+        componenrs: {
+            App
+        }
+    })
+</script>
+
+</html>
